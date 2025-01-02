@@ -5,5 +5,4 @@
 .DS_Store
 .Renviron
 ^docs
-_pkgdown.yml
 data-raw
