@@ -23,6 +23,7 @@ i14y_get_data_service <- function(
   check_internet()
 
   req <- httr2::request("https://www.i14y.admin.ch")
+  req <- httr2::req_user_agent(req, "I14Y R package (https://github.com/lgnbhl/I14Y)")
   req <- httr2::req_url_path_append(req, paste0("/api/DataServices/", id, "/", language))
   req <- httr2::req_retry(req, max_tries = 2)
   req <- httr2::req_perform(req)

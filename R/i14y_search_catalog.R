@@ -40,6 +40,7 @@ i14y_search_catalog <- function(
   check_internet()
 
   req <- httr2::request("https://www.i14y.admin.ch")
+  req <- httr2::req_user_agent(req, "I14Y R package (https://github.com/lgnbhl/I14Y)")
   req <- httr2::req_url_path_append(req, "/api/Catalog/search")
   req <- httr2::req_url_query(req,
       language = language, query = query, accessRights = accessRights,

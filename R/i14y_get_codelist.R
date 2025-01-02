@@ -25,6 +25,7 @@ i14y_get_codelist <- function(
   check_internet()
 
   req <- httr2::request("https://api.i14y.admin.ch")
+  req <- httr2::req_user_agent(req, "I14Y R package (https://github.com/lgnbhl/I14Y)")
   req <- httr2::req_url_path_append(req, paste0("/api/public/v1/concepts/", id, "/codelist-entries/exports/", format))
   req <- httr2::req_retry(req, max_tries = 2)
   req <- httr2::req_perform(req)

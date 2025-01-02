@@ -44,6 +44,7 @@ i14y_get_nomenclature_level_multiple <- function(
   check_internet()
 
   req <- httr2::request("https://www.i14y.admin.ch")
+  req <- httr2::req_user_agent(req, "I14Y R package (https://github.com/lgnbhl/I14Y)")
   req <- httr2::req_url_path_append(req, paste0("/api/Nomenclatures/", identifier, "/multiplelevels/", format))
   req <- httr2::req_url_query(req,
     identifier = identifier, format = format, language = language,
