@@ -11,6 +11,8 @@ status](https://www.r-pkg.org/badges/version/I14Y)](https://CRAN.R-project.org/p
 total](https://cranlogs.r-pkg.org/badges/grand-total/I14Y)](https://cran.r-project.org/package=I14Y)
 [![R-CMD-check](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&logo=linkedin)](https://www.linkedin.com/in/FelixLuginbuhl)
+[![Codecov test
+coverage](https://codecov.io/gh/lgnbhl/I14Y/branch/main/graph/badge.svg)](https://app.codecov.io/gh/lgnbhl/I14Y?branch=main)
 <!-- badges: end -->
 
 Search and download official Swiss metadata from the [I14Y

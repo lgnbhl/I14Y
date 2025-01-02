@@ -20,6 +20,7 @@ knitr::opts_chunk$set(
 [![Grand total](https://cranlogs.r-pkg.org/badges/grand-total/I14Y)](https://cran.r-project.org/package=I14Y)
 [![R-CMD-check](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&logo=linkedin)](https://www.linkedin.com/in/FelixLuginbuhl)
+[![Codecov test coverage](https://codecov.io/gh/lgnbhl/I14Y/branch/main/graph/badge.svg)](https://app.codecov.io/gh/lgnbhl/I14Y?branch=main)
 <!-- badges: end -->
 
 Search and download official Swiss metadata from the [I14Y interoperability plateform](https://www.i14y.admin.ch) of Switzerland using its public [IOP API](https://www.i14y.admin.ch/api/index.html) and [Console API](https://apiconsole.i14y.admin.ch/public/v1/index.html) in any language ("en", "de", "fr" or "it").
