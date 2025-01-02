@@ -7,3 +7,6 @@
 ^data-raw
 ^pkgdown
 ^_pkgdown.yml
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
