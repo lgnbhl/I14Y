@@ -4,6 +4,4 @@
 .Ruserdata
 .DS_Store
 .Renviron
-^docs
 data-raw
-docs
