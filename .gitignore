@@ -1,0 +1,9 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+.Renviron
+^docs
+_pkgdown.yml
+data-raw

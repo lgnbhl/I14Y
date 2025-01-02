@@ -1,0 +1,244 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# I14Y <img src="man/figures/logo.png" align="right" width="138" />
+
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/I14Y)](https://CRAN.R-project.org/package=I14Y)
+[![Grand total](https://cranlogs.r-pkg.org/badges/grand-total/I14Y)](https://cran.r-project.org/package=I14Y)
+[![R-CMD-check](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&logo=linkedin)](https://www.linkedin.com/in/FelixLuginbuhl)
+<!-- badges: end -->
+
+Search and download official Swiss metadata from the [I14Y interoperability plateform](https://www.i14y.admin.ch) of Switzerland using its public [IOP API](https://www.i14y.admin.ch/api/index.html) and [Console API](https://apiconsole.i14y.admin.ch/public/v1/index.html) in any language ("en", "de", "fr" or "it").
+
+## Installation
+
+You can install the development version of **I14Y** like so:
+
+``` r
+# install.packages("remotes")
+remotes::install_github("lgnbhl/I14Y")
+```
+
+## Usage
+
+```{r}
+library(I14Y)
+```
+
+### Get concepts and codelists
+
+You can get the full concept public catalog with `i14y_search_concept()`:
+
+```{r}
+i14y_search_concept()
+```
+
+Search for a specific concept in a given language ("en", "de", "fr" or "it") with `i14y_search_concept()`:
+
+```{r}
+i14y_search_concept(search = "noga", language = "en")
+```
+
+As showed in the `conceptType` column, some concepts have the type "CodeList". You can get the codelist (i.e. the "content") of a concept using `i14y_get_codelist()`, with the value from the `id` column.
+
+```{r}
+i14y_get_codelist(
+  id = "08d94604-e058-62a2-aa25-53f84b974201" # for DV_NOGA_DIVISION
+)
+```
+
+You can also get all concept metadata using `i14_get_concept()`. Note that the object returned is a list (not a data.frame).
+
+```{r}
+concept_list <- i14y_get_concept(
+  id = "08d94604-e058-62a2-aa25-53f84b974201"
+)
+
+concept_list$description
+```
+
+### A concrete example
+
+When using an official Swiss dataset, you can use I14Y to get translations or additional information for a given category. For example, let's get the monthly income by gender and profession in 2022 using the BFS R package.
+
+```{r message=FALSE, warning=FALSE}
+library(BFS)
+
+income_by_job_and_gender_meta <- BFS::bfs_get_metadata(
+  number_bfs = "px-x-0304010000_201"
+)
+
+income_by_job_and_gender <- BFS::bfs_get_data(
+  number_bfs = "px-x-0304010000_201", 
+  language = "de",
+  query = list(
+    Jahr = "2022", 
+    Geschlecht = c("1", "2"),
+    Wirtschaftsabteilung = income_by_job_and_gender_meta$values[[3]],
+    'Zentralwert und andere Perzentile' = "1"
+  )
+)
+
+income_by_job_and_gender
+```
+
+Using I14Y, you can get the English, French or Italian translation of the German NOGA division categories (with a bit of extra data transformations):
+
+```{r message=FALSE, warning=FALSE}
+library(dplyr)
+library(stringr)
+library(readr)
+
+noga_division <- i14y_get_codelist(
+  id = "08d94604-e058-62a2-aa25-53f84b974201" # for DV_NOGA_DIVISION
+) |>
+  mutate(Code = as.numeric(Code))
+
+income_by_job_and_gender |>
+  filter(!str_detect(Wirtschaftsabteilung, "Sektor")) |> # remove sectors
+  mutate(Code = readr::parse_number(Wirtschaftsabteilung)) |> # extract code
+  left_join(noga_division, by = "Code") |>
+  select(Wirtschaftsabteilung, Name_en, Name_fr, Name_it)
+```
+
+### Search and get datasets
+
+You can search in the public catalog for datasets, data services or public services with `i14y_search_catalog()`:
+
+```{r}
+i14y_search_catalog()
+```
+
+Note that the "type" column returned by `i14y_search_catalog()` shows if the content is a "Dataset", a "DataService" or a "PublicService".
+
+You can get the description of a given "Dataset" with `i14y_get_dataset_description()`.
+
+```{r}
+dataset_description <- i14y_get_dataset_description(
+  identifier = "EPD_Metadaten",  
+  language = "en"
+)
+
+dataset_description$description$text
+```
+
+Some datasets can be access directly using the I14Y API. But other datasets are hosted only on partner websites. You can get the URL downloads and formats of the dataset using `i14y_get_dataset_distributions()`:
+
+```{r}
+dataset_distributions <- i14y_get_dataset_distributions(
+  identifier = "HCL_CH_ISCO_19_PROF_1_2_2",  
+  language = "en"
+)
+# see "downloadUrl" and "format" columns
+str(dataset_distributions, max.level = 1)
+```
+
+We see using `i14y_get_dataset_distributions()` that the dataset above is accessible using the Nomenclatures endpoint of the I14Y API. You can get a nomenclature dataset level with `i14y_get_nomenclature_level()`.
+
+```{r}
+i14y_get_nomenclature_level(
+  identifier = "HCL_NOGA",
+  level = 2,
+  language = "de"
+)
+```
+
+You can get nomenclature multi levels with `i14y_get_nomenclature_level_multi()`:
+
+```{r}
+# https://www.i14y.admin.ch/fr/catalog/datasets/HCL_CH_ISCO_19_PROF_1_2_2
+i14y_get_nomenclature_level_multiple(
+  identifier = "HCL_NOGA",
+  levelFrom = 1,
+  levelTo = 2,
+  language = "de"
+)
+```
+
+You can also search within a nomenclature:
+
+```{r}
+i14y_search_nomenclature(
+  identifier = "HCL_NOGA",
+  query = "agriculture",
+  language = "fr"
+)
+```
+
+Note that other official Swiss datasets from the Swiss Federal Statistical Office (BFS) can be accessed using the [BFS](felixluginbuhl.com/BFS) R package.
+
+### Data structure
+
+You can search for data structure of a dataset. Let's search for example for the SpiGes project:
+
+```{r}
+i14y_search_catalog(query = "SpiGes")
+```
+
+You can check first if the dataset has a data structure:
+
+```{r}
+nomenclature_info <- i14y_get_content_information(
+  identifier = "SpiGes_Erhebung_Administratives"
+)
+
+nomenclature_info$hasDataStructures
+```
+
+You can get its data structure with `i14y_get_data_structure()`:
+
+```{r}
+library(tibble)
+
+data_structure <- i14y_get_data_structure(identifier = "SpiGes_Erhebung_Administratives")
+
+# get "data_structure$variables" data.frame
+as_tibble(as.data.frame(data_structure$variables))
+```
+
+Using the "id" column returned by `i14y_get_data_structure()`, you can get the data related to a sms element:
+
+```{r}
+i14y_get_data_element(
+  id = "af3b5919-0012-42ac-bbdd-24b591279899",
+  language = "en"
+)
+```
+
+
+Note that if you have a SpiGes XML file, you can extract the data using the **[SpiGesXML](https://github.com/SwissStatsR/SpiGesXML)** R package.
+
+### Data service
+
+You can get data service information, by "id" retrieved with `i14y_search_catalog()`:
+
+```{r}
+# "News Service Bund (NSB)" (title text)
+data_service <- i14y_get_data_service(
+  id = "52b7f97d-df95-45d2-8533-d2a2fa43641a",
+  language = "en"
+)
+str(data_service, max.level = 1)
+```
+
+## Acknowledgements
+
+This R package is inspired by [fso-metadata](https://gitlab.renkulab.io/dscc/metadata-auto-r-library) created by Pauline Maury Laribiere and a [Python tutorial](https://github.com/I14Y-ch/tutorials/blob/main/content/Public%20API's%20documentation.ipynb) by Lien Beroggi.
+
+## Other information
+
+This package is in no way officially related to or endorsed by the Swiss Federal Statistical Office (Bundesamt für Statistik).
