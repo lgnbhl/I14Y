@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-01-02T14:25Z
+last_built: 2025-01-06T16:38Z
 urls:
   reference: https://felixluginbuhl.com/I14Y/reference
   article: https://felixluginbuhl.com/I14Y/articles
