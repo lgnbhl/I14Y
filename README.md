@@ -216,7 +216,7 @@ public services with `i14y_search_catalog()`:
 
 ``` r
 i14y_search_catalog()
-#> # A tibble: 124 × 13
+#> # A tibble: 125 × 13
 #>    formats   identifier   registrationStatus themes type  accessRights.culture…¹
 #>    <list>    <chr>        <chr>              <list> <chr> <chr>                 
 #>  1 <chr [0]> 0aaed69d-15… Recorded           <df>   Data… de                    
@@ -229,7 +229,7 @@ i14y_search_catalog()
 #>  8 <chr [0]> 4cfcb1da-0f… Recorded           <df>   Data… de                    
 #>  9 <chr [0]> 6ef8f5d2-3d… Recorded           <df>   Data… de                    
 #> 10 <chr [0]> 6516adf7-a2… Recorded           <df>   Data… de                    
-#> # ℹ 114 more rows
+#> # ℹ 115 more rows
 #> # ℹ abbreviated name: ¹​accessRights.cultureCode
 #> # ℹ 7 more variables: accessRights.text <chr>, description.cultureCode <chr>,
 #> #   description.text <chr>, publisher.cultureCode <chr>, publisher.text <chr>,
@@ -500,9 +500,8 @@ str(data_service, max.level = 1)
 
 This R package is inspired by
 [fso-metadata](https://gitlab.renkulab.io/dscc/metadata-auto-r-library)
-created by Pauline Maury Laribiere and a [Python
-tutorial](https://github.com/I14Y-ch/tutorials/blob/main/content/Public%20API's%20documentation.ipynb)
-by Lien Beroggi.
+and a [I14Y Python
+tutorials](https://github.com/I14Y-ch/tutorials/blob/main/content/Public%20API's%20documentation.ipynb).
 
 ## Other information
 

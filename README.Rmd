@@ -238,7 +238,7 @@ str(data_service, max.level = 1)
 
 ## Acknowledgements
 
-This R package is inspired by [fso-metadata](https://gitlab.renkulab.io/dscc/metadata-auto-r-library) created by Pauline Maury Laribiere and a [Python tutorial](https://github.com/I14Y-ch/tutorials/blob/main/content/Public%20API's%20documentation.ipynb) by Lien Beroggi.
+This R package is inspired by [fso-metadata](https://gitlab.renkulab.io/dscc/metadata-auto-r-library) and a [I14Y Python tutorials](https://github.com/I14Y-ch/tutorials/blob/main/content/Public%20API's%20documentation.ipynb).
 
 ## Other information
 
