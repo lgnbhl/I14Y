@@ -43,7 +43,7 @@ You can get the full concept public catalog with
 
 ``` r
 i14y_search_concept()
-#> # A tibble: 444 × 13
+#> # A tibble: 451 × 13
 #>    conceptType id        identifier registrationStatus validFrom validTo version
 #>    <chr>       <chr>     <chr>      <chr>              <chr>     <chr>   <chr>  
 #>  1 Numeric     08dbcbbc… AHVN13     Preferred Standard 2007-11-… <NA>    1.0.0  
@@ -52,11 +52,11 @@ i14y_search_concept()
 #>  4 CodeList    08dc0def… ANHVO      Recorded           2018-03-… <NA>    1.0.0  
 #>  5 CodeList    08db556b… ANTICIPAT… Recorded           1996-12-… <NA>    1.0.0  
 #>  6 Numeric     08dc5e21… AZCHS      Recorded           2018-03-… <NA>    1.0.0  
-#>  7 CodeList    08dca65f… BLW_CD_CD… Recorded           2001-02-… 2023-1… 1.0.0  
-#>  8 CodeList    08dcab1f… BLW_CD_DZ… Recorded           2023-12-… <NA>    1.0.0  
-#>  9 CodeList    08dcabe2… BLW_CD_DZ… Recorded           2023-12-… <NA>    1.0.0  
-#> 10 CodeList    08dcab1c… BLW_CD_DZ… Recorded           2023-12-… <NA>    1.0.0  
-#> # ℹ 434 more rows
+#>  7 CodeList    08dd4b4d… BLW_BLV_C… Recorded           2024-12-… <NA>    0.1.0  
+#>  8 CodeList    08dd50de… BLW_CD_ag… Recorded           2025-01-… <NA>    0.1.1  
+#>  9 CodeList    08dca65f… BLW_CD_CD… Recorded           2001-02-… 2023-1… 1.0.0  
+#> 10 CodeList    08dd50e5… BLW_CD_DZ… Recorded           2023-12-… <NA>    1.0.1  
+#> # ℹ 441 more rows
 #> # ℹ 6 more variables: agencyName.cultureCode <chr>, agencyName.text <chr>,
 #> #   description.cultureCode <chr>, description.text <chr>,
 #> #   name.cultureCode <chr>, name.text <chr>
@@ -67,18 +67,19 @@ Search for a specific concept in a given language (“en”, “de”, “fr” 
 
 ``` r
 i14y_search_concept(search = "noga", language = "en")
-#> # A tibble: 9 × 13
-#>   conceptType id         identifier registrationStatus validFrom validTo version
-#>   <chr>       <chr>      <chr>      <chr>              <chr>     <lgl>   <chr>  
-#> 1 CodeList    08dc481b-… DV_NOGA_2… Preferred Standard 2024-03-… NA      1.0.0  
-#> 2 CodeList    08d94604-… DV_NOGA_C… Preferred Standard 2007-12-… NA      3.0.0  
-#> 3 CodeList    08d94604-… DV_NOGA_D… Preferred Standard 2007-12-… NA      3.0.0  
-#> 4 CodeList    08d9f6dd-… DV_NOGA_E… Recorded           2007-12-… NA      1.0.0  
-#> 5 CodeList    08d94604-… DV_NOGA_G… Preferred Standard 2007-12-… NA      3.0.0  
-#> 6 CodeList    08d94604-… DV_NOGA_O… Recorded           2007-12-… NA      3.0.0  
-#> 7 CodeList    08d94603-… DV_NOGA_S… Preferred Standard 2007-12-… NA      3.0.0  
-#> 8 CodeList    08d9f1f9-… DV_NOGA_S… Recorded           2007-12-… NA      1.0.0  
-#> 9 CodeList    08d94604-… DV_NOGA_T… Preferred Standard 2007-12-… NA      3.1.0  
+#> # A tibble: 10 × 13
+#>    conceptType id        identifier registrationStatus validFrom validTo version
+#>    <chr>       <chr>     <chr>      <chr>              <chr>     <lgl>   <chr>  
+#>  1 CodeList    08d94604… DV_NOGA_C… Preferred Standard 2007-12-… NA      3.0.0  
+#>  2 CodeList    08d94604… DV_NOGA_D… Preferred Standard 2007-12-… NA      3.0.0  
+#>  3 CodeList    08d9f6dd… DV_NOGA_E… Recorded           2007-12-… NA      1.0.0  
+#>  4 CodeList    08d94604… DV_NOGA_G… Preferred Standard 2007-12-… NA      3.0.0  
+#>  5 CodeList    08d94604… DV_NOGA_O… Recorded           2007-12-… NA      3.0.0  
+#>  6 CodeList    08d94603… DV_NOGA_S… Preferred Standard 2007-12-… NA      3.0.0  
+#>  7 CodeList    08d9f1f9… DV_NOGA_S… Recorded           2007-12-… NA      1.0.0  
+#>  8 CodeList    08d94604… DV_NOGA_T… Preferred Standard 2007-12-… NA      3.1.0  
+#>  9 CodeList    08dd28d2… nogaCode   Preferred Standard 2025-01-… NA      2.0.0  
+#> 10 CodeList    08dc481b… nogaCode   Preferred Standard 2007-12-… NA      1.0.0  
 #> # ℹ 6 more variables: agencyName.cultureCode <chr>, agencyName.text <chr>,
 #> #   description.cultureCode <chr>, description.text <chr>,
 #> #   name.cultureCode <chr>, name.text <chr>
@@ -216,7 +217,7 @@ public services with `i14y_search_catalog()`:
 
 ``` r
 i14y_search_catalog()
-#> # A tibble: 125 × 13
+#> # A tibble: 138 × 13
 #>    formats   identifier   registrationStatus themes type  accessRights.culture…¹
 #>    <list>    <chr>        <chr>              <list> <chr> <chr>                 
 #>  1 <chr [0]> 0aaed69d-15… Recorded           <df>   Data… de                    
@@ -225,11 +226,11 @@ i14y_search_catalog()
 #>  4 <chr [0]> 1f975f0e-68… Recorded           <df>   Data… de                    
 #>  5 <chr [0]> 08b7a45f-c1… Recorded           <df>   Data… de                    
 #>  6 <chr [0]> 404387b5-ff… Recorded           <df>   Data… de                    
-#>  7 <chr [0]> 78b4df19-0b… Recorded           <df>   Data… de                    
+#>  7 <chr [0]> 49fe34cc-bb… Recorded           <df>   Data… de                    
 #>  8 <chr [0]> 4cfcb1da-0f… Recorded           <df>   Data… de                    
 #>  9 <chr [0]> 6ef8f5d2-3d… Recorded           <df>   Data… de                    
 #> 10 <chr [0]> 6516adf7-a2… Recorded           <df>   Data… de                    
-#> # ℹ 115 more rows
+#> # ℹ 128 more rows
 #> # ℹ abbreviated name: ¹​accessRights.cultureCode
 #> # ℹ 7 more variables: accessRights.text <chr>, description.cultureCode <chr>,
 #> #   description.text <chr>, publisher.cultureCode <chr>, publisher.text <chr>,
@@ -500,7 +501,7 @@ str(data_service, max.level = 1)
 
 This R package is inspired by
 [fso-metadata](https://gitlab.renkulab.io/dscc/metadata-auto-r-library)
-and a [I14Y Python
+and some [I14Y Python
 tutorials](https://github.com/I14Y-ch/tutorials/blob/main/content/Public%20API's%20documentation.ipynb).
 
 ## Other information
