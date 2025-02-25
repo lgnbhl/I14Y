@@ -1,6 +1,6 @@
 Package: I14Y
 Type: Package
-Title: Search and get metadata from the I14Y interoperability platform of Switzerland
+Title: Search and get data from the I14Y interoperability platform of Switzerland
 Version: 0.1.0
 Authors@R: 
   c(person(given = "Felix",
