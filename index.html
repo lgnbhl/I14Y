@@ -81,7 +81,7 @@
 <p>You can get the full concept public catalog with <code><a href="reference/i14y_search_concept.html">i14y_search_concept()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_concept.html">i14y_search_concept</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 444 × 13</span></span>
+<span><span class="co">#&gt; # A tibble: 451 × 13</span></span>
 <span><span class="co">#&gt;    conceptType id        identifier registrationStatus validFrom validTo version</span></span>
 <span><span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;  </span></span>
 <span><span class="co">#&gt;  1 Numeric     08dbcbbc… AHVN13     Preferred Standard 2007-11-… &lt;NA&gt;    1.0.0  </span></span>
@@ -90,29 +90,30 @@
 <span><span class="co">#&gt;  4 CodeList    08dc0def… ANHVO      Recorded           2018-03-… &lt;NA&gt;    1.0.0  </span></span>
 <span><span class="co">#&gt;  5 CodeList    08db556b… ANTICIPAT… Recorded           1996-12-… &lt;NA&gt;    1.0.0  </span></span>
 <span><span class="co">#&gt;  6 Numeric     08dc5e21… AZCHS      Recorded           2018-03-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt;  7 CodeList    08dca65f… BLW_CD_CD… Recorded           2001-02-… 2023-1… 1.0.0  </span></span>
-<span><span class="co">#&gt;  8 CodeList    08dcab1f… BLW_CD_DZ… Recorded           2023-12-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt;  9 CodeList    08dcabe2… BLW_CD_DZ… Recorded           2023-12-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt; 10 CodeList    08dcab1c… BLW_CD_DZ… Recorded           2023-12-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt; # ℹ 434 more rows</span></span>
+<span><span class="co">#&gt;  7 CodeList    08dd4b4d… BLW_BLV_C… Recorded           2024-12-… &lt;NA&gt;    0.1.0  </span></span>
+<span><span class="co">#&gt;  8 CodeList    08dd50de… BLW_CD_ag… Recorded           2025-01-… &lt;NA&gt;    0.1.1  </span></span>
+<span><span class="co">#&gt;  9 CodeList    08dca65f… BLW_CD_CD… Recorded           2001-02-… 2023-1… 1.0.0  </span></span>
+<span><span class="co">#&gt; 10 CodeList    08dd50e5… BLW_CD_DZ… Recorded           2023-12-… &lt;NA&gt;    1.0.1  </span></span>
+<span><span class="co">#&gt; # ℹ 441 more rows</span></span>
 <span><span class="co">#&gt; # ℹ 6 more variables: agencyName.cultureCode &lt;chr&gt;, agencyName.text &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   description.cultureCode &lt;chr&gt;, description.text &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   name.cultureCode &lt;chr&gt;, name.text &lt;chr&gt;</span></span></code></pre></div>
 <p>Search for a specific concept in a given language (“en”, “de”, “fr” or “it”) with <code><a href="reference/i14y_search_concept.html">i14y_search_concept()</a></code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_concept.html">i14y_search_concept</a></span><span class="op">(</span>search <span class="op">=</span> <span class="st">"noga"</span>, language <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 9 × 13</span></span>
-<span><span class="co">#&gt;   conceptType id         identifier registrationStatus validFrom validTo version</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;     &lt;lgl&gt;   &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt; 1 CodeList    08dc481b-… DV_NOGA_2… Preferred Standard 2024-03-… NA      1.0.0  </span></span>
-<span><span class="co">#&gt; 2 CodeList    08d94604-… DV_NOGA_C… Preferred Standard 2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt; 3 CodeList    08d94604-… DV_NOGA_D… Preferred Standard 2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt; 4 CodeList    08d9f6dd-… DV_NOGA_E… Recorded           2007-12-… NA      1.0.0  </span></span>
-<span><span class="co">#&gt; 5 CodeList    08d94604-… DV_NOGA_G… Preferred Standard 2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt; 6 CodeList    08d94604-… DV_NOGA_O… Recorded           2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt; 7 CodeList    08d94603-… DV_NOGA_S… Preferred Standard 2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt; 8 CodeList    08d9f1f9-… DV_NOGA_S… Recorded           2007-12-… NA      1.0.0  </span></span>
-<span><span class="co">#&gt; 9 CodeList    08d94604-… DV_NOGA_T… Preferred Standard 2007-12-… NA      3.1.0  </span></span>
+<span><span class="co">#&gt; # A tibble: 10 × 13</span></span>
+<span><span class="co">#&gt;    conceptType id        identifier registrationStatus validFrom validTo version</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;     &lt;lgl&gt;   &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt;  1 CodeList    08d94604… DV_NOGA_C… Preferred Standard 2007-12-… NA      3.0.0  </span></span>
+<span><span class="co">#&gt;  2 CodeList    08d94604… DV_NOGA_D… Preferred Standard 2007-12-… NA      3.0.0  </span></span>
+<span><span class="co">#&gt;  3 CodeList    08d9f6dd… DV_NOGA_E… Recorded           2007-12-… NA      1.0.0  </span></span>
+<span><span class="co">#&gt;  4 CodeList    08d94604… DV_NOGA_G… Preferred Standard 2007-12-… NA      3.0.0  </span></span>
+<span><span class="co">#&gt;  5 CodeList    08d94604… DV_NOGA_O… Recorded           2007-12-… NA      3.0.0  </span></span>
+<span><span class="co">#&gt;  6 CodeList    08d94603… DV_NOGA_S… Preferred Standard 2007-12-… NA      3.0.0  </span></span>
+<span><span class="co">#&gt;  7 CodeList    08d9f1f9… DV_NOGA_S… Recorded           2007-12-… NA      1.0.0  </span></span>
+<span><span class="co">#&gt;  8 CodeList    08d94604… DV_NOGA_T… Preferred Standard 2007-12-… NA      3.1.0  </span></span>
+<span><span class="co">#&gt;  9 CodeList    08dd28d2… nogaCode   Preferred Standard 2025-01-… NA      2.0.0  </span></span>
+<span><span class="co">#&gt; 10 CodeList    08dc481b… nogaCode   Preferred Standard 2007-12-… NA      1.0.0  </span></span>
 <span><span class="co">#&gt; # ℹ 6 more variables: agencyName.cultureCode &lt;chr&gt;, agencyName.text &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   description.cultureCode &lt;chr&gt;, description.text &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   name.cultureCode &lt;chr&gt;, name.text &lt;chr&gt;</span></span></code></pre></div>
@@ -230,7 +231,7 @@
 <p>You can search in the public catalog for datasets, data services or public services with <code><a href="reference/i14y_search_catalog.html">i14y_search_catalog()</a></code>:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_catalog.html">i14y_search_catalog</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 125 × 13</span></span>
+<span><span class="co">#&gt; # A tibble: 138 × 13</span></span>
 <span><span class="co">#&gt;    formats   identifier   registrationStatus themes type  accessRights.culture…¹</span></span>
 <span><span class="co">#&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;              &lt;list&gt; &lt;chr&gt; &lt;chr&gt;                 </span></span>
 <span><span class="co">#&gt;  1 &lt;chr [0]&gt; 0aaed69d-15… Recorded           &lt;df&gt;   Data… de                    </span></span>
@@ -239,11 +240,11 @@
 <span><span class="co">#&gt;  4 &lt;chr [0]&gt; 1f975f0e-68… Recorded           &lt;df&gt;   Data… de                    </span></span>
 <span><span class="co">#&gt;  5 &lt;chr [0]&gt; 08b7a45f-c1… Recorded           &lt;df&gt;   Data… de                    </span></span>
 <span><span class="co">#&gt;  6 &lt;chr [0]&gt; 404387b5-ff… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  7 &lt;chr [0]&gt; 78b4df19-0b… Recorded           &lt;df&gt;   Data… de                    </span></span>
+<span><span class="co">#&gt;  7 &lt;chr [0]&gt; 49fe34cc-bb… Recorded           &lt;df&gt;   Data… de                    </span></span>
 <span><span class="co">#&gt;  8 &lt;chr [0]&gt; 4cfcb1da-0f… Recorded           &lt;df&gt;   Data… de                    </span></span>
 <span><span class="co">#&gt;  9 &lt;chr [0]&gt; 6ef8f5d2-3d… Recorded           &lt;df&gt;   Data… de                    </span></span>
 <span><span class="co">#&gt; 10 &lt;chr [0]&gt; 6516adf7-a2… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; # ℹ 115 more rows</span></span>
+<span><span class="co">#&gt; # ℹ 128 more rows</span></span>
 <span><span class="co">#&gt; # ℹ abbreviated name: ¹​accessRights.cultureCode</span></span>
 <span><span class="co">#&gt; # ℹ 7 more variables: accessRights.text &lt;chr&gt;, description.cultureCode &lt;chr&gt;,</span></span>
 <span><span class="co">#&gt; #   description.text &lt;chr&gt;, publisher.cultureCode &lt;chr&gt;, publisher.text &lt;chr&gt;,</span></span>
@@ -470,7 +471,7 @@
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
-<p>This R package is inspired by <a href="https://gitlab.renkulab.io/dscc/metadata-auto-r-library" class="external-link">fso-metadata</a> and a <a href="https://github.com/I14Y-ch/tutorials/blob/main/content/Public%20API's%20documentation.ipynb" class="external-link">I14Y Python tutorials</a>.</p>
+<p>This R package is inspired by <a href="https://gitlab.renkulab.io/dscc/metadata-auto-r-library" class="external-link">fso-metadata</a> and some <a href="https://github.com/I14Y-ch/tutorials/blob/main/content/Public%20API's%20documentation.ipynb" class="external-link">I14Y Python tutorials</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="other-information">Other information<a class="anchor" aria-label="anchor" href="#other-information"></a>
