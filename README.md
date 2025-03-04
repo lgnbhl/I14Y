@@ -217,7 +217,7 @@ public services with `i14y_search_catalog()`:
 
 ``` r
 i14y_search_catalog()
-#> # A tibble: 138 × 13
+#> # A tibble: 139 × 13
 #>    formats   identifier   registrationStatus themes type  accessRights.culture…¹
 #>    <list>    <chr>        <chr>              <list> <chr> <chr>                 
 #>  1 <chr [0]> 0aaed69d-15… Recorded           <df>   Data… de                    
@@ -230,7 +230,7 @@ i14y_search_catalog()
 #>  8 <chr [0]> 4cfcb1da-0f… Recorded           <df>   Data… de                    
 #>  9 <chr [0]> 6ef8f5d2-3d… Recorded           <df>   Data… de                    
 #> 10 <chr [0]> 6516adf7-a2… Recorded           <df>   Data… de                    
-#> # ℹ 128 more rows
+#> # ℹ 129 more rows
 #> # ℹ abbreviated name: ¹​accessRights.cultureCode
 #> # ℹ 7 more variables: accessRights.text <chr>, description.cultureCode <chr>,
 #> #   description.text <chr>, publisher.cultureCode <chr>, publisher.text <chr>,
@@ -372,7 +372,7 @@ i14y_search_nomenclature(
 
 Note that other official Swiss datasets from the Swiss Federal
 Statistical Office (BFS) can be accessed using the
-[BFS](felixluginbuhl.com/BFS) R package.
+[BFS](https://felixluginbuhl.com/BFS) R package.
 
 ### Data structure
 
