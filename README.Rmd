@@ -180,7 +180,7 @@ i14y_search_nomenclature(
 )
 ```
 
-Note that other official Swiss datasets from the Swiss Federal Statistical Office (BFS) can be accessed using the [BFS](https://felixluginbuhl.com/BFS) R package.
+Note that other official Swiss datasets from the Swiss Federal Statistical Office (BFS) can be accessed using the [BFS](https://felixluginbuhl.com/BFS/) R package.
 
 ### Data structure
 
