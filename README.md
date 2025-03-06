@@ -21,19 +21,20 @@ using its public [IOP API](https://www.i14y.admin.ch/api/index.html) and
 [Console API](https://apiconsole.i14y.admin.ch/public/v1/index.html) in
 any language (“en”, “de”, “fr” or “it”).
 
-## Installation
-
-You can install the development version of **I14Y** like so:
+## Install
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("lgnbhl/I14Y")
+install.packages("I14Y")
+
+# development version from GitHub:
+#remotes::install_github("lgnbhl/I14Y")
 ```
 
 ## Usage
 
 ``` r
 library(I14Y)
+#> Warning: le package 'I14Y' a été compilé avec la version R 4.4.3
 ```
 
 ### Get concepts and codelists
@@ -43,10 +44,10 @@ You can get the full concept public catalog with
 
 ``` r
 i14y_search_concept()
-#> # A tibble: 451 × 13
+#> # A tibble: 452 × 13
 #>    conceptType id        identifier registrationStatus validFrom validTo version
 #>    <chr>       <chr>     <chr>      <chr>              <chr>     <chr>   <chr>  
-#>  1 Numeric     08dbcbbc… AHVN13     Preferred Standard 2007-11-… <NA>    1.0.0  
+#>  1 Numeric     08dbcbbc… AHVN13     PreferredStandard  2007-11-… <NA>    1.0.0  
 #>  2 CodeList    08db65be… AJOURNEME… Recorded           1996-12-… <NA>    1.0.0  
 #>  3 Numeric     08db65bf… AJOURNEME… Recorded           1996-12-… <NA>    1.0.0  
 #>  4 CodeList    08dc0def… ANHVO      Recorded           2018-03-… <NA>    1.0.0  
@@ -56,7 +57,7 @@ i14y_search_concept()
 #>  8 CodeList    08dd50de… BLW_CD_ag… Recorded           2025-01-… <NA>    0.1.1  
 #>  9 CodeList    08dca65f… BLW_CD_CD… Recorded           2001-02-… 2023-1… 1.0.0  
 #> 10 CodeList    08dd50e5… BLW_CD_DZ… Recorded           2023-12-… <NA>    1.0.1  
-#> # ℹ 441 more rows
+#> # ℹ 442 more rows
 #> # ℹ 6 more variables: agencyName.cultureCode <chr>, agencyName.text <chr>,
 #> #   description.cultureCode <chr>, description.text <chr>,
 #> #   name.cultureCode <chr>, name.text <chr>
@@ -70,16 +71,16 @@ i14y_search_concept(search = "noga", language = "en")
 #> # A tibble: 10 × 13
 #>    conceptType id        identifier registrationStatus validFrom validTo version
 #>    <chr>       <chr>     <chr>      <chr>              <chr>     <lgl>   <chr>  
-#>  1 CodeList    08d94604… DV_NOGA_C… Preferred Standard 2007-12-… NA      3.0.0  
-#>  2 CodeList    08d94604… DV_NOGA_D… Preferred Standard 2007-12-… NA      3.0.0  
+#>  1 CodeList    08d94604… DV_NOGA_C… PreferredStandard  2007-12-… NA      3.0.0  
+#>  2 CodeList    08d94604… DV_NOGA_D… PreferredStandard  2007-12-… NA      3.0.0  
 #>  3 CodeList    08d9f6dd… DV_NOGA_E… Recorded           2007-12-… NA      1.0.0  
-#>  4 CodeList    08d94604… DV_NOGA_G… Preferred Standard 2007-12-… NA      3.0.0  
+#>  4 CodeList    08d94604… DV_NOGA_G… PreferredStandard  2007-12-… NA      3.0.0  
 #>  5 CodeList    08d94604… DV_NOGA_O… Recorded           2007-12-… NA      3.0.0  
-#>  6 CodeList    08d94603… DV_NOGA_S… Preferred Standard 2007-12-… NA      3.0.0  
+#>  6 CodeList    08d94603… DV_NOGA_S… PreferredStandard  2007-12-… NA      3.0.0  
 #>  7 CodeList    08d9f1f9… DV_NOGA_S… Recorded           2007-12-… NA      1.0.0  
-#>  8 CodeList    08d94604… DV_NOGA_T… Preferred Standard 2007-12-… NA      3.1.0  
-#>  9 CodeList    08dd28d2… nogaCode   Preferred Standard 2025-01-… NA      2.0.0  
-#> 10 CodeList    08dc481b… nogaCode   Preferred Standard 2007-12-… NA      1.0.0  
+#>  8 CodeList    08d94604… DV_NOGA_T… PreferredStandard  2007-12-… NA      3.1.0  
+#>  9 CodeList    08dd28d2… nogaCode   PreferredStandard  2025-01-… NA      2.0.0  
+#> 10 CodeList    08dc481b… nogaCode   PreferredStandard  2007-12-… NA      1.0.0  
 #> # ℹ 6 more variables: agencyName.cultureCode <chr>, agencyName.text <chr>,
 #> #   description.cultureCode <chr>, description.text <chr>,
 #> #   name.cultureCode <chr>, name.text <chr>
@@ -217,7 +218,7 @@ public services with `i14y_search_catalog()`:
 
 ``` r
 i14y_search_catalog()
-#> # A tibble: 139 × 13
+#> # A tibble: 140 × 13
 #>    formats   identifier   registrationStatus themes type  accessRights.culture…¹
 #>    <list>    <chr>        <chr>              <list> <chr> <chr>                 
 #>  1 <chr [0]> 0aaed69d-15… Recorded           <df>   Data… de                    
@@ -230,7 +231,7 @@ i14y_search_catalog()
 #>  8 <chr [0]> 4cfcb1da-0f… Recorded           <df>   Data… de                    
 #>  9 <chr [0]> 6ef8f5d2-3d… Recorded           <df>   Data… de                    
 #> 10 <chr [0]> 6516adf7-a2… Recorded           <df>   Data… de                    
-#> # ℹ 129 more rows
+#> # ℹ 130 more rows
 #> # ℹ abbreviated name: ¹​accessRights.cultureCode
 #> # ℹ 7 more variables: accessRights.text <chr>, description.cultureCode <chr>,
 #> #   description.text <chr>, publisher.cultureCode <chr>, publisher.text <chr>,

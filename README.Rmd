@@ -25,13 +25,13 @@ knitr::opts_chunk$set(
 
 Search and download official Swiss metadata from the [I14Y interoperability plateform](https://www.i14y.admin.ch) of Switzerland using its public [IOP API](https://www.i14y.admin.ch/api/index.html) and [Console API](https://apiconsole.i14y.admin.ch/public/v1/index.html) in any language ("en", "de", "fr" or "it").
 
-## Installation
-
-You can install the development version of **I14Y** like so:
+## Install
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("lgnbhl/I14Y")
+install.packages("I14Y")
+
+# development version from GitHub:
+#remotes::install_github("lgnbhl/I14Y")
 ```
 
 ## Usage
