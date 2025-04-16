@@ -10,14 +10,14 @@ check_integer <- function(x,
                          arg = caller_arg(x),
                          call = caller_env()) {
   if (!rlang::is_integerish(x)) {
-    cli::cli_abort("{.arg {arg}} must be numeric.", call = call)
+    cli::cli_abort("{.arg {arg}} must be an integer.", call = call)
   }
 }
 check_logical <- function(x,
                           arg = caller_arg(x),
                           call = caller_env()) {
   if (!is_logical(x)) {
-    cli::cli_abort("{.arg {arg}} must be an integer.", call = call)
+    cli::cli_abort("{.arg {arg}} must be logical.", call = call)
   }
 }
 check_not_null <- function(x,
