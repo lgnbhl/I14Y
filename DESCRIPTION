@@ -1,7 +1,7 @@
 Package: I14Y
 Type: Package
 Title: Search and Get Data from the I14Y Interoperability Platform of Switzerland
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: 
   c(person(given = "Felix",
            family = "Luginbuhl",
@@ -16,6 +16,8 @@ Description: Search and download Swiss data and metadata from the I14Y
 License: GPL (>= 3)
 BugReports: https://github.com/lgnbhl/I14Y/issues
 URL: https://felixluginbuhl.com/I14Y/
+Depends:
+    R (>= 4.0)
 Imports: 
     httr2,
     tibble,
