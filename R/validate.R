@@ -9,7 +9,7 @@ check_string <- function(x,
 check_integer <- function(x,
                          arg = caller_arg(x),
                          call = caller_env()) {
-  if (!rlang::is_integerish(x)) {
+  if (!is_integerish(x)) {
     cli::cli_abort("{.arg {arg}} must be an integer.", call = call)
   }
 }
