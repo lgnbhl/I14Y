@@ -5,16 +5,18 @@
 \title{Search for a Concept Summary}
 \usage{
 i14y_search_concept(
-  search = NULL,
+  query = NULL,
   language = "de",
   page = 1,
   pageSize = 1000,
   publishers = NULL,
-  themeCodes = NULL
+  themes = NULL,
+  conceptValueTypes = NULL,
+  registrationStatuses = NULL
 )
 }
 \arguments{
-\item{search}{string. Search query.}
+\item{query}{string. Search query.}
 
 \item{language}{string. The language of the response data.}
 
@@ -24,7 +26,11 @@ i14y_search_concept(
 
 \item{publishers}{vector of strings. Filter with Publishers identifiers.}
 
-\item{themeCodes}{vector of strings. Filter with theme codes.}
+\item{themes}{vector of strings. Filter with theme codes.}
+
+\item{conceptValueTypes}{character vector. One or more concept value types to filter by.}
+
+\item{registrationStatuses}{character vector. One or more registration statuses to filter by.}
 }
 \value{
 a tibble
@@ -33,5 +39,5 @@ a tibble
 Search for a Concept Summary
 }
 \examples{
-i14y_search_concept(search = "noga", language = "en")
+i14y_search_concept(query = "noga", language = "en")
 }
