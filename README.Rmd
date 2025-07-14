@@ -51,7 +51,7 @@ i14y_search_concept()
 Search for a specific concept in a given language ("en", "de", "fr" or "it") with `i14y_search_concept()`:
 
 ```{r}
-i14y_search_concept(search = "noga", language = "en")
+i14y_search_concept(query = "noga", language = "en")
 ```
 
 As showed in the `conceptType` column, some concepts have the type "CodeList". You can get the codelist (i.e. the "content") of a concept using `i14y_get_codelist()`, with the value from the `id` column.
@@ -126,26 +126,23 @@ i14y_search_catalog()
 
 Note that the "type" column returned by `i14y_search_catalog()` shows if the content is a "Dataset", a "DataService" or a "PublicService".
 
-You can get the description of a given "Dataset" with `i14y_get_dataset_description()`.
+You can get the description from the metadata of a given "Dataset" with `i14y_get_dataset_metadata()`.
 
 ```{r}
-dataset_description <- i14y_get_dataset_description(
-  identifier = "EPD_Metadaten",  
-  language = "en"
+dataset_metadata <- i14y_get_dataset_metadata(
+  id = "02e34f85-14df-45b5-a38b-2f063c999481"
 )
 
-dataset_description$description$text
+# Add the language
+dataset_metadata$description$en
 ```
 
-Some datasets can be access directly using the I14Y API. But other datasets are hosted only on partner websites. You can get the URL downloads and formats of the dataset using `i14y_get_dataset_distributions()`:
+Some datasets can be access directly using the I14Y API. But other datasets are hosted only on partner websites. You can get the URL downloads and formats of the dataset using in the distributions part:
 
 ```{r}
-dataset_distributions <- i14y_get_dataset_distributions(
-  identifier = "HCL_CH_ISCO_19_PROF_1_2_2",  
-  language = "en"
-)
+
 # see "downloadUrl" and "format" columns
-str(dataset_distributions, max.level = 1)
+str(dataset_metadata$distributions, max.level = 1)
 ```
 
 We see using `i14y_get_dataset_distributions()` that the dataset above is accessible using the Nomenclatures endpoint of the I14Y API. You can get a nomenclature dataset level with `i14y_get_nomenclature_level()`.
@@ -213,7 +210,8 @@ as_tibble(as.data.frame(data_structure$variables))
 
 Using the "id" column returned by `i14y_get_data_structure()`, you can get the data related to a sms element:
 
-```{r}
+*Note:* *Due to a change in the I14Y API, this function does not work at the moment.*
+```{r, eval=FALSE}
 i14y_get_data_element(
   id = "af3b5919-0012-42ac-bbdd-24b591279899",
   language = "en"

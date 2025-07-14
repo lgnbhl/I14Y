@@ -7,17 +7,23 @@
 i14y_get_data_element(id = NULL, language = "de")
 }
 \arguments{
-\item{id}{string. The id of the sms used variable.}
+\item{id}{string. The ID of the SMS used variable.}
 
 \item{language}{string. The language of the response data.}
 }
 \value{
-a tibble
+A tibble.
+}
+\description{
+Get a data element
+}
+\note{
+*Due to a change in the I14Y API, this function does not work at the moment.*
+}
+\examples{
 i14y_get_data_element(
   id = "af3b5919-0012-42ac-bbdd-24b591279899",
   language = "en"
 )
-}
-\description{
-Get a data element
+
 }
