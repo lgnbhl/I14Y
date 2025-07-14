@@ -16,5 +16,5 @@ a list
 Get dataset full metadata by ID
 }
 \examples{
-i14y_get_dataset_description(identifier = "HCL_NOGA")
+i14y_get_dataset_metadata(id = "02e34f85-14df-45b5-a38b-2f063c999481")
 }

@@ -1,13 +1,15 @@
 Package: I14Y
 Type: Package
 Title: Search and Get Data from the I14Y Interoperability Platform of Switzerland
-Version: 0.1.4
-Authors@R: 
-  c(person(given = "Felix",
+Version: 0.1.5
+Authors@R: c(
+    person(given = "Felix",
            family = "Luginbuhl",
            role = c("aut", "cre", "cph"),
            email = "felix.luginbuhl@protonmail.ch", 
-           comment = c(ORCID = "0009-0008-6625-2899"))
+           comment = c(ORCID = "0009-0008-6625-2899")
+           ),
+    person(given = "Felix", family = "Lorenz", role = "ctr")
     )
 Maintainer: Felix Luginbuhl <felix.luginbuhl@protonmail.ch>
 Description: Search and download Swiss data and metadata from the I14Y 

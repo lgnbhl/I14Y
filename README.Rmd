@@ -140,7 +140,6 @@ dataset_metadata$description$en
 Some datasets can be access directly using the I14Y API. But other datasets are hosted only on partner websites. You can get the URL downloads and formats of the dataset using in the distributions part:
 
 ```{r}
-
 # see "downloadUrl" and "format" columns
 str(dataset_metadata$distributions, max.level = 1)
 ```
@@ -207,17 +206,6 @@ data_structure <- i14y_get_data_structure(identifier = "SpiGes_Erhebung_Administ
 # get "data_structure$variables" data.frame
 as_tibble(as.data.frame(data_structure$variables))
 ```
-
-Using the "id" column returned by `i14y_get_data_structure()`, you can get the data related to a sms element:
-
-*Note:* *Due to a change in the I14Y API, this function does not work at the moment.*
-```{r, eval=FALSE}
-i14y_get_data_element(
-  id = "af3b5919-0012-42ac-bbdd-24b591279899",
-  language = "en"
-)
-```
-
 
 Note that if you have a SpiGes XML file, you can extract the data using the **[SpiGesXML](https://github.com/SwissStatsR/SpiGesXML)** R package.
 

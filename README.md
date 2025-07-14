@@ -44,24 +44,25 @@ You can get the full concept public catalog with
 ``` r
 i14y_search_concept()
 #> # A tibble: 500 × 31
-#>    accessRights businessEvents conceptValueType id                     identifiers lifeEvents publicationLevel publicationLevelProp…¹
-#>    <lgl>        <list>         <chr>            <chr>                  <list>      <list>     <chr>            <lgl>                 
-#>  1 NA           <list [0]>     CodeList         08d92cdc-03c1-103f-8f… <chr [1]>   <list [0]> Public           NA                    
-#>  2 NA           <list [0]>     CodeList         08d92cdc-4e4a-5b21-9e… <chr [1]>   <list [0]> Public           NA                    
-#>  3 NA           <list [0]>     CodeList         08d92cdc-827b-5021-82… <chr [1]>   <list [0]> Public           NA                    
-#>  4 NA           <list [0]>     CodeList         08d92cdc-a5fb-1a11-be… <chr [1]>   <list [0]> Public           NA                    
-#>  5 NA           <list [0]>     CodeList         08d92cdc-c97d-acd7-99… <chr [1]>   <list [0]> Public           NA                    
-#>  6 NA           <list [0]>     CodeList         08d9407c-88f5-81a3-9b… <chr [1]>   <list [0]> Public           NA                    
-#>  7 NA           <list [0]>     CodeList         08d93fc7-6bb5-5585-a5… <chr [1]>   <list [0]> Public           NA                    
-#>  8 NA           <list [0]>     CodeList         08d9407c-8319-7542-84… <chr [1]>   <list [0]> Public           NA                    
-#>  9 NA           <list [0]>     CodeList         08d92cdc-eab7-9960-bb… <chr [1]>   <list [0]> Public           NA                    
-#> 10 NA           <list [0]>     Numeric          08d93fba-c4ab-e0a7-ad… <chr [1]>   <list [0]> Public           NA                    
+#>    accessRights businessEvents conceptValueType id        identifiers lifeEvents
+#>    <lgl>        <list>         <chr>            <chr>     <list>      <list>    
+#>  1 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
+#>  2 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
+#>  3 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
+#>  4 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
+#>  5 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
+#>  6 NA           <list [0]>     CodeList         08d9407c… <chr [1]>   <list [0]>
+#>  7 NA           <list [0]>     CodeList         08d93fc7… <chr [1]>   <list [0]>
+#>  8 NA           <list [0]>     CodeList         08d9407c… <chr [1]>   <list [0]>
+#>  9 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
+#> 10 NA           <list [0]>     Numeric          08d93fba… <chr [1]>   <list [0]>
 #> # ℹ 490 more rows
-#> # ℹ abbreviated name: ¹​publicationLevelProposal
-#> # ℹ 23 more variables: registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>, themes <list>, type <chr>,
-#> #   validFrom <chr>, validTo <chr>, version <chr>, description.de <chr>, description.en <chr>, description.fr <chr>,
-#> #   description.it <chr>, description.rm <lgl>, publisherName.de <chr>, publisherName.en <chr>, publisherName.fr <chr>,
-#> #   publisherName.it <chr>, publisherName.rm <chr>, title.de <chr>, title.en <chr>, title.fr <chr>, title.it <chr>, title.rm <chr>
+#> # ℹ 25 more variables: publicationLevel <chr>, publicationLevelProposal <lgl>,
+#> #   registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>,
+#> #   themes <list>, type <chr>, validFrom <chr>, validTo <chr>, version <chr>,
+#> #   description.de <chr>, description.en <chr>, description.fr <chr>,
+#> #   description.it <chr>, description.rm <lgl>, publisherName.de <chr>,
+#> #   publisherName.en <chr>, publisherName.fr <chr>, publisherName.it <chr>, …
 ```
 
 Search for a specific concept in a given language (“en”, “de”, “fr” or
@@ -70,23 +71,25 @@ Search for a specific concept in a given language (“en”, “de”, “fr” 
 ``` r
 i14y_search_concept(query = "noga", language = "en")
 #> # A tibble: 10 × 31
-#>    accessRights businessEvents conceptValueType id                     identifiers lifeEvents publicationLevel publicationLevelProp…¹
-#>    <lgl>        <list>         <chr>            <chr>                  <list>      <list>     <chr>            <lgl>                 
-#>  1 NA           <list [0]>     CodeList         08d9f1f9-3f89-00b6-bb… <chr [1]>   <list [0]> Public           NA                    
-#>  2 NA           <list [0]>     CodeList         08d94604-ecc0-668d-9c… <chr [1]>   <list [0]> Public           NA                    
-#>  3 NA           <list [0]>     CodeList         08d94604-db03-1909-a0… <chr [1]>   <list [0]> Public           NA                    
-#>  4 NA           <list [0]>     CodeList         08d94604-e5ac-f859-9e… <chr [1]>   <list [0]> Public           NA                    
-#>  5 NA           <list [0]>     CodeList         08d94604-f12a-5d82-b6… <chr [1]>   <list [0]> Public           NA                    
-#>  6 NA           <list [0]>     CodeList         08dc481b-2add-1232-b5… <chr [1]>   <list [0]> Public           NA                    
-#>  7 NA           <list [0]>     CodeList         08dd28d2-a693-5049-a3… <chr [1]>   <list [0]> Public           NA                    
-#>  8 NA           <list [0]>     CodeList         08d94603-f490-f094-9f… <chr [1]>   <list [0]> Public           NA                    
-#>  9 NA           <list [0]>     CodeList         08d94604-e058-62a2-aa… <chr [1]>   <list [0]> Public           NA                    
-#> 10 NA           <list [0]>     CodeList         08d9f6dd-f8a3-cba5-81… <chr [1]>   <list [0]> Public           NA                    
-#> # ℹ abbreviated name: ¹​publicationLevelProposal
-#> # ℹ 23 more variables: registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>, themes <list>, type <chr>,
-#> #   validFrom <chr>, validTo <lgl>, version <chr>, description.de <chr>, description.en <chr>, description.fr <chr>,
-#> #   description.it <chr>, description.rm <lgl>, publisherName.de <chr>, publisherName.en <chr>, publisherName.fr <chr>,
-#> #   publisherName.it <chr>, publisherName.rm <chr>, title.de <chr>, title.en <chr>, title.fr <chr>, title.it <chr>, title.rm <lgl>
+#>    accessRights businessEvents conceptValueType id        identifiers lifeEvents
+#>    <lgl>        <list>         <chr>            <chr>     <list>      <list>    
+#>  1 NA           <list [0]>     CodeList         08d9f1f9… <chr [1]>   <list [0]>
+#>  2 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
+#>  3 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
+#>  4 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
+#>  5 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
+#>  6 NA           <list [0]>     CodeList         08dc481b… <chr [1]>   <list [0]>
+#>  7 NA           <list [0]>     CodeList         08dd28d2… <chr [1]>   <list [0]>
+#>  8 NA           <list [0]>     CodeList         08d94603… <chr [1]>   <list [0]>
+#>  9 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
+#> 10 NA           <list [0]>     CodeList         08d9f6dd… <chr [1]>   <list [0]>
+#> # ℹ 25 more variables: publicationLevel <chr>, publicationLevelProposal <lgl>,
+#> #   registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>,
+#> #   themes <list>, type <chr>, validFrom <chr>, validTo <lgl>, version <chr>,
+#> #   description.de <chr>, description.en <chr>, description.fr <chr>,
+#> #   description.it <chr>, description.rm <lgl>, publisherName.de <chr>,
+#> #   publisherName.en <chr>, publisherName.fr <chr>, publisherName.it <chr>,
+#> #   publisherName.rm <chr>, title.de <chr>, title.en <chr>, title.fr <chr>, …
 ```
 
 As showed in the `conceptType` column, some concepts have the type
@@ -98,25 +101,25 @@ i14y_get_codelist(
   id = "08d94604-e058-62a2-aa25-53f84b974201" # for DV_NOGA_DIVISION
 )
 #> # A tibble: 88 × 48
-#>    Code  ParentCode Name_de               Name_fr Name_it Name_rm Name_en Description_de Description_fr Description_it Description_rm
-#>    <chr> <lgl>      <chr>                 <chr>   <chr>   <lgl>   <chr>   <lgl>          <lgl>          <lgl>          <lgl>         
-#>  1 01    NA         Landwirtschaft, Jagd… Cultur… Produz… NA      Crop a… NA             NA             NA             NA            
-#>  2 02    NA         Forstwirtschaft und … Sylvic… Silvic… NA      Forest… NA             NA             NA             NA            
-#>  3 03    NA         Fischerei und Aquaku… Pêche … Pesca … NA      Fishin… NA             NA             NA             NA            
-#>  4 05    NA         Kohlenbergbau         Extrac… Estraz… NA      Mining… NA             NA             NA             NA            
-#>  5 06    NA         Gewinnung von Erdöl … Extrac… Estraz… NA      Extrac… NA             NA             NA             NA            
-#>  6 07    NA         Erzbergbau            Extrac… Estraz… NA      Mining… NA             NA             NA             NA            
-#>  7 08    NA         Gewinnung von Steine… Autres… Altre … NA      Other … NA             NA             NA             NA            
-#>  8 09    NA         Erbringung von Diens… Servic… Attivi… NA      Mining… NA             NA             NA             NA            
-#>  9 10    NA         Herstellung von Nahr… Indust… Indust… NA      Manufa… NA             NA             NA             NA            
-#> 10 11    NA         Getränkeherstellung   Fabric… Produz… NA      Manufa… NA             NA             NA             NA            
+#>    Code  ParentCode Name_de       Name_fr Name_it Name_rm Name_en Description_de
+#>    <chr> <lgl>      <chr>         <chr>   <chr>   <lgl>   <chr>   <lgl>         
+#>  1 01    NA         Landwirtscha… Cultur… Produz… NA      Crop a… NA            
+#>  2 02    NA         Forstwirtsch… Sylvic… Silvic… NA      Forest… NA            
+#>  3 03    NA         Fischerei un… Pêche … Pesca … NA      Fishin… NA            
+#>  4 05    NA         Kohlenbergbau Extrac… Estraz… NA      Mining… NA            
+#>  5 06    NA         Gewinnung vo… Extrac… Estraz… NA      Extrac… NA            
+#>  6 07    NA         Erzbergbau    Extrac… Estraz… NA      Mining… NA            
+#>  7 08    NA         Gewinnung vo… Autres… Altre … NA      Other … NA            
+#>  8 09    NA         Erbringung v… Servic… Attivi… NA      Mining… NA            
+#>  9 10    NA         Herstellung … Indust… Indust… NA      Manufa… NA            
+#> 10 11    NA         Getränkehers… Fabric… Produz… NA      Manufa… NA            
 #> # ℹ 78 more rows
-#> # ℹ 37 more variables: Description_en <lgl>, Annotation_ABBREV_Type <chr>, Annotation_ABBREV_Title <lgl>,
-#> #   Annotation_ABBREV_URI <lgl>, Annotation_ABBREV_Identifier <lgl>, Annotation_ABBREV_Text_de <chr>,
-#> #   Annotation_ABBREV_Text_fr <chr>, Annotation_ABBREV_Text_it <chr>, Annotation_ABBREV_Text_rm <lgl>,
-#> #   Annotation_ABBREV_Text_en <chr>, Annotation_INCLUDES_Type <chr>, Annotation_INCLUDES_Title <lgl>, Annotation_INCLUDES_URI <lgl>,
-#> #   Annotation_INCLUDES_Identifier <lgl>, Annotation_INCLUDES_Text_de <chr>, Annotation_INCLUDES_Text_fr <chr>,
-#> #   Annotation_INCLUDES_Text_it <chr>, Annotation_INCLUDES_Text_rm <lgl>, Annotation_INCLUDES_Text_en <chr>, …
+#> # ℹ 40 more variables: Description_fr <lgl>, Description_it <lgl>,
+#> #   Description_rm <lgl>, Description_en <lgl>, Annotation_ABBREV_Type <chr>,
+#> #   Annotation_ABBREV_Title <lgl>, Annotation_ABBREV_URI <lgl>,
+#> #   Annotation_ABBREV_Identifier <lgl>, Annotation_ABBREV_Text_de <chr>,
+#> #   Annotation_ABBREV_Text_fr <chr>, Annotation_ABBREV_Text_it <chr>,
+#> #   Annotation_ABBREV_Text_rm <lgl>, Annotation_ABBREV_Text_en <chr>, …
 ```
 
 You can also get all concept metadata using `i14_get_concept()`. Note
@@ -162,20 +165,21 @@ income_by_job_and_gender <- BFS::bfs_get_data(
 
 income_by_job_and_gender
 #> # A tibble: 164 × 5
-#>    Jahr  Wirtschaftsabteilung                                                Geschlecht Zentralwert und ande…¹ Monatlicher Bruttolo…²
-#>    <chr> <chr>                                                               <chr>      <chr>                                   <dbl>
-#>  1 2022  Wirtschaftsabteilung - Total                                        Frauen     Zentralwert                              6397
-#>  2 2022  Wirtschaftsabteilung - Total                                        Männer     Zentralwert                              7066
-#>  3 2022  05-43 Sektor 2: Produktion                                          Frauen     Zentralwert                              6019
-#>  4 2022  05-43 Sektor 2: Produktion                                          Männer     Zentralwert                              6735
-#>  5 2022  > 8 Gewinnung von Steinen und Erden, sonstiger Bergbau              Frauen     Zentralwert                              6230
-#>  6 2022  > 8 Gewinnung von Steinen und Erden, sonstiger Bergbau              Männer     Zentralwert                              6342
-#>  7 2022  > 9 Erbringung von Dienstleistungen für den Bergbau und für die Ge… Frauen     Zentralwert                                NA
-#>  8 2022  > 9 Erbringung von Dienstleistungen für den Bergbau und für die Ge… Männer     Zentralwert                                NA
-#>  9 2022  > 10 Herstellung von Nahrungs- und Futtermitteln                    Frauen     Zentralwert                              4796
-#> 10 2022  > 10 Herstellung von Nahrungs- und Futtermitteln                    Männer     Zentralwert                              5730
+#>    Jahr  Wirtschaftsabteilung                  Geschlecht Zentralwert und ande…¹
+#>    <chr> <chr>                                 <chr>      <chr>                 
+#>  1 2022  Wirtschaftsabteilung - Total          Frauen     Zentralwert           
+#>  2 2022  Wirtschaftsabteilung - Total          Männer     Zentralwert           
+#>  3 2022  05-43 Sektor 2: Produktion            Frauen     Zentralwert           
+#>  4 2022  05-43 Sektor 2: Produktion            Männer     Zentralwert           
+#>  5 2022  > 8 Gewinnung von Steinen und Erden,… Frauen     Zentralwert           
+#>  6 2022  > 8 Gewinnung von Steinen und Erden,… Männer     Zentralwert           
+#>  7 2022  > 9 Erbringung von Dienstleistungen … Frauen     Zentralwert           
+#>  8 2022  > 9 Erbringung von Dienstleistungen … Männer     Zentralwert           
+#>  9 2022  > 10 Herstellung von Nahrungs- und F… Frauen     Zentralwert           
+#> 10 2022  > 10 Herstellung von Nahrungs- und F… Männer     Zentralwert           
 #> # ℹ 154 more rows
-#> # ℹ abbreviated names: ¹​`Zentralwert und andere Perzentile`, ²​`Monatlicher Bruttolohn`
+#> # ℹ abbreviated name: ¹​`Zentralwert und andere Perzentile`
+#> # ℹ 1 more variable: `Monatlicher Bruttolohn` <dbl>
 ```
 
 Using I14Y, you can get the English, French or Italian translation of
@@ -198,18 +202,18 @@ income_by_job_and_gender |>
   left_join(noga_division, by = "Code") |>
   select(Wirtschaftsabteilung, Name_en, Name_fr, Name_it)
 #> # A tibble: 160 × 4
-#>    Wirtschaftsabteilung                                                                            Name_en            Name_fr Name_it
-#>    <chr>                                                                                           <chr>              <chr>   <chr>  
-#>  1 Wirtschaftsabteilung - Total                                                                    <NA>               <NA>    <NA>   
-#>  2 Wirtschaftsabteilung - Total                                                                    <NA>               <NA>    <NA>   
-#>  3 > 8 Gewinnung von Steinen und Erden, sonstiger Bergbau                                          Other mining and … Autres… Altre …
-#>  4 > 8 Gewinnung von Steinen und Erden, sonstiger Bergbau                                          Other mining and … Autres… Altre …
-#>  5 > 9 Erbringung von Dienstleistungen für den Bergbau und für die Gewinnung von Steinen und Erden Mining support se… Servic… Attivi…
-#>  6 > 9 Erbringung von Dienstleistungen für den Bergbau und für die Gewinnung von Steinen und Erden Mining support se… Servic… Attivi…
-#>  7 > 10 Herstellung von Nahrungs- und Futtermitteln                                                Manufacture of fo… Indust… Indust…
-#>  8 > 10 Herstellung von Nahrungs- und Futtermitteln                                                Manufacture of fo… Indust… Indust…
-#>  9 > 11 Getränkeherstellung                                                                        Manufacture of be… Fabric… Produz…
-#> 10 > 11 Getränkeherstellung                                                                        Manufacture of be… Fabric… Produz…
+#>    Wirtschaftsabteilung                                  Name_en Name_fr Name_it
+#>    <chr>                                                 <chr>   <chr>   <chr>  
+#>  1 Wirtschaftsabteilung - Total                          <NA>    <NA>    <NA>   
+#>  2 Wirtschaftsabteilung - Total                          <NA>    <NA>    <NA>   
+#>  3 > 8 Gewinnung von Steinen und Erden, sonstiger Bergb… Other … Autres… Altre …
+#>  4 > 8 Gewinnung von Steinen und Erden, sonstiger Bergb… Other … Autres… Altre …
+#>  5 > 9 Erbringung von Dienstleistungen für den Bergbau … Mining… Servic… Attivi…
+#>  6 > 9 Erbringung von Dienstleistungen für den Bergbau … Mining… Servic… Attivi…
+#>  7 > 10 Herstellung von Nahrungs- und Futtermitteln      Manufa… Indust… Indust…
+#>  8 > 10 Herstellung von Nahrungs- und Futtermitteln      Manufa… Indust… Indust…
+#>  9 > 11 Getränkeherstellung                              Manufa… Fabric… Produz…
+#> 10 > 11 Getränkeherstellung                              Manufa… Fabric… Produz…
 #> # ℹ 150 more rows
 ```
 
@@ -221,25 +225,25 @@ public services with `i14y_search_catalog()`:
 ``` r
 i14y_search_catalog()
 #> # A tibble: 688 × 37
-#>    businessEvents conceptValueType id               identifiers lifeEvents publicationLevel publicationLevelProp…¹ registrationStatus
-#>    <list>         <chr>            <chr>            <list>      <list>     <chr>            <lgl>                  <chr>             
-#>  1 <df [0 × 0]>   <NA>             171b09a4-5b5f-4… <chr [1]>   <df>       Public           NA                     Recorded          
-#>  2 <df [0 × 0]>   <NA>             0aaed69d-15ff-4… <chr [1]>   <df>       Public           NA                     Recorded          
-#>  3 <df [0 × 0]>   <NA>             15d720d4-dc78-4… <chr [1]>   <df>       Public           NA                     Recorded          
-#>  4 <df [0 × 0]>   <NA>             14e60ad3-1ccd-4… <chr [1]>   <df>       Public           NA                     Recorded          
-#>  5 <df [0 × 0]>   <NA>             1f975f0e-68d1-4… <chr [1]>   <df>       Public           NA                     Recorded          
-#>  6 <df [0 × 0]>   <NA>             08b7a45f-c18f-4… <chr [1]>   <df>       Public           NA                     Recorded          
-#>  7 <df [0 × 0]>   <NA>             17ec3628-e0b6-4… <chr [1]>   <df>       Public           NA                     Recorded          
-#>  8 <df [0 × 0]>   <NA>             49fe34cc-bb32-4… <chr [1]>   <df>       Public           NA                     Recorded          
-#>  9 <df [0 × 0]>   <NA>             4cfcb1da-0f8d-4… <chr [1]>   <df>       Public           NA                     Recorded          
-#> 10 <df [0 × 0]>   <NA>             6ef8f5d2-3d6a-4… <chr [1]>   <df>       Public           NA                     Recorded          
+#>    businessEvents conceptValueType id    identifiers lifeEvents publicationLevel
+#>    <list>         <chr>            <chr> <list>      <list>     <chr>           
+#>  1 <df [0 × 0]>   <NA>             171b… <chr [1]>   <df>       Public          
+#>  2 <df [0 × 0]>   <NA>             0aae… <chr [1]>   <df>       Public          
+#>  3 <df [0 × 0]>   <NA>             15d7… <chr [1]>   <df>       Public          
+#>  4 <df [0 × 0]>   <NA>             14e6… <chr [1]>   <df>       Public          
+#>  5 <df [0 × 0]>   <NA>             1f97… <chr [1]>   <df>       Public          
+#>  6 <df [0 × 0]>   <NA>             08b7… <chr [1]>   <df>       Public          
+#>  7 <df [0 × 0]>   <NA>             17ec… <chr [1]>   <df>       Public          
+#>  8 <df [0 × 0]>   <NA>             49fe… <chr [1]>   <df>       Public          
+#>  9 <df [0 × 0]>   <NA>             4cfc… <chr [1]>   <df>       Public          
+#> 10 <df [0 × 0]>   <NA>             6ef8… <chr [1]>   <df>       Public          
 #> # ℹ 678 more rows
-#> # ℹ abbreviated name: ¹​publicationLevelProposal
-#> # ℹ 29 more variables: registrationStatusProposal <lgl>, status <chr>, themes <list>, type <chr>, validFrom <chr>, validTo <chr>,
-#> #   version <chr>, accessRights.code <chr>, accessRights.uri <chr>, accessRights.name.de <chr>, accessRights.name.en <chr>,
-#> #   accessRights.name.fr <chr>, accessRights.name.it <chr>, accessRights.name.rm <lgl>, description.de <chr>, description.en <chr>,
-#> #   description.fr <chr>, description.it <chr>, description.rm <lgl>, publisherName.de <chr>, publisherName.en <chr>,
-#> #   publisherName.fr <chr>, publisherName.it <chr>, publisherName.rm <chr>, title.de <chr>, title.en <chr>, title.fr <chr>, …
+#> # ℹ 31 more variables: publicationLevelProposal <lgl>,
+#> #   registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>,
+#> #   themes <list>, type <chr>, validFrom <chr>, validTo <chr>, version <chr>,
+#> #   accessRights.code <chr>, accessRights.uri <chr>,
+#> #   accessRights.name.de <chr>, accessRights.name.en <chr>,
+#> #   accessRights.name.fr <chr>, accessRights.name.it <chr>, …
 ```
 
 Note that the “type” column returned by `i14y_search_catalog()` shows if
@@ -263,7 +267,6 @@ datasets are hosted only on partner websites. You can get the URL
 downloads and formats of the dataset using in the distributions part:
 
 ``` r
-
 # see "downloadUrl" and "format" columns
 str(dataset_metadata$distributions, max.level = 1)
 #> 'data.frame':    18 obs. of  46 variables:
@@ -326,18 +329,18 @@ i14y_get_nomenclature_level(
   language = "de"
 )
 #> # A tibble: 88 × 3
-#>    Code  Parent Name_de                                                                                    
-#>    <chr> <chr>  <chr>                                                                                      
-#>  1 01    A      Landwirtschaft, Jagd und damit verbundene Tätigkeiten                                      
-#>  2 02    A      Forstwirtschaft und Holzeinschlag                                                          
-#>  3 03    A      Fischerei und Aquakultur                                                                   
-#>  4 05    B      Kohlenbergbau                                                                              
-#>  5 06    B      Gewinnung von Erdöl und Erdgas                                                             
-#>  6 07    B      Erzbergbau                                                                                 
-#>  7 08    B      Gewinnung von Steinen und Erden, sonstiger Bergbau                                         
-#>  8 09    B      Erbringung von Dienstleistungen für den Bergbau und für die Gewinnung von Steinen und Erden
-#>  9 10    C      Herstellung von Nahrungs- und Futtermitteln                                                
-#> 10 11    C      Getränkeherstellung                                                                        
+#>    Code  Parent Name_de                                                         
+#>    <chr> <chr>  <chr>                                                           
+#>  1 01    A      Landwirtschaft, Jagd und damit verbundene Tätigkeiten           
+#>  2 02    A      Forstwirtschaft und Holzeinschlag                               
+#>  3 03    A      Fischerei und Aquakultur                                        
+#>  4 05    B      Kohlenbergbau                                                   
+#>  5 06    B      Gewinnung von Erdöl und Erdgas                                  
+#>  6 07    B      Erzbergbau                                                      
+#>  7 08    B      Gewinnung von Steinen und Erden, sonstiger Bergbau              
+#>  8 09    B      Erbringung von Dienstleistungen für den Bergbau und für die Gew…
+#>  9 10    C      Herstellung von Nahrungs- und Futtermitteln                     
+#> 10 11    C      Getränkeherstellung                                             
 #> # ℹ 78 more rows
 ```
 
@@ -353,18 +356,18 @@ i14y_get_nomenclature_level_multiple(
   language = "de"
 )
 #> # A tibble: 109 × 4
-#>    Abschnitt Abteilung Code  Name_de                                                                                    
-#>    <chr>     <chr>     <chr> <chr>                                                                                      
-#>  1 A         <NA>      A     LAND- UND FORSTWIRTSCHAFT, FISCHEREI                                                       
-#>  2 <NA>      01        01    Landwirtschaft, Jagd und damit verbundene Tätigkeiten                                      
-#>  3 <NA>      02        02    Forstwirtschaft und Holzeinschlag                                                          
-#>  4 <NA>      03        03    Fischerei und Aquakultur                                                                   
-#>  5 B         <NA>      B     BERGBAU UND GEWINNUNG VON STEINEN UND ERDEN                                                
-#>  6 <NA>      05        05    Kohlenbergbau                                                                              
-#>  7 <NA>      06        06    Gewinnung von Erdöl und Erdgas                                                             
-#>  8 <NA>      07        07    Erzbergbau                                                                                 
-#>  9 <NA>      08        08    Gewinnung von Steinen und Erden, sonstiger Bergbau                                         
-#> 10 <NA>      09        09    Erbringung von Dienstleistungen für den Bergbau und für die Gewinnung von Steinen und Erden
+#>    Abschnitt Abteilung Code  Name_de                                            
+#>    <chr>     <chr>     <chr> <chr>                                              
+#>  1 A         <NA>      A     LAND- UND FORSTWIRTSCHAFT, FISCHEREI               
+#>  2 <NA>      01        01    Landwirtschaft, Jagd und damit verbundene Tätigkei…
+#>  3 <NA>      02        02    Forstwirtschaft und Holzeinschlag                  
+#>  4 <NA>      03        03    Fischerei und Aquakultur                           
+#>  5 B         <NA>      B     BERGBAU UND GEWINNUNG VON STEINEN UND ERDEN        
+#>  6 <NA>      05        05    Kohlenbergbau                                      
+#>  7 <NA>      06        06    Gewinnung von Erdöl und Erdgas                     
+#>  8 <NA>      07        07    Erzbergbau                                         
+#>  9 <NA>      08        08    Gewinnung von Steinen und Erden, sonstiger Bergbau 
+#> 10 <NA>      09        09    Erbringung von Dienstleistungen für den Bergbau un…
 #> # ℹ 99 more rows
 ```
 
@@ -379,12 +382,15 @@ i14y_search_nomenclature(
 #>                                                                                                                                                                                                                                                                                                                                                                                                                                                                               annotations
 #> 1                                                                                                              NA, NA, 0, 0, , , ABBREV, INCLUDES, , , fr, fr, AGRICULT., SYLVICULT. ET PÊCHE, Cette section couvre l'exploitation des ressources naturelles végétales et animales et comprend les activités de culture, d'élevage, de récolte de bois et d'autres plantes et de production d'animaux ou de produits animaux dans une exploitation agricole ou dans leur habitat naturel.
 #> 2 NA, NA, 0, 0, , , ABBREV, INCLUDES, , , fr, fr, Activ. de soutien à l'agriculture, Ce groupe comprend les activités annexes à la production agricole et les activités similaires à l'agriculture qui ne sont pas effectuées à des fins de production (dans le sens de récolter des produits agricoles) et qui sont exercées pour le compte de tiers. Le traitement primaire des récoltes en vue de la préparation des produits agricoles pour le marché primaire est également compris.
-#>                                                                                                   breadCrumbPath code
-#> 1                                                                                                           NULL    A
-#> 2 A, A/01, fr, fr, AGRICULTURE, SYLVICULTURE ET PÊCHE, Culture et production animale, chasse et services annexes  016
-#>   name.cultureCode                                                                name.text
-#> 1               fr                                       AGRICULTURE, SYLVICULTURE ET PÊCHE
-#> 2               fr Activités de soutien à l'agriculture et traitement primaire des récoltes
+#>                                                                                                   breadCrumbPath
+#> 1                                                                                                           NULL
+#> 2 A, A/01, fr, fr, AGRICULTURE, SYLVICULTURE ET PÊCHE, Culture et production animale, chasse et services annexes
+#>   code name.cultureCode
+#> 1    A               fr
+#> 2  016               fr
+#>                                                                  name.text
+#> 1                                       AGRICULTURE, SYLVICULTURE ET PÊCHE
+#> 2 Activités de soutien à l'agriculture et traitement primaire des récoltes
 ```
 
 Note that other official Swiss datasets from the Swiss Federal
@@ -399,25 +405,25 @@ for the SpiGes project:
 ``` r
 i14y_search_catalog(query = "SpiGes")
 #> # A tibble: 21 × 37
-#>    businessEvents conceptValueType id               identifiers lifeEvents publicationLevel publicationLevelProp…¹ registrationStatus
-#>    <list>         <chr>            <chr>            <list>      <list>     <chr>            <lgl>                  <chr>             
-#>  1 <list [0]>     CodeList         08db76e7-2e85-8… <chr [1]>   <list [0]> Public           NA                     Recorded          
-#>  2 <list [0]>     <NA>             18d801e3-8c42-4… <chr [1]>   <list [0]> Public           NA                     Recorded          
-#>  3 <list [0]>     <NA>             0da67294-4413-4… <chr [1]>   <list [0]> Public           NA                     Recorded          
-#>  4 <list [0]>     <NA>             18e6acd0-f3e5-4… <chr [1]>   <list [0]> Public           NA                     Recorded          
-#>  5 <list [0]>     <NA>             27c1cf24-a1e0-4… <chr [1]>   <list [0]> Public           NA                     Recorded          
-#>  6 <list [0]>     <NA>             49d9c2f6-f3e8-4… <chr [1]>   <list [0]> Public           NA                     Recorded          
-#>  7 <list [0]>     <NA>             4b6d6de4-94f6-4… <chr [1]>   <list [0]> Public           NA                     Recorded          
-#>  8 <list [0]>     <NA>             6a26816f-8d56-4… <chr [1]>   <list [0]> Public           NA                     Recorded          
-#>  9 <list [0]>     <NA>             75d4e4f4-480f-4… <chr [1]>   <list [0]> Public           NA                     Recorded          
-#> 10 <list [0]>     <NA>             7d416e78-f3ae-4… <chr [1]>   <list [0]> Public           NA                     Recorded          
+#>    businessEvents conceptValueType id    identifiers lifeEvents publicationLevel
+#>    <list>         <chr>            <chr> <list>      <list>     <chr>           
+#>  1 <list [0]>     CodeList         08db… <chr [1]>   <list [0]> Public          
+#>  2 <list [0]>     <NA>             18d8… <chr [1]>   <list [0]> Public          
+#>  3 <list [0]>     <NA>             0da6… <chr [1]>   <list [0]> Public          
+#>  4 <list [0]>     <NA>             18e6… <chr [1]>   <list [0]> Public          
+#>  5 <list [0]>     <NA>             27c1… <chr [1]>   <list [0]> Public          
+#>  6 <list [0]>     <NA>             49d9… <chr [1]>   <list [0]> Public          
+#>  7 <list [0]>     <NA>             4b6d… <chr [1]>   <list [0]> Public          
+#>  8 <list [0]>     <NA>             6a26… <chr [1]>   <list [0]> Public          
+#>  9 <list [0]>     <NA>             75d4… <chr [1]>   <list [0]> Public          
+#> 10 <list [0]>     <NA>             7d41… <chr [1]>   <list [0]> Public          
 #> # ℹ 11 more rows
-#> # ℹ abbreviated name: ¹​publicationLevelProposal
-#> # ℹ 29 more variables: registrationStatusProposal <lgl>, status <chr>, themes <list>, type <chr>, validFrom <chr>, validTo <chr>,
-#> #   version <chr>, accessRights.code <chr>, accessRights.uri <chr>, accessRights.name.de <chr>, accessRights.name.en <chr>,
-#> #   accessRights.name.fr <chr>, accessRights.name.it <chr>, accessRights.name.rm <lgl>, description.de <chr>, description.en <chr>,
-#> #   description.fr <chr>, description.it <chr>, description.rm <lgl>, publisherName.de <chr>, publisherName.en <chr>,
-#> #   publisherName.fr <chr>, publisherName.it <chr>, publisherName.rm <chr>, title.de <chr>, title.en <chr>, title.fr <chr>, …
+#> # ℹ 31 more variables: publicationLevelProposal <lgl>,
+#> #   registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>,
+#> #   themes <list>, type <chr>, validFrom <chr>, validTo <chr>, version <chr>,
+#> #   accessRights.code <chr>, accessRights.uri <chr>,
+#> #   accessRights.name.de <chr>, accessRights.name.en <chr>,
+#> #   accessRights.name.fr <chr>, accessRights.name.it <chr>, …
 ```
 
 You can check first if the dataset has a data structure:
@@ -441,33 +447,21 @@ data_structure <- i14y_get_data_structure(identifier = "SpiGes_Erhebung_Administ
 # get "data_structure$variables" data.frame
 as_tibble(as.data.frame(data_structure$variables))
 #> # A tibble: 33 × 9
-#>    id                              identifier position role  type  description.cultureC…¹ description.text name.cultureCode name.text
-#>    <chr>                           <chr>         <int> <chr> <chr> <chr>                  <chr>            <chr>            <chr>    
-#>  1 af3b5919-0012-42ac-bbdd-24b591… aufenthal…        1 Meas… Nume… de                     "Erfassung der … de               Aufentha…
-#>  2 ae252e47-236b-4c78-ad35-a58c30… eintritts…        2 Meas… Code… de                     "Beschreibung d… de               Eintritt…
-#>  3 9d3309c8-6dbe-4ab3-a3ef-2dfcfc… einw_inst…        3 Meas… Code… de                     "Wer hat die In… de               Einweise…
-#>  4 d3cd1189-d89b-467f-af45-8a7f1d… tarif             4 Meas… Code… de                     "Mit dieser Spe… de               Tarif fü…
-#>  5 5a6cb8d2-018e-4514-80db-dde4a5… admin_url…        5 Meas… Nume… de                     "Verlässt ein P… de               Administ…
-#>  6 fa3688e4-6bac-4075-be3b-ddc17c… nationali…        6 Meas… Code… de                     "ISO-Kode des H… de               National…
-#>  7 4895cfd2-a933-436f-9401-795aac… eintritts…        7 Meas… Date  de                     "Angabe des Ein… de               Eintritt…
-#>  8 0f756da2-81eb-4c7f-a912-3013c4… austritt_…        8 Meas… Code… de                     "Wohin wurde de… de               Aufentha…
-#>  9 576e6ab4-a3bb-4c98-9bdc-9f72bf… wohnkanton        9 Meas… Code… de                     "Für Personen m… de               Wohnkant…
-#> 10 366909a8-b0bc-4f78-b1a6-c4e697… chlz             10 Meas… Nume… de                     "Kumulierte chL… de               chLZ - c…
+#>    id    identifier position role  type  description.cultureC…¹ description.text
+#>    <chr> <chr>         <int> <chr> <chr> <chr>                  <chr>           
+#>  1 af3b… aufenthal…        1 Meas… Nume… de                     "Erfassung der …
+#>  2 ae25… eintritts…        2 Meas… Code… de                     "Beschreibung d…
+#>  3 9d33… einw_inst…        3 Meas… Code… de                     "Wer hat die In…
+#>  4 d3cd… tarif             4 Meas… Code… de                     "Mit dieser Spe…
+#>  5 5a6c… admin_url…        5 Meas… Nume… de                     "Verlässt ein P…
+#>  6 fa36… nationali…        6 Meas… Code… de                     "ISO-Kode des H…
+#>  7 4895… eintritts…        7 Meas… Date  de                     "Angabe des Ein…
+#>  8 0f75… austritt_…        8 Meas… Code… de                     "Wohin wurde de…
+#>  9 576e… wohnkanton        9 Meas… Code… de                     "Für Personen m…
+#> 10 3669… chlz             10 Meas… Nume… de                     "Kumulierte chL…
 #> # ℹ 23 more rows
 #> # ℹ abbreviated name: ¹​description.cultureCode
-```
-
-Using the “id” column returned by `i14y_get_data_structure()`, you can
-get the data related to a sms element:
-
-*Note:* *Due to a change in the I14Y API, this function does not work at
-the moment.*
-
-``` r
-i14y_get_data_element(
-  id = "af3b5919-0012-42ac-bbdd-24b591279899",
-  language = "en"
-)
+#> # ℹ 2 more variables: name.cultureCode <chr>, name.text <chr>
 ```
 
 Note that if you have a SpiGes XML file, you can extract the data using

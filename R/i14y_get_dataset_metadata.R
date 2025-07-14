@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-#' i14y_get_dataset_description(identifier = "HCL_NOGA")
+#' i14y_get_dataset_metadata(id = "02e34f85-14df-45b5-a38b-2f063c999481")
 i14y_get_dataset_metadata <- function(
     id = NULL
 ) {
