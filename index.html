@@ -74,75 +74,78 @@
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/I14Y/">I14Y</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: le package 'I14Y' a été compilé avec la version R 4.4.3</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/I14Y/">I14Y</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="get-concepts-and-codelists">Get concepts and codelists<a class="anchor" aria-label="anchor" href="#get-concepts-and-codelists"></a>
 </h3>
 <p>You can get the full concept public catalog with <code><a href="reference/i14y_search_concept.html">i14y_search_concept()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_concept.html">i14y_search_concept</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 452 × 13</span></span>
-<span><span class="co">#&gt;    conceptType id        identifier registrationStatus validFrom validTo version</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt;  1 Numeric     08dbcbbc… AHVN13     PreferredStandard  2007-11-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt;  2 CodeList    08db65be… AJOURNEME… Recorded           1996-12-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt;  3 Numeric     08db65bf… AJOURNEME… Recorded           1996-12-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt;  4 CodeList    08dc0def… ANHVO      Recorded           2018-03-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt;  5 CodeList    08db556b… ANTICIPAT… Recorded           1996-12-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt;  6 Numeric     08dc5e21… AZCHS      Recorded           2018-03-… &lt;NA&gt;    1.0.0  </span></span>
-<span><span class="co">#&gt;  7 CodeList    08dd4b4d… BLW_BLV_C… Recorded           2024-12-… &lt;NA&gt;    0.1.0  </span></span>
-<span><span class="co">#&gt;  8 CodeList    08dd50de… BLW_CD_ag… Recorded           2025-01-… &lt;NA&gt;    0.1.1  </span></span>
-<span><span class="co">#&gt;  9 CodeList    08dca65f… BLW_CD_CD… Recorded           2001-02-… 2023-1… 1.0.0  </span></span>
-<span><span class="co">#&gt; 10 CodeList    08dd50e5… BLW_CD_DZ… Recorded           2023-12-… &lt;NA&gt;    1.0.1  </span></span>
-<span><span class="co">#&gt; # ℹ 442 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 6 more variables: agencyName.cultureCode &lt;chr&gt;, agencyName.text &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   description.cultureCode &lt;chr&gt;, description.text &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   name.cultureCode &lt;chr&gt;, name.text &lt;chr&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 500 × 31</span></span>
+<span><span class="co">#&gt;    accessRights businessEvents conceptValueType id                     identifiers lifeEvents publicationLevel publicationLevelProp…¹</span></span>
+<span><span class="co">#&gt;    &lt;lgl&gt;        &lt;list&gt;         &lt;chr&gt;            &lt;chr&gt;                  &lt;list&gt;      &lt;list&gt;     &lt;chr&gt;            &lt;lgl&gt;                 </span></span>
+<span><span class="co">#&gt;  1 NA           &lt;list [0]&gt;     CodeList         08d92cdc-03c1-103f-8f… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  2 NA           &lt;list [0]&gt;     CodeList         08d92cdc-4e4a-5b21-9e… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  3 NA           &lt;list [0]&gt;     CodeList         08d92cdc-827b-5021-82… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  4 NA           &lt;list [0]&gt;     CodeList         08d92cdc-a5fb-1a11-be… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  5 NA           &lt;list [0]&gt;     CodeList         08d92cdc-c97d-acd7-99… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  6 NA           &lt;list [0]&gt;     CodeList         08d9407c-88f5-81a3-9b… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  7 NA           &lt;list [0]&gt;     CodeList         08d93fc7-6bb5-5585-a5… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  8 NA           &lt;list [0]&gt;     CodeList         08d9407c-8319-7542-84… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  9 NA           &lt;list [0]&gt;     CodeList         08d92cdc-eab7-9960-bb… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt; 10 NA           &lt;list [0]&gt;     Numeric          08d93fba-c4ab-e0a7-ad… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt; # ℹ 490 more rows</span></span>
+<span><span class="co">#&gt; # ℹ abbreviated name: ¹​publicationLevelProposal</span></span>
+<span><span class="co">#&gt; # ℹ 23 more variables: registrationStatus &lt;chr&gt;, registrationStatusProposal &lt;lgl&gt;, status &lt;chr&gt;, themes &lt;list&gt;, type &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   validFrom &lt;chr&gt;, validTo &lt;chr&gt;, version &lt;chr&gt;, description.de &lt;chr&gt;, description.en &lt;chr&gt;, description.fr &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   description.it &lt;chr&gt;, description.rm &lt;lgl&gt;, publisherName.de &lt;chr&gt;, publisherName.en &lt;chr&gt;, publisherName.fr &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   publisherName.it &lt;chr&gt;, publisherName.rm &lt;chr&gt;, title.de &lt;chr&gt;, title.en &lt;chr&gt;, title.fr &lt;chr&gt;, title.it &lt;chr&gt;, title.rm &lt;chr&gt;</span></span></code></pre></div>
 <p>Search for a specific concept in a given language (“en”, “de”, “fr” or “it”) with <code><a href="reference/i14y_search_concept.html">i14y_search_concept()</a></code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_concept.html">i14y_search_concept</a></span><span class="op">(</span>search <span class="op">=</span> <span class="st">"noga"</span>, language <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 10 × 13</span></span>
-<span><span class="co">#&gt;    conceptType id        identifier registrationStatus validFrom validTo version</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;      &lt;chr&gt;              &lt;chr&gt;     &lt;lgl&gt;   &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt;  1 CodeList    08d94604… DV_NOGA_C… PreferredStandard  2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt;  2 CodeList    08d94604… DV_NOGA_D… PreferredStandard  2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt;  3 CodeList    08d9f6dd… DV_NOGA_E… Recorded           2007-12-… NA      1.0.0  </span></span>
-<span><span class="co">#&gt;  4 CodeList    08d94604… DV_NOGA_G… PreferredStandard  2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt;  5 CodeList    08d94604… DV_NOGA_O… Recorded           2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt;  6 CodeList    08d94603… DV_NOGA_S… PreferredStandard  2007-12-… NA      3.0.0  </span></span>
-<span><span class="co">#&gt;  7 CodeList    08d9f1f9… DV_NOGA_S… Recorded           2007-12-… NA      1.0.0  </span></span>
-<span><span class="co">#&gt;  8 CodeList    08d94604… DV_NOGA_T… PreferredStandard  2007-12-… NA      3.1.0  </span></span>
-<span><span class="co">#&gt;  9 CodeList    08dd28d2… nogaCode   PreferredStandard  2025-01-… NA      2.0.0  </span></span>
-<span><span class="co">#&gt; 10 CodeList    08dc481b… nogaCode   PreferredStandard  2007-12-… NA      1.0.0  </span></span>
-<span><span class="co">#&gt; # ℹ 6 more variables: agencyName.cultureCode &lt;chr&gt;, agencyName.text &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   description.cultureCode &lt;chr&gt;, description.text &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   name.cultureCode &lt;chr&gt;, name.text &lt;chr&gt;</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_concept.html">i14y_search_concept</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"noga"</span>, language <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 10 × 31</span></span>
+<span><span class="co">#&gt;    accessRights businessEvents conceptValueType id                     identifiers lifeEvents publicationLevel publicationLevelProp…¹</span></span>
+<span><span class="co">#&gt;    &lt;lgl&gt;        &lt;list&gt;         &lt;chr&gt;            &lt;chr&gt;                  &lt;list&gt;      &lt;list&gt;     &lt;chr&gt;            &lt;lgl&gt;                 </span></span>
+<span><span class="co">#&gt;  1 NA           &lt;list [0]&gt;     CodeList         08d9f1f9-3f89-00b6-bb… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  2 NA           &lt;list [0]&gt;     CodeList         08d94604-ecc0-668d-9c… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  3 NA           &lt;list [0]&gt;     CodeList         08d94604-db03-1909-a0… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  4 NA           &lt;list [0]&gt;     CodeList         08d94604-e5ac-f859-9e… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  5 NA           &lt;list [0]&gt;     CodeList         08d94604-f12a-5d82-b6… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  6 NA           &lt;list [0]&gt;     CodeList         08dc481b-2add-1232-b5… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  7 NA           &lt;list [0]&gt;     CodeList         08dd28d2-a693-5049-a3… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  8 NA           &lt;list [0]&gt;     CodeList         08d94603-f490-f094-9f… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt;  9 NA           &lt;list [0]&gt;     CodeList         08d94604-e058-62a2-aa… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt; 10 NA           &lt;list [0]&gt;     CodeList         08d9f6dd-f8a3-cba5-81… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                    </span></span>
+<span><span class="co">#&gt; # ℹ abbreviated name: ¹​publicationLevelProposal</span></span>
+<span><span class="co">#&gt; # ℹ 23 more variables: registrationStatus &lt;chr&gt;, registrationStatusProposal &lt;lgl&gt;, status &lt;chr&gt;, themes &lt;list&gt;, type &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   validFrom &lt;chr&gt;, validTo &lt;lgl&gt;, version &lt;chr&gt;, description.de &lt;chr&gt;, description.en &lt;chr&gt;, description.fr &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   description.it &lt;chr&gt;, description.rm &lt;lgl&gt;, publisherName.de &lt;chr&gt;, publisherName.en &lt;chr&gt;, publisherName.fr &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   publisherName.it &lt;chr&gt;, publisherName.rm &lt;chr&gt;, title.de &lt;chr&gt;, title.en &lt;chr&gt;, title.fr &lt;chr&gt;, title.it &lt;chr&gt;, title.rm &lt;lgl&gt;</span></span></code></pre></div>
 <p>As showed in the <code>conceptType</code> column, some concepts have the type “CodeList”. You can get the codelist (i.e. the “content”) of a concept using <code><a href="reference/i14y_get_codelist.html">i14y_get_codelist()</a></code>, with the value from the <code>id</code> column.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_get_codelist.html">i14y_get_codelist</a></span><span class="op">(</span></span>
 <span>  id <span class="op">=</span> <span class="st">"08d94604-e058-62a2-aa25-53f84b974201"</span> <span class="co"># for DV_NOGA_DIVISION</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 88 × 48</span></span>
-<span><span class="co">#&gt;    Code  ParentCode Name_de       Name_fr Name_it Name_rm Name_en Description_de</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt; &lt;lgl&gt;      &lt;chr&gt;         &lt;chr&gt;   &lt;chr&gt;   &lt;lgl&gt;   &lt;chr&gt;   &lt;lgl&gt;         </span></span>
-<span><span class="co">#&gt;  1 01    NA         Landwirtscha… Cultur… Produz… NA      Crop a… NA            </span></span>
-<span><span class="co">#&gt;  2 02    NA         Forstwirtsch… Sylvic… Silvic… NA      Forest… NA            </span></span>
-<span><span class="co">#&gt;  3 03    NA         Fischerei un… Pêche … Pesca … NA      Fishin… NA            </span></span>
-<span><span class="co">#&gt;  4 05    NA         Kohlenbergbau Extrac… Estraz… NA      Mining… NA            </span></span>
-<span><span class="co">#&gt;  5 06    NA         Gewinnung vo… Extrac… Estraz… NA      Extrac… NA            </span></span>
-<span><span class="co">#&gt;  6 07    NA         Erzbergbau    Extrac… Estraz… NA      Mining… NA            </span></span>
-<span><span class="co">#&gt;  7 08    NA         Gewinnung vo… Autres… Altre … NA      Other … NA            </span></span>
-<span><span class="co">#&gt;  8 09    NA         Erbringung v… Servic… Attivi… NA      Mining… NA            </span></span>
-<span><span class="co">#&gt;  9 10    NA         Herstellung … Indust… Indust… NA      Manufa… NA            </span></span>
-<span><span class="co">#&gt; 10 11    NA         Getränkehers… Fabric… Produz… NA      Manufa… NA            </span></span>
+<span><span class="co">#&gt;    Code  ParentCode Name_de               Name_fr Name_it Name_rm Name_en Description_de Description_fr Description_it Description_rm</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt; &lt;lgl&gt;      &lt;chr&gt;                 &lt;chr&gt;   &lt;chr&gt;   &lt;lgl&gt;   &lt;chr&gt;   &lt;lgl&gt;          &lt;lgl&gt;          &lt;lgl&gt;          &lt;lgl&gt;         </span></span>
+<span><span class="co">#&gt;  1 01    NA         Landwirtschaft, Jagd… Cultur… Produz… NA      Crop a… NA             NA             NA             NA            </span></span>
+<span><span class="co">#&gt;  2 02    NA         Forstwirtschaft und … Sylvic… Silvic… NA      Forest… NA             NA             NA             NA            </span></span>
+<span><span class="co">#&gt;  3 03    NA         Fischerei und Aquaku… Pêche … Pesca … NA      Fishin… NA             NA             NA             NA            </span></span>
+<span><span class="co">#&gt;  4 05    NA         Kohlenbergbau         Extrac… Estraz… NA      Mining… NA             NA             NA             NA            </span></span>
+<span><span class="co">#&gt;  5 06    NA         Gewinnung von Erdöl … Extrac… Estraz… NA      Extrac… NA             NA             NA             NA            </span></span>
+<span><span class="co">#&gt;  6 07    NA         Erzbergbau            Extrac… Estraz… NA      Mining… NA             NA             NA             NA            </span></span>
+<span><span class="co">#&gt;  7 08    NA         Gewinnung von Steine… Autres… Altre … NA      Other … NA             NA             NA             NA            </span></span>
+<span><span class="co">#&gt;  8 09    NA         Erbringung von Diens… Servic… Attivi… NA      Mining… NA             NA             NA             NA            </span></span>
+<span><span class="co">#&gt;  9 10    NA         Herstellung von Nahr… Indust… Indust… NA      Manufa… NA             NA             NA             NA            </span></span>
+<span><span class="co">#&gt; 10 11    NA         Getränkeherstellung   Fabric… Produz… NA      Manufa… NA             NA             NA             NA            </span></span>
 <span><span class="co">#&gt; # ℹ 78 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 40 more variables: Description_fr &lt;lgl&gt;, Description_it &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   Description_rm &lt;lgl&gt;, Description_en &lt;lgl&gt;, Annotation_ABBREV_Type &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   Annotation_ABBREV_Title &lt;lgl&gt;, Annotation_ABBREV_URI &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   Annotation_ABBREV_Identifier &lt;lgl&gt;, Annotation_ABBREV_Text_de &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   Annotation_ABBREV_Text_fr &lt;chr&gt;, Annotation_ABBREV_Text_it &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   Annotation_ABBREV_Text_rm &lt;lgl&gt;, Annotation_ABBREV_Text_en &lt;chr&gt;, …</span></span></code></pre></div>
+<span><span class="co">#&gt; # ℹ 37 more variables: Description_en &lt;lgl&gt;, Annotation_ABBREV_Type &lt;chr&gt;, Annotation_ABBREV_Title &lt;lgl&gt;,</span></span>
+<span><span class="co">#&gt; #   Annotation_ABBREV_URI &lt;lgl&gt;, Annotation_ABBREV_Identifier &lt;lgl&gt;, Annotation_ABBREV_Text_de &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   Annotation_ABBREV_Text_fr &lt;chr&gt;, Annotation_ABBREV_Text_it &lt;chr&gt;, Annotation_ABBREV_Text_rm &lt;lgl&gt;,</span></span>
+<span><span class="co">#&gt; #   Annotation_ABBREV_Text_en &lt;chr&gt;, Annotation_INCLUDES_Type &lt;chr&gt;, Annotation_INCLUDES_Title &lt;lgl&gt;, Annotation_INCLUDES_URI &lt;lgl&gt;,</span></span>
+<span><span class="co">#&gt; #   Annotation_INCLUDES_Identifier &lt;lgl&gt;, Annotation_INCLUDES_Text_de &lt;chr&gt;, Annotation_INCLUDES_Text_fr &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   Annotation_INCLUDES_Text_it &lt;chr&gt;, Annotation_INCLUDES_Text_rm &lt;lgl&gt;, Annotation_INCLUDES_Text_en &lt;chr&gt;, …</span></span></code></pre></div>
 <p>You can also get all concept metadata using <code>i14_get_concept()</code>. Note that the object returned is a list (not a data.frame).</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">concept_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_concept.html">i14y_get_concept</a></span><span class="op">(</span></span>
@@ -180,21 +183,20 @@
 <span></span>
 <span><span class="va">income_by_job_and_gender</span></span>
 <span><span class="co">#&gt; # A tibble: 164 × 5</span></span>
-<span><span class="co">#&gt;    Jahr  Wirtschaftsabteilung                  Geschlecht Zentralwert und ande…¹</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                                 &lt;chr&gt;      &lt;chr&gt;                 </span></span>
-<span><span class="co">#&gt;  1 2022  Wirtschaftsabteilung - Total          Frauen     Zentralwert           </span></span>
-<span><span class="co">#&gt;  2 2022  Wirtschaftsabteilung - Total          Männer     Zentralwert           </span></span>
-<span><span class="co">#&gt;  3 2022  05-43 Sektor 2: Produktion            Frauen     Zentralwert           </span></span>
-<span><span class="co">#&gt;  4 2022  05-43 Sektor 2: Produktion            Männer     Zentralwert           </span></span>
-<span><span class="co">#&gt;  5 2022  &gt; 8 Gewinnung von Steinen und Erden,… Frauen     Zentralwert           </span></span>
-<span><span class="co">#&gt;  6 2022  &gt; 8 Gewinnung von Steinen und Erden,… Männer     Zentralwert           </span></span>
-<span><span class="co">#&gt;  7 2022  &gt; 9 Erbringung von Dienstleistungen … Frauen     Zentralwert           </span></span>
-<span><span class="co">#&gt;  8 2022  &gt; 9 Erbringung von Dienstleistungen … Männer     Zentralwert           </span></span>
-<span><span class="co">#&gt;  9 2022  &gt; 10 Herstellung von Nahrungs- und F… Frauen     Zentralwert           </span></span>
-<span><span class="co">#&gt; 10 2022  &gt; 10 Herstellung von Nahrungs- und F… Männer     Zentralwert           </span></span>
+<span><span class="co">#&gt;    Jahr  Wirtschaftsabteilung                                                Geschlecht Zentralwert und ande…¹ Monatlicher Bruttolo…²</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;                                                               &lt;chr&gt;      &lt;chr&gt;                                   &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt;  1 2022  Wirtschaftsabteilung - Total                                        Frauen     Zentralwert                              6397</span></span>
+<span><span class="co">#&gt;  2 2022  Wirtschaftsabteilung - Total                                        Männer     Zentralwert                              7066</span></span>
+<span><span class="co">#&gt;  3 2022  05-43 Sektor 2: Produktion                                          Frauen     Zentralwert                              6019</span></span>
+<span><span class="co">#&gt;  4 2022  05-43 Sektor 2: Produktion                                          Männer     Zentralwert                              6735</span></span>
+<span><span class="co">#&gt;  5 2022  &gt; 8 Gewinnung von Steinen und Erden, sonstiger Bergbau              Frauen     Zentralwert                              6230</span></span>
+<span><span class="co">#&gt;  6 2022  &gt; 8 Gewinnung von Steinen und Erden, sonstiger Bergbau              Männer     Zentralwert                              6342</span></span>
+<span><span class="co">#&gt;  7 2022  &gt; 9 Erbringung von Dienstleistungen für den Bergbau und für die Ge… Frauen     Zentralwert                                NA</span></span>
+<span><span class="co">#&gt;  8 2022  &gt; 9 Erbringung von Dienstleistungen für den Bergbau und für die Ge… Männer     Zentralwert                                NA</span></span>
+<span><span class="co">#&gt;  9 2022  &gt; 10 Herstellung von Nahrungs- und Futtermitteln                    Frauen     Zentralwert                              4796</span></span>
+<span><span class="co">#&gt; 10 2022  &gt; 10 Herstellung von Nahrungs- und Futtermitteln                    Männer     Zentralwert                              5730</span></span>
 <span><span class="co">#&gt; # ℹ 154 more rows</span></span>
-<span><span class="co">#&gt; # ℹ abbreviated name: ¹​`Zentralwert und andere Perzentile`</span></span>
-<span><span class="co">#&gt; # ℹ 1 more variable: `Monatlicher Bruttolohn` &lt;dbl&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; # ℹ abbreviated names: ¹​`Zentralwert und andere Perzentile`, ²​`Monatlicher Bruttolohn`</span></span></code></pre></div>
 <p>Using I14Y, you can get the English, French or Italian translation of the German NOGA division categories (with a bit of extra data transformations):</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
@@ -212,18 +214,18 @@
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">noga_division</span>, by <span class="op">=</span> <span class="st">"Code"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Wirtschaftsabteilung</span>, <span class="va">Name_en</span>, <span class="va">Name_fr</span>, <span class="va">Name_it</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 160 × 4</span></span>
-<span><span class="co">#&gt;    Wirtschaftsabteilung                                  Name_en Name_fr Name_it</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;                                                 &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt;  1 Wirtschaftsabteilung - Total                          &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  2 Wirtschaftsabteilung - Total                          &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  3 &gt; 8 Gewinnung von Steinen und Erden, sonstiger Bergb… Other … Autres… Altre …</span></span>
-<span><span class="co">#&gt;  4 &gt; 8 Gewinnung von Steinen und Erden, sonstiger Bergb… Other … Autres… Altre …</span></span>
-<span><span class="co">#&gt;  5 &gt; 9 Erbringung von Dienstleistungen für den Bergbau … Mining… Servic… Attivi…</span></span>
-<span><span class="co">#&gt;  6 &gt; 9 Erbringung von Dienstleistungen für den Bergbau … Mining… Servic… Attivi…</span></span>
-<span><span class="co">#&gt;  7 &gt; 10 Herstellung von Nahrungs- und Futtermitteln      Manufa… Indust… Indust…</span></span>
-<span><span class="co">#&gt;  8 &gt; 10 Herstellung von Nahrungs- und Futtermitteln      Manufa… Indust… Indust…</span></span>
-<span><span class="co">#&gt;  9 &gt; 11 Getränkeherstellung                              Manufa… Fabric… Produz…</span></span>
-<span><span class="co">#&gt; 10 &gt; 11 Getränkeherstellung                              Manufa… Fabric… Produz…</span></span>
+<span><span class="co">#&gt;    Wirtschaftsabteilung                                                                            Name_en            Name_fr Name_it</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                                                                                           &lt;chr&gt;              &lt;chr&gt;   &lt;chr&gt;  </span></span>
+<span><span class="co">#&gt;  1 Wirtschaftsabteilung - Total                                                                    &lt;NA&gt;               &lt;NA&gt;    &lt;NA&gt;   </span></span>
+<span><span class="co">#&gt;  2 Wirtschaftsabteilung - Total                                                                    &lt;NA&gt;               &lt;NA&gt;    &lt;NA&gt;   </span></span>
+<span><span class="co">#&gt;  3 &gt; 8 Gewinnung von Steinen und Erden, sonstiger Bergbau                                          Other mining and … Autres… Altre …</span></span>
+<span><span class="co">#&gt;  4 &gt; 8 Gewinnung von Steinen und Erden, sonstiger Bergbau                                          Other mining and … Autres… Altre …</span></span>
+<span><span class="co">#&gt;  5 &gt; 9 Erbringung von Dienstleistungen für den Bergbau und für die Gewinnung von Steinen und Erden Mining support se… Servic… Attivi…</span></span>
+<span><span class="co">#&gt;  6 &gt; 9 Erbringung von Dienstleistungen für den Bergbau und für die Gewinnung von Steinen und Erden Mining support se… Servic… Attivi…</span></span>
+<span><span class="co">#&gt;  7 &gt; 10 Herstellung von Nahrungs- und Futtermitteln                                                Manufacture of fo… Indust… Indust…</span></span>
+<span><span class="co">#&gt;  8 &gt; 10 Herstellung von Nahrungs- und Futtermitteln                                                Manufacture of fo… Indust… Indust…</span></span>
+<span><span class="co">#&gt;  9 &gt; 11 Getränkeherstellung                                                                        Manufacture of be… Fabric… Produz…</span></span>
+<span><span class="co">#&gt; 10 &gt; 11 Getränkeherstellung                                                                        Manufacture of be… Fabric… Produz…</span></span>
 <span><span class="co">#&gt; # ℹ 150 more rows</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -232,70 +234,88 @@
 <p>You can search in the public catalog for datasets, data services or public services with <code><a href="reference/i14y_search_catalog.html">i14y_search_catalog()</a></code>:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_catalog.html">i14y_search_catalog</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 140 × 13</span></span>
-<span><span class="co">#&gt;    formats   identifier   registrationStatus themes type  accessRights.culture…¹</span></span>
-<span><span class="co">#&gt;    &lt;list&gt;    &lt;chr&gt;        &lt;chr&gt;              &lt;list&gt; &lt;chr&gt; &lt;chr&gt;                 </span></span>
-<span><span class="co">#&gt;  1 &lt;chr [0]&gt; 0aaed69d-15… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  2 &lt;chr [0]&gt; 15d720d4-dc… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  3 &lt;chr [0]&gt; 14e60ad3-1c… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  4 &lt;chr [0]&gt; 1f975f0e-68… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  5 &lt;chr [0]&gt; 08b7a45f-c1… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  6 &lt;chr [0]&gt; 404387b5-ff… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  7 &lt;chr [0]&gt; 49fe34cc-bb… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  8 &lt;chr [0]&gt; 4cfcb1da-0f… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  9 &lt;chr [0]&gt; 6ef8f5d2-3d… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; 10 &lt;chr [0]&gt; 6516adf7-a2… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; # ℹ 130 more rows</span></span>
-<span><span class="co">#&gt; # ℹ abbreviated name: ¹​accessRights.cultureCode</span></span>
-<span><span class="co">#&gt; # ℹ 7 more variables: accessRights.text &lt;chr&gt;, description.cultureCode &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   description.text &lt;chr&gt;, publisher.cultureCode &lt;chr&gt;, publisher.text &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   title.cultureCode &lt;chr&gt;, title.text &lt;chr&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 688 × 37</span></span>
+<span><span class="co">#&gt;    businessEvents conceptValueType id               identifiers lifeEvents publicationLevel publicationLevelProp…¹ registrationStatus</span></span>
+<span><span class="co">#&gt;    &lt;list&gt;         &lt;chr&gt;            &lt;chr&gt;            &lt;list&gt;      &lt;list&gt;     &lt;chr&gt;            &lt;lgl&gt;                  &lt;chr&gt;             </span></span>
+<span><span class="co">#&gt;  1 &lt;df [0 × 0]&gt;   &lt;NA&gt;             171b09a4-5b5f-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  2 &lt;df [0 × 0]&gt;   &lt;NA&gt;             0aaed69d-15ff-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  3 &lt;df [0 × 0]&gt;   &lt;NA&gt;             15d720d4-dc78-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  4 &lt;df [0 × 0]&gt;   &lt;NA&gt;             14e60ad3-1ccd-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  5 &lt;df [0 × 0]&gt;   &lt;NA&gt;             1f975f0e-68d1-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  6 &lt;df [0 × 0]&gt;   &lt;NA&gt;             08b7a45f-c18f-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  7 &lt;df [0 × 0]&gt;   &lt;NA&gt;             17ec3628-e0b6-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  8 &lt;df [0 × 0]&gt;   &lt;NA&gt;             49fe34cc-bb32-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  9 &lt;df [0 × 0]&gt;   &lt;NA&gt;             4cfcb1da-0f8d-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt; 10 &lt;df [0 × 0]&gt;   &lt;NA&gt;             6ef8f5d2-3d6a-4… &lt;chr [1]&gt;   &lt;df&gt;       Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt; # ℹ 678 more rows</span></span>
+<span><span class="co">#&gt; # ℹ abbreviated name: ¹​publicationLevelProposal</span></span>
+<span><span class="co">#&gt; # ℹ 29 more variables: registrationStatusProposal &lt;lgl&gt;, status &lt;chr&gt;, themes &lt;list&gt;, type &lt;chr&gt;, validFrom &lt;chr&gt;, validTo &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   version &lt;chr&gt;, accessRights.code &lt;chr&gt;, accessRights.uri &lt;chr&gt;, accessRights.name.de &lt;chr&gt;, accessRights.name.en &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   accessRights.name.fr &lt;chr&gt;, accessRights.name.it &lt;chr&gt;, accessRights.name.rm &lt;lgl&gt;, description.de &lt;chr&gt;, description.en &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   description.fr &lt;chr&gt;, description.it &lt;chr&gt;, description.rm &lt;lgl&gt;, publisherName.de &lt;chr&gt;, publisherName.en &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   publisherName.fr &lt;chr&gt;, publisherName.it &lt;chr&gt;, publisherName.rm &lt;chr&gt;, title.de &lt;chr&gt;, title.en &lt;chr&gt;, title.fr &lt;chr&gt;, …</span></span></code></pre></div>
 <p>Note that the “type” column returned by <code><a href="reference/i14y_search_catalog.html">i14y_search_catalog()</a></code> shows if the content is a “Dataset”, a “DataService” or a “PublicService”.</p>
-<p>You can get the description of a given “Dataset” with <code><a href="reference/i14y_get_dataset_description.html">i14y_get_dataset_description()</a></code>.</p>
+<p>You can get the description from the metadata of a given “Dataset” with <code><a href="reference/i14y_get_dataset_metadata.html">i14y_get_dataset_metadata()</a></code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dataset_description</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_dataset_description.html">i14y_get_dataset_description</a></span><span class="op">(</span></span>
-<span>  identifier <span class="op">=</span> <span class="st">"EPD_Metadaten"</span>,  </span>
-<span>  language <span class="op">=</span> <span class="st">"en"</span></span>
+<code class="sourceCode R"><span><span class="va">dataset_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_dataset_metadata.html">i14y_get_dataset_metadata</a></span><span class="op">(</span></span>
+<span>  id <span class="op">=</span> <span class="st">"02e34f85-14df-45b5-a38b-2f063c999481"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">dataset_description</span><span class="op">$</span><span class="va">description</span><span class="op">$</span><span class="va">text</span></span>
-<span><span class="co">#&gt; [1] "Im Kontext des digitalen Austausches von medizinischen Informationen zwischen den Behandelnden ist eine Analogie mit dem Briefverkehr hilfreich. Die notwendigen Informationen auf einem Briefumschlag wie Absender, Adressatin und eventuell die nähere Bezeichnung des Briefinhaltes sind vergleichbar mit den Metadaten, die einem elektronischen Dokument angefügt werden. Anhand dieser Informationen können die IT-Systeme – quasi als elektronische Briefträger – den Transport, die Ablage und die Abfrage automatisch bewerkstelligen."</span></span></code></pre></div>
-<p>Some datasets can be access directly using the I14Y API. But other datasets are hosted only on partner websites. You can get the URL downloads and formats of the dataset using <code><a href="reference/i14y_get_dataset_distributions.html">i14y_get_dataset_distributions()</a></code>:</p>
+<span><span class="co"># Add the language</span></span>
+<span><span class="va">dataset_metadata</span><span class="op">$</span><span class="va">description</span><span class="op">$</span><span class="va">en</span></span>
+<span><span class="co">#&gt; [1] "The Swiss prosecution authorities and the Federal intelligence service (FIS) may order post and telecommunications surveillance measures for the purpose of investigating serious criminal offences based on the Swiss Criminal Procedure Code and the Federal Intelligence Service Act. The PTSS is obliged to produce statistics on surveillance measures based on  Art. 16 para. 1 let. k of the Federal Act on Post and Telecommunications Surveillance (SPTA).\r\n\r\nAlthough the number of monitoring measures has fallen this year, it is still slightly above the average of the last five years. While real-time monitoring is within this average, retrospective monitoring is slightly higher. However, emergency searches and tracing of persons show a strong increase compared to the above-mentioned average, while antenna searches are slightly lower.\r\n\r\nThe Articles 269bis and 269ter of the Swiss Criminal Procedure Code allow the use of special technical devices (IMSI catchers) and computer software (govware) for telecommunications surveillance. \r\n\r\nIn 2023, 9 operations used this special computer software (7 in the previous year). The number of operations using special technical devices (IMSI-Catcher) amounts to 160 compared to 120 in the previous year. \r\n\r\nNote: The numbers presented by FIS and those by the PTSS are not comparable due to a different counting method.\r\n"</span></span></code></pre></div>
+<p>Some datasets can be access directly using the I14Y API. But other datasets are hosted only on partner websites. You can get the URL downloads and formats of the dataset using in the distributions part:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dataset_distributions</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_dataset_distributions.html">i14y_get_dataset_distributions</a></span><span class="op">(</span></span>
-<span>  identifier <span class="op">=</span> <span class="st">"HCL_CH_ISCO_19_PROF_1_2_2"</span>,  </span>
-<span>  language <span class="op">=</span> <span class="st">"en"</span></span>
-<span><span class="op">)</span></span>
+<code class="sourceCode R"><span></span>
 <span><span class="co"># see "downloadUrl" and "format" columns</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">dataset_distributions</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 'data.frame':    5 obs. of  27 variables:</span></span>
-<span><span class="co">#&gt;  $ accessUrl              :List of 5</span></span>
-<span><span class="co">#&gt;  $ availability           : logi  NA NA NA NA NA</span></span>
-<span><span class="co">#&gt;  $ byteSize               : num  2000000 49 49 49 4862000</span></span>
-<span><span class="co">#&gt;  $ checksum               : logi  NA NA NA NA NA</span></span>
-<span><span class="co">#&gt;  $ conformsTo             :List of 5</span></span>
-<span><span class="co">#&gt;  $ coverage               :List of 5</span></span>
-<span><span class="co">#&gt;  $ documentation          :List of 5</span></span>
-<span><span class="co">#&gt;  $ downloadUrl            :List of 5</span></span>
-<span><span class="co">#&gt;  $ id                     : chr  "02b188f4-72ef-4458-8e32-092f100e4ec4" "60235fc5-5d18-4821-9c28-731fb812602e" "7cba5165-aae7-4565-a62c-68795ddb9262" "ac6e33db-e048-410f-8206-ad9b24a6c587" ...</span></span>
-<span><span class="co">#&gt;  $ identifier             : logi  NA NA NA NA NA</span></span>
-<span><span class="co">#&gt;  $ image                  :List of 5</span></span>
-<span><span class="co">#&gt;  $ language               :List of 5</span></span>
-<span><span class="co">#&gt;  $ license                : logi  NA NA NA NA NA</span></span>
-<span><span class="co">#&gt;  $ mediaType              : logi  NA NA NA NA NA</span></span>
-<span><span class="co">#&gt;  $ modified               : chr  "2024-11-06T00:00:00+01:00" "2024-11-14T00:00:00+01:00" "2024-04-02T00:00:00+02:00" "2024-04-02T00:00:00+02:00" ...</span></span>
-<span><span class="co">#&gt;  $ packagingFormat        : logi  NA NA NA NA NA</span></span>
-<span><span class="co">#&gt;  $ releaseDate            : chr  "2024-11-06T00:00:00+01:00" "2024-04-02T00:00:00+02:00" "2024-04-02T00:00:00+02:00" "2024-04-02T00:00:00+02:00" ...</span></span>
-<span><span class="co">#&gt;  $ rights                 : logi  NA NA NA NA NA</span></span>
-<span><span class="co">#&gt;  $ spatialResolution      :List of 5</span></span>
-<span><span class="co">#&gt;  $ status                 :List of 5</span></span>
-<span><span class="co">#&gt;  $ temporalResolution     : logi  NA NA NA NA NA</span></span>
-<span><span class="co">#&gt;  $ description.cultureCode: chr  "en" "en" "en" "en" ...</span></span>
-<span><span class="co">#&gt;  $ description.text       : chr  "Auswahl an Berufsbezeichnungen für den Einsatz in Web- oder Telefonumfragen und andere Online-Formulare. Diese "| __truncated__ "Die Schweizer Berufsnomenklatur CH-ISCO-19 übernimmt die vier ersten Ebenen der Internationalen Standardklassif"| __truncated__ "Die Schweizer Berufsnomenklatur CH-ISCO-19 übernimmt die vier ersten Ebenen der Internationalen Standardklassif"| __truncated__ "Die Schweizer Berufsnomenklatur CH-ISCO-19 übernimmt die vier ersten Ebenen der Internationalen Standardklassif"| __truncated__ ...</span></span>
-<span><span class="co">#&gt;  $ format.cultureCode     : chr  "en" "en" "en" "en" ...</span></span>
-<span><span class="co">#&gt;  $ format.text            : chr  "Excel XLSX" "Excel XLSX" "Excel XLSX" "Excel XLSX" ...</span></span>
-<span><span class="co">#&gt;  $ title.cultureCode      : chr  "en" "en" "en" "en" ...</span></span>
-<span><span class="co">#&gt;  $ title.text             : chr  "Auswahl an Berufsbezeichnungen für Umfragen v.1.2.2" "Schweizer Berufsnomenklatur CH-ISCO-19 v.1.2" "Schweizer Berufsnomenklatur CH-ISCO-19 v.1.2" "Schweizer Berufsnomenklatur CH-ISCO-19 v.1.2" ...</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">dataset_metadata</span><span class="op">$</span><span class="va">distributions</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    18 obs. of  46 variables:</span></span>
+<span><span class="co">#&gt;  $ accessServices    :List of 18</span></span>
+<span><span class="co">#&gt;  $ availability      : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ byteSize          : int  0 0 0 0 0 0 0 0 0 0 ...</span></span>
+<span><span class="co">#&gt;  $ checksum          : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ conformsTo        :List of 18</span></span>
+<span><span class="co">#&gt;  $ coverage          :List of 18</span></span>
+<span><span class="co">#&gt;  $ documentation     :List of 18</span></span>
+<span><span class="co">#&gt;  $ id                : chr  "051ce80d-5cc5-4bf4-874b-9626d55ae5a4" "123e09a1-2198-44af-aa2a-c4bf1cc1fd94" "16bc7686-a1c6-4cd9-8583-704f7922e647" "2ca8412c-3627-449f-b7fb-239889ade1a0" ...</span></span>
+<span><span class="co">#&gt;  $ identifier        : chr  "Detaillierte_Statistik_UEPF_detaillierte_statistik_2023_-_auskünfte" "Detaillierte_Statistik_UEPF_detaillierte_statistik_2011" "Detaillierte_Statistik_UEPF_detaillierte_statistik_2015" "Detaillierte_Statistik_UEPF_detaillierte_statistik_2020_-_auskünfte" ...</span></span>
+<span><span class="co">#&gt;  $ images            :List of 18</span></span>
+<span><span class="co">#&gt;  $ issued            : chr  "2024-04-25T02:00:00+02:00" "2012-03-06T01:00:00+01:00" "2016-02-25T01:00:00+01:00" "2021-03-23T01:00:00+01:00" ...</span></span>
+<span><span class="co">#&gt;  $ languages         :List of 18</span></span>
+<span><span class="co">#&gt;  $ mediaType         : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ modified          : chr  "2024-05-08T10:40:25.929+02:00" "2020-05-07T13:49:33.014+02:00" "2020-05-07T13:49:33.014+02:00" "2021-04-07T15:56:03.405+02:00" ...</span></span>
+<span><span class="co">#&gt;  $ packagingFormat   : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ rights            : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ spatialResolution : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ temporalResolution: chr  "" "" "" NA ...</span></span>
+<span><span class="co">#&gt;  $ accessUrl.label   : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ accessUrl.uri     : chr  "https://www.li.admin.ch/sites/default/files/2024-04/auskunfte-2023.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2011.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2015.xlsx" "https://www.li.admin.ch/sites/default/files/2021-03/auskuenfte_2020.xlsx" ...</span></span>
+<span><span class="co">#&gt;  $ description.de    : chr  "Die Schweizer Strafverfolgungsbehörden und der Nachrichtendienst des Bundes (NDB) können zur Aufklärung von sch"| __truncated__ "Eine Echtzeitüberwachung ist die simultane, leicht verzögerte oder periodische Übertragung der Post- oder Fernm"| __truncated__ "Eine Echtzeitüberwachung ist die simultane, leicht verzögerte oder periodische Übertragung der Post- oder Fernm"| __truncated__ "Echtzeitüberwachung \r\nEine Echtzeitüberwachung ist die simultane, leicht verzögerte oder periodische Übertrag"| __truncated__ ...</span></span>
+<span><span class="co">#&gt;  $ description.en    : chr  "The Swiss prosecution authorities and the Federal intelligence service (FIS) may order post and telecommunicati"| __truncated__ "" "" "" ...</span></span>
+<span><span class="co">#&gt;  $ description.fr    : chr  "Les autorités suisses de poursuite pénale et le Service de renseignement de la Confédération (SRC) peuvent, en "| __truncated__ "Une surveillance en temps réel est l’interception en temps réel et la transmission simultanée, légèrement diffé"| __truncated__ "Une surveillance en temps réel est l’interception en temps réel et la transmission simultanée, légèrement diffé"| __truncated__ "Surveillance en temps réel \r\nUne surveillance en temps réel est l’interception en temps réel et la transmissi"| __truncated__ ...</span></span>
+<span><span class="co">#&gt;  $ description.it    : chr  "Per indagare su reati gravi, le autorità di perseguimento penale svizzere e il Servizio delle attività informat"| __truncated__ "Una sorveglianza in tempo reale consiste nella trasmissione simultanea, leggermente ritardata o periodica di da"| __truncated__ "Una sorveglianza in tempo reale consiste nella trasmissione simultanea, leggermente ritardata o periodica di da"| __truncated__ "Sorveglianza in tempo reale \r\nUna sorveglianza in tempo reale consiste nella trasmissione simultanea, leggerm"| __truncated__ ...</span></span>
+<span><span class="co">#&gt;  $ description.rm    : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ downloadUrl.label : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ downloadUrl.uri   : chr  "https://www.li.admin.ch/sites/default/files/2024-04/auskunfte-2023.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2011.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2015.xlsx" "https://www.li.admin.ch/sites/default/files/2021-03/auskuenfte_2020.xlsx" ...</span></span>
+<span><span class="co">#&gt;  $ format.code       : chr  "XLS" "XLS" "XLS" "XLS" ...</span></span>
+<span><span class="co">#&gt;  $ format.uri        : chr  "" "" "" "" ...</span></span>
+<span><span class="co">#&gt;  $ format.name.de    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...</span></span>
+<span><span class="co">#&gt;  $ format.name.en    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...</span></span>
+<span><span class="co">#&gt;  $ format.name.fr    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...</span></span>
+<span><span class="co">#&gt;  $ format.name.it    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...</span></span>
+<span><span class="co">#&gt;  $ format.name.rm    : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ license.code      : chr  "terms_open" "terms_open" "terms_open" "terms_open" ...</span></span>
+<span><span class="co">#&gt;  $ license.uri       : chr  "http://dcat-ap.ch/vocabulary/licenses/terms_open" "http://dcat-ap.ch/vocabulary/licenses/terms_open" "http://dcat-ap.ch/vocabulary/licenses/terms_open" "http://dcat-ap.ch/vocabulary/licenses/terms_open" ...</span></span>
+<span><span class="co">#&gt;  $ license.name.de   : chr  "Opendata OPEN: Freie Nutzung." "Opendata OPEN: Freie Nutzung." "Opendata OPEN: Freie Nutzung." "Opendata OPEN: Freie Nutzung." ...</span></span>
+<span><span class="co">#&gt;  $ license.name.en   : chr  "Opendata OPEN: Open use." "Opendata OPEN: Open use." "Opendata OPEN: Open use." "Opendata OPEN: Open use." ...</span></span>
+<span><span class="co">#&gt;  $ license.name.fr   : chr  "Opendata OPEN: Utilisation libre." "Opendata OPEN: Utilisation libre." "Opendata OPEN: Utilisation libre." "Opendata OPEN: Utilisation libre." ...</span></span>
+<span><span class="co">#&gt;  $ license.name.it   : chr  "Opendata OPEN: Libero utilizzo." "Opendata OPEN: Libero utilizzo." "Opendata OPEN: Libero utilizzo." "Opendata OPEN: Libero utilizzo." ...</span></span>
+<span><span class="co">#&gt;  $ license.name.rm   : logi  NA NA NA NA NA NA ...</span></span>
+<span><span class="co">#&gt;  $ title.de          : chr  "Detaillierte Statistik 2023 - Auskünfte" "Detaillierte Statistik 2011" "Detaillierte Statistik 2015" "Detaillierte Statistik 2020 - Auskünfte" ...</span></span>
+<span><span class="co">#&gt;  $ title.en          : chr  "" "" "" "" ...</span></span>
+<span><span class="co">#&gt;  $ title.fr          : chr  "Statistique détaillée 2023 - Renseignements" "Statistique détaillée 2011" "Statistique détaillée 2015" "" ...</span></span>
+<span><span class="co">#&gt;  $ title.it          : chr  "Statistica dettagliata 2023 - Informazioni" "Statistica dettagliata 2011" "Statistica dettagliata 2015" "" ...</span></span>
+<span><span class="co">#&gt;  $ title.rm          : logi  NA NA NA NA NA NA ...</span></span></code></pre></div>
 <p>We see using <code><a href="reference/i14y_get_dataset_distributions.html">i14y_get_dataset_distributions()</a></code> that the dataset above is accessible using the Nomenclatures endpoint of the I14Y API. You can get a nomenclature dataset level with <code><a href="reference/i14y_get_nomenclature_level.html">i14y_get_nomenclature_level()</a></code>.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_get_nomenclature_level.html">i14y_get_nomenclature_level</a></span><span class="op">(</span></span>
@@ -304,18 +324,18 @@
 <span>  language <span class="op">=</span> <span class="st">"de"</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 88 × 3</span></span>
-<span><span class="co">#&gt;    Code  Parent Name_de                                                         </span></span>
-<span><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;                                                           </span></span>
-<span><span class="co">#&gt;  1 01    A      Landwirtschaft, Jagd und damit verbundene Tätigkeiten           </span></span>
-<span><span class="co">#&gt;  2 02    A      Forstwirtschaft und Holzeinschlag                               </span></span>
-<span><span class="co">#&gt;  3 03    A      Fischerei und Aquakultur                                        </span></span>
-<span><span class="co">#&gt;  4 05    B      Kohlenbergbau                                                   </span></span>
-<span><span class="co">#&gt;  5 06    B      Gewinnung von Erdöl und Erdgas                                  </span></span>
-<span><span class="co">#&gt;  6 07    B      Erzbergbau                                                      </span></span>
-<span><span class="co">#&gt;  7 08    B      Gewinnung von Steinen und Erden, sonstiger Bergbau              </span></span>
-<span><span class="co">#&gt;  8 09    B      Erbringung von Dienstleistungen für den Bergbau und für die Gew…</span></span>
-<span><span class="co">#&gt;  9 10    C      Herstellung von Nahrungs- und Futtermitteln                     </span></span>
-<span><span class="co">#&gt; 10 11    C      Getränkeherstellung                                             </span></span>
+<span><span class="co">#&gt;    Code  Parent Name_de                                                                                    </span></span>
+<span><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;                                                                                      </span></span>
+<span><span class="co">#&gt;  1 01    A      Landwirtschaft, Jagd und damit verbundene Tätigkeiten                                      </span></span>
+<span><span class="co">#&gt;  2 02    A      Forstwirtschaft und Holzeinschlag                                                          </span></span>
+<span><span class="co">#&gt;  3 03    A      Fischerei und Aquakultur                                                                   </span></span>
+<span><span class="co">#&gt;  4 05    B      Kohlenbergbau                                                                              </span></span>
+<span><span class="co">#&gt;  5 06    B      Gewinnung von Erdöl und Erdgas                                                             </span></span>
+<span><span class="co">#&gt;  6 07    B      Erzbergbau                                                                                 </span></span>
+<span><span class="co">#&gt;  7 08    B      Gewinnung von Steinen und Erden, sonstiger Bergbau                                         </span></span>
+<span><span class="co">#&gt;  8 09    B      Erbringung von Dienstleistungen für den Bergbau und für die Gewinnung von Steinen und Erden</span></span>
+<span><span class="co">#&gt;  9 10    C      Herstellung von Nahrungs- und Futtermitteln                                                </span></span>
+<span><span class="co">#&gt; 10 11    C      Getränkeherstellung                                                                        </span></span>
 <span><span class="co">#&gt; # ℹ 78 more rows</span></span></code></pre></div>
 <p>You can get nomenclature multi levels with <code>i14y_get_nomenclature_level_multi()</code>:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
@@ -327,18 +347,18 @@
 <span>  language <span class="op">=</span> <span class="st">"de"</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 109 × 4</span></span>
-<span><span class="co">#&gt;    Abschnitt Abteilung Code  Name_de                                            </span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                                              </span></span>
-<span><span class="co">#&gt;  1 A         &lt;NA&gt;      A     LAND- UND FORSTWIRTSCHAFT, FISCHEREI               </span></span>
-<span><span class="co">#&gt;  2 &lt;NA&gt;      01        01    Landwirtschaft, Jagd und damit verbundene Tätigkei…</span></span>
-<span><span class="co">#&gt;  3 &lt;NA&gt;      02        02    Forstwirtschaft und Holzeinschlag                  </span></span>
-<span><span class="co">#&gt;  4 &lt;NA&gt;      03        03    Fischerei und Aquakultur                           </span></span>
-<span><span class="co">#&gt;  5 B         &lt;NA&gt;      B     BERGBAU UND GEWINNUNG VON STEINEN UND ERDEN        </span></span>
-<span><span class="co">#&gt;  6 &lt;NA&gt;      05        05    Kohlenbergbau                                      </span></span>
-<span><span class="co">#&gt;  7 &lt;NA&gt;      06        06    Gewinnung von Erdöl und Erdgas                     </span></span>
-<span><span class="co">#&gt;  8 &lt;NA&gt;      07        07    Erzbergbau                                         </span></span>
-<span><span class="co">#&gt;  9 &lt;NA&gt;      08        08    Gewinnung von Steinen und Erden, sonstiger Bergbau </span></span>
-<span><span class="co">#&gt; 10 &lt;NA&gt;      09        09    Erbringung von Dienstleistungen für den Bergbau un…</span></span>
+<span><span class="co">#&gt;    Abschnitt Abteilung Code  Name_de                                                                                    </span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;                                                                                      </span></span>
+<span><span class="co">#&gt;  1 A         &lt;NA&gt;      A     LAND- UND FORSTWIRTSCHAFT, FISCHEREI                                                       </span></span>
+<span><span class="co">#&gt;  2 &lt;NA&gt;      01        01    Landwirtschaft, Jagd und damit verbundene Tätigkeiten                                      </span></span>
+<span><span class="co">#&gt;  3 &lt;NA&gt;      02        02    Forstwirtschaft und Holzeinschlag                                                          </span></span>
+<span><span class="co">#&gt;  4 &lt;NA&gt;      03        03    Fischerei und Aquakultur                                                                   </span></span>
+<span><span class="co">#&gt;  5 B         &lt;NA&gt;      B     BERGBAU UND GEWINNUNG VON STEINEN UND ERDEN                                                </span></span>
+<span><span class="co">#&gt;  6 &lt;NA&gt;      05        05    Kohlenbergbau                                                                              </span></span>
+<span><span class="co">#&gt;  7 &lt;NA&gt;      06        06    Gewinnung von Erdöl und Erdgas                                                             </span></span>
+<span><span class="co">#&gt;  8 &lt;NA&gt;      07        07    Erzbergbau                                                                                 </span></span>
+<span><span class="co">#&gt;  9 &lt;NA&gt;      08        08    Gewinnung von Steinen und Erden, sonstiger Bergbau                                         </span></span>
+<span><span class="co">#&gt; 10 &lt;NA&gt;      09        09    Erbringung von Dienstleistungen für den Bergbau und für die Gewinnung von Steinen und Erden</span></span>
 <span><span class="co">#&gt; # ℹ 99 more rows</span></span></code></pre></div>
 <p>You can also search within a nomenclature:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
@@ -350,15 +370,12 @@
 <span><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                               annotations</span></span>
 <span><span class="co">#&gt; 1                                                                                                              NA, NA, 0, 0, , , ABBREV, INCLUDES, , , fr, fr, AGRICULT., SYLVICULT. ET PÊCHE, Cette section couvre l'exploitation des ressources naturelles végétales et animales et comprend les activités de culture, d'élevage, de récolte de bois et d'autres plantes et de production d'animaux ou de produits animaux dans une exploitation agricole ou dans leur habitat naturel.</span></span>
 <span><span class="co">#&gt; 2 NA, NA, 0, 0, , , ABBREV, INCLUDES, , , fr, fr, Activ. de soutien à l'agriculture, Ce groupe comprend les activités annexes à la production agricole et les activités similaires à l'agriculture qui ne sont pas effectuées à des fins de production (dans le sens de récolter des produits agricoles) et qui sont exercées pour le compte de tiers. Le traitement primaire des récoltes en vue de la préparation des produits agricoles pour le marché primaire est également compris.</span></span>
-<span><span class="co">#&gt;                                                                                                   breadCrumbPath</span></span>
-<span><span class="co">#&gt; 1                                                                                                           NULL</span></span>
-<span><span class="co">#&gt; 2 A, A/01, fr, fr, AGRICULTURE, SYLVICULTURE ET PÊCHE, Culture et production animale, chasse et services annexes</span></span>
-<span><span class="co">#&gt;   code name.cultureCode</span></span>
-<span><span class="co">#&gt; 1    A               fr</span></span>
-<span><span class="co">#&gt; 2  016               fr</span></span>
-<span><span class="co">#&gt;                                                                  name.text</span></span>
-<span><span class="co">#&gt; 1                                       AGRICULTURE, SYLVICULTURE ET PÊCHE</span></span>
-<span><span class="co">#&gt; 2 Activités de soutien à l'agriculture et traitement primaire des récoltes</span></span></code></pre></div>
+<span><span class="co">#&gt;                                                                                                   breadCrumbPath code</span></span>
+<span><span class="co">#&gt; 1                                                                                                           NULL    A</span></span>
+<span><span class="co">#&gt; 2 A, A/01, fr, fr, AGRICULTURE, SYLVICULTURE ET PÊCHE, Culture et production animale, chasse et services annexes  016</span></span>
+<span><span class="co">#&gt;   name.cultureCode                                                                name.text</span></span>
+<span><span class="co">#&gt; 1               fr                                       AGRICULTURE, SYLVICULTURE ET PÊCHE</span></span>
+<span><span class="co">#&gt; 2               fr Activités de soutien à l'agriculture et traitement primaire des récoltes</span></span></code></pre></div>
 <p>Note that other official Swiss datasets from the Swiss Federal Statistical Office (BFS) can be accessed using the <a href="https://felixluginbuhl.com/BFS/" class="external-link">BFS</a> R package.</p>
 </div>
 <div class="section level3">
@@ -367,28 +384,26 @@
 <p>You can search for data structure of a dataset. Let’s search for example for the SpiGes project:</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_catalog.html">i14y_search_catalog</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"SpiGes"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 15 × 13</span></span>
-<span><span class="co">#&gt;    formats    identifier  registrationStatus themes type  accessRights.culture…¹</span></span>
-<span><span class="co">#&gt;    &lt;list&gt;     &lt;chr&gt;       &lt;chr&gt;              &lt;list&gt; &lt;chr&gt; &lt;chr&gt;                 </span></span>
-<span><span class="co">#&gt;  1 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  2 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  3 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  4 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  5 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  6 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  7 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  8 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt;  9 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; 10 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; 11 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; 12 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; 13 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; 14 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; 15 &lt;list [0]&gt; SpiGes_Erh… Recorded           &lt;df&gt;   Data… de                    </span></span>
-<span><span class="co">#&gt; # ℹ abbreviated name: ¹​accessRights.cultureCode</span></span>
-<span><span class="co">#&gt; # ℹ 7 more variables: accessRights.text &lt;chr&gt;, description.cultureCode &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   description.text &lt;chr&gt;, publisher.cultureCode &lt;chr&gt;, publisher.text &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   title.cultureCode &lt;chr&gt;, title.text &lt;chr&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; # A tibble: 21 × 37</span></span>
+<span><span class="co">#&gt;    businessEvents conceptValueType id               identifiers lifeEvents publicationLevel publicationLevelProp…¹ registrationStatus</span></span>
+<span><span class="co">#&gt;    &lt;list&gt;         &lt;chr&gt;            &lt;chr&gt;            &lt;list&gt;      &lt;list&gt;     &lt;chr&gt;            &lt;lgl&gt;                  &lt;chr&gt;             </span></span>
+<span><span class="co">#&gt;  1 &lt;list [0]&gt;     CodeList         08db76e7-2e85-8… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  2 &lt;list [0]&gt;     &lt;NA&gt;             18d801e3-8c42-4… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  3 &lt;list [0]&gt;     &lt;NA&gt;             0da67294-4413-4… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  4 &lt;list [0]&gt;     &lt;NA&gt;             18e6acd0-f3e5-4… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  5 &lt;list [0]&gt;     &lt;NA&gt;             27c1cf24-a1e0-4… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  6 &lt;list [0]&gt;     &lt;NA&gt;             49d9c2f6-f3e8-4… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  7 &lt;list [0]&gt;     &lt;NA&gt;             4b6d6de4-94f6-4… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  8 &lt;list [0]&gt;     &lt;NA&gt;             6a26816f-8d56-4… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt;  9 &lt;list [0]&gt;     &lt;NA&gt;             75d4e4f4-480f-4… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt; 10 &lt;list [0]&gt;     &lt;NA&gt;             7d416e78-f3ae-4… &lt;chr [1]&gt;   &lt;list [0]&gt; Public           NA                     Recorded          </span></span>
+<span><span class="co">#&gt; # ℹ 11 more rows</span></span>
+<span><span class="co">#&gt; # ℹ abbreviated name: ¹​publicationLevelProposal</span></span>
+<span><span class="co">#&gt; # ℹ 29 more variables: registrationStatusProposal &lt;lgl&gt;, status &lt;chr&gt;, themes &lt;list&gt;, type &lt;chr&gt;, validFrom &lt;chr&gt;, validTo &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   version &lt;chr&gt;, accessRights.code &lt;chr&gt;, accessRights.uri &lt;chr&gt;, accessRights.name.de &lt;chr&gt;, accessRights.name.en &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   accessRights.name.fr &lt;chr&gt;, accessRights.name.it &lt;chr&gt;, accessRights.name.rm &lt;lgl&gt;, description.de &lt;chr&gt;, description.en &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   description.fr &lt;chr&gt;, description.it &lt;chr&gt;, description.rm &lt;lgl&gt;, publisherName.de &lt;chr&gt;, publisherName.en &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   publisherName.fr &lt;chr&gt;, publisherName.it &lt;chr&gt;, publisherName.rm &lt;chr&gt;, title.de &lt;chr&gt;, title.en &lt;chr&gt;, title.fr &lt;chr&gt;, …</span></span></code></pre></div>
 <p>You can check first if the dataset has a data structure:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">nomenclature_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_content_information.html">i14y_get_content_information</a></span><span class="op">(</span></span>
@@ -406,34 +421,27 @@
 <span><span class="co"># get "data_structure$variables" data.frame</span></span>
 <span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame</a></span><span class="op">(</span><span class="va">data_structure</span><span class="op">$</span><span class="va">variables</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; # A tibble: 33 × 9</span></span>
-<span><span class="co">#&gt;    id    identifier position role  type  description.cultureC…¹ description.text</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;         &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;                  &lt;chr&gt;           </span></span>
-<span><span class="co">#&gt;  1 af3b… aufenthal…        1 Meas… Nume… de                     "Erfassung der …</span></span>
-<span><span class="co">#&gt;  2 ae25… eintritts…        2 Meas… Code… de                     "Beschreibung d…</span></span>
-<span><span class="co">#&gt;  3 9d33… einw_inst…        3 Meas… Code… de                     "Wer hat die In…</span></span>
-<span><span class="co">#&gt;  4 d3cd… tarif             4 Meas… Code… de                     "Mit dieser Spe…</span></span>
-<span><span class="co">#&gt;  5 5a6c… admin_url…        5 Meas… Nume… de                     "Verlässt ein P…</span></span>
-<span><span class="co">#&gt;  6 fa36… nationali…        6 Meas… Code… de                     "ISO-Kode des H…</span></span>
-<span><span class="co">#&gt;  7 4895… eintritts…        7 Meas… Date  de                     "Angabe des Ein…</span></span>
-<span><span class="co">#&gt;  8 0f75… austritt_…        8 Meas… Code… de                     "Wohin wurde de…</span></span>
-<span><span class="co">#&gt;  9 576e… wohnkanton        9 Meas… Code… de                     "Für Personen m…</span></span>
-<span><span class="co">#&gt; 10 3669… chlz             10 Meas… Nume… de                     "Kumulierte chL…</span></span>
+<span><span class="co">#&gt;    id                              identifier position role  type  description.cultureC…¹ description.text name.cultureCode name.text</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;                           &lt;chr&gt;         &lt;int&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;                  &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;    </span></span>
+<span><span class="co">#&gt;  1 af3b5919-0012-42ac-bbdd-24b591… aufenthal…        1 Meas… Nume… de                     "Erfassung der … de               Aufentha…</span></span>
+<span><span class="co">#&gt;  2 ae252e47-236b-4c78-ad35-a58c30… eintritts…        2 Meas… Code… de                     "Beschreibung d… de               Eintritt…</span></span>
+<span><span class="co">#&gt;  3 9d3309c8-6dbe-4ab3-a3ef-2dfcfc… einw_inst…        3 Meas… Code… de                     "Wer hat die In… de               Einweise…</span></span>
+<span><span class="co">#&gt;  4 d3cd1189-d89b-467f-af45-8a7f1d… tarif             4 Meas… Code… de                     "Mit dieser Spe… de               Tarif fü…</span></span>
+<span><span class="co">#&gt;  5 5a6cb8d2-018e-4514-80db-dde4a5… admin_url…        5 Meas… Nume… de                     "Verlässt ein P… de               Administ…</span></span>
+<span><span class="co">#&gt;  6 fa3688e4-6bac-4075-be3b-ddc17c… nationali…        6 Meas… Code… de                     "ISO-Kode des H… de               National…</span></span>
+<span><span class="co">#&gt;  7 4895cfd2-a933-436f-9401-795aac… eintritts…        7 Meas… Date  de                     "Angabe des Ein… de               Eintritt…</span></span>
+<span><span class="co">#&gt;  8 0f756da2-81eb-4c7f-a912-3013c4… austritt_…        8 Meas… Code… de                     "Wohin wurde de… de               Aufentha…</span></span>
+<span><span class="co">#&gt;  9 576e6ab4-a3bb-4c98-9bdc-9f72bf… wohnkanton        9 Meas… Code… de                     "Für Personen m… de               Wohnkant…</span></span>
+<span><span class="co">#&gt; 10 366909a8-b0bc-4f78-b1a6-c4e697… chlz             10 Meas… Nume… de                     "Kumulierte chL… de               chLZ - c…</span></span>
 <span><span class="co">#&gt; # ℹ 23 more rows</span></span>
-<span><span class="co">#&gt; # ℹ abbreviated name: ¹​description.cultureCode</span></span>
-<span><span class="co">#&gt; # ℹ 2 more variables: name.cultureCode &lt;chr&gt;, name.text &lt;chr&gt;</span></span></code></pre></div>
+<span><span class="co">#&gt; # ℹ abbreviated name: ¹​description.cultureCode</span></span></code></pre></div>
 <p>Using the “id” column returned by <code><a href="reference/i14y_get_data_structure.html">i14y_get_data_structure()</a></code>, you can get the data related to a sms element:</p>
+<p><em>Note:</em> <em>Due to a change in the I14Y API, this function does not work at the moment.</em></p>
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_get_data_element.html">i14y_get_data_element</a></span><span class="op">(</span></span>
 <span>  id <span class="op">=</span> <span class="st">"af3b5919-0012-42ac-bbdd-24b591279899"</span>,</span>
 <span>  language <span class="op">=</span> <span class="st">"en"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 2 × 12</span></span>
-<span><span class="co">#&gt;   agencyId      conceptId conceptName conceptVersion dataStructureId description</span></span>
-<span><span class="co">#&gt;   &lt;chr&gt;         &lt;chr&gt;     &lt;named lis&gt; &lt;chr&gt;          &lt;chr&gt;           &lt;named lis&gt;</span></span>
-<span><span class="co">#&gt; 1 6e7f0c77-97d… 08db7711… &lt;chr [1]&gt;   1.0.0          08da694d-7305-… &lt;chr [1]&gt;  </span></span>
-<span><span class="co">#&gt; 2 6e7f0c77-97d… 08db7711… &lt;chr [1]&gt;   1.0.0          08da694d-7305-… &lt;chr [1]&gt;  </span></span>
-<span><span class="co">#&gt; # ℹ 6 more variables: id &lt;chr&gt;, identifier &lt;chr&gt;, name &lt;named list&gt;,</span></span>
-<span><span class="co">#&gt; #   position &lt;int&gt;, role &lt;chr&gt;, type &lt;chr&gt;</span></span></code></pre></div>
+<span><span class="op">)</span></span></code></pre></div>
 <p>Note that if you have a SpiGes XML file, you can extract the data using the <strong><a href="https://github.com/SwissStatsR/SpiGesXML" class="external-link">SpiGesXML</a></strong> R package.</p>
 </div>
 <div class="section level3">
