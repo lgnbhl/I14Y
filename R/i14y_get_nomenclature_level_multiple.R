@@ -20,13 +20,13 @@
 #'   language = "fr"
 #'  )
 i14y_get_nomenclature_level_multiple <- function(
-    identifier = NULL,
-    language = "de",
-    levelFrom = NULL,
-    levelTo = NULL,
-    format = "csv",
-    annotations = NULL,
-    filters = NULL
+  identifier = NULL,
+  language = "de",
+  levelFrom = NULL,
+  levelTo = NULL,
+  format = "csv",
+  annotations = NULL,
+  filters = NULL
 ) {
   check_not_null(identifier)
   check_not_null(language)
@@ -41,24 +41,38 @@ i14y_get_nomenclature_level_multiple <- function(
   language <- arg_match(language, c("de", "fr", "en", "it"))
   format <- arg_match(format, c("csv", "xlsx"))
   # TODO: validate args "annotations" and "filters"
-  check_internet()
+  if (!curl::has_internet()) {
+    message("No internet connection")
+    return(NULL)
+  }
 
   req <- httr2::request("https://www.i14y.admin.ch")
-  req <- httr2::req_user_agent(req, "I14Y R package (https://github.com/lgnbhl/I14Y)")
-  req <- httr2::req_url_path_append(req, paste0("/api/Nomenclatures/", identifier, "/multiplelevels/", format))
-  req <- httr2::req_url_query(req,
-    identifier = identifier, format = format, language = language,
-    levelFrom = levelFrom, levelTo = levelTo, annotations = annotations,
+  req <- httr2::req_user_agent(
+    req,
+    "I14Y R package (https://github.com/lgnbhl/I14Y)"
+  )
+  req <- httr2::req_url_path_append(
+    req,
+    paste0("/api/Nomenclatures/", identifier, "/multiplelevels/", format)
+  )
+  req <- httr2::req_url_query(
+    req,
+    identifier = identifier,
+    format = format,
+    language = language,
+    levelFrom = levelFrom,
+    levelTo = levelTo,
+    annotations = annotations,
     filters = filters
   )
   req <- httr2::req_retry(req, max_tries = 2)
   req <- httr2::req_perform(req)
-  if(format == "csv") {
+  if (format == "csv") {
     resp <- httr2::resp_body_string(req)
     tbl <- readr::read_csv(resp, show_col_types = FALSE)
     return(tbl)
   }
-  if(format == "xlsx") {
+  if (format == "xlsx") {
     stop("The format 'xlsx' has not yet been implemented.")
   }
   return(req)

@@ -12,19 +12,28 @@
 #'  language = "de"
 #' )
 i14y_get_concept_all_versions <- function(
-    id = NULL,
-    language = "de"
+  id = NULL,
+  language = "de"
 ) {
   check_not_null(id)
   check_not_null(language)
   check_string(id)
   check_string(language)
   language <- arg_match(language, c("de", "fr", "en", "it"))
-  check_internet()
+  if (!curl::has_internet()) {
+    message("No internet connection")
+    return(NULL)
+  }
 
   req <- httr2::request("https://www.i14y.admin.ch")
-  req <- httr2::req_user_agent(req, "I14Y R package (https://github.com/lgnbhl/I14Y)")
-  req <- httr2::req_url_path_append(req, paste0("/api/ConceptView/", id, "/allversions"))
+  req <- httr2::req_user_agent(
+    req,
+    "I14Y R package (https://github.com/lgnbhl/I14Y)"
+  )
+  req <- httr2::req_url_path_append(
+    req,
+    paste0("/api/ConceptView/", id, "/allversions")
+  )
   req <- httr2::req_url_query(req, language = language)
   req <- httr2::req_retry(req, max_tries = 2)
   req <- httr2::req_perform(req)
