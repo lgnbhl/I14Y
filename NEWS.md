@@ -1,3 +1,7 @@
+# I14Y 0.1.6
+- Fail gracefully if no internet
+- Use air code formatter
+
 # I14Y 0.1.5
 - new contributor
 - added and fixed tests for pull request https://github.com/lgnbhl/I14Y/pull/1
