@@ -209,19 +209,6 @@ as_tibble(as.data.frame(data_structure$variables))
 
 Note that if you have a SpiGes XML file, you can extract the data using the **[SpiGesXML](https://github.com/SwissStatsR/SpiGesXML)** R package.
 
-### Data service
-
-You can get data service information, by "id" retrieved with `i14y_search_catalog()`:
-
-```{r}
-# "News Service Bund (NSB)" (title text)
-data_service <- i14y_get_data_service(
-  id = "52b7f97d-df95-45d2-8533-d2a2fa43641a",
-  language = "en"
-)
-str(data_service, max.level = 1)
-```
-
 ## Acknowledgements
 
 This R package is inspired by [fso-metadata](https://gitlab.renkulab.io/dscc/metadata-auto-r-library) and some [I14Y Python tutorials](https://github.com/I14Y-ch/tutorials/blob/main/content/Public%20API's%20documentation.ipynb).

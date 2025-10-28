@@ -1,3 +1,6 @@
+# I14Y 0.1.7
+- BREAKING CHANGE: remove `i14y_get_data_service()` as it fails test and seems to always return error 404.
+
 # I14Y 0.1.6
 - Fail gracefully if no internet
 - Use air code formatter

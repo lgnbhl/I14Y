@@ -467,40 +467,6 @@ as_tibble(as.data.frame(data_structure$variables))
 Note that if you have a SpiGes XML file, you can extract the data using
 the **[SpiGesXML](https://github.com/SwissStatsR/SpiGesXML)** R package.
 
-### Data service
-
-You can get data service information, by “id” retrieved with
-`i14y_search_catalog()`:
-
-``` r
-# "News Service Bund (NSB)" (title text)
-data_service <- i14y_get_data_service(
-  id = "52b7f97d-df95-45d2-8533-d2a2fa43641a",
-  language = "en"
-)
-str(data_service, max.level = 1)
-#> List of 19
-#>  $ accessRights       :List of 2
-#>  $ conformsTo         :'data.frame': 1 obs. of  2 variables:
-#>  $ contactPoint       :'data.frame': 1 obs. of  9 variables:
-#>  $ datasetLinks       : list()
-#>  $ description        :List of 2
-#>  $ documentation      : list()
-#>  $ endpointDescription:'data.frame': 1 obs. of  2 variables:
-#>  $ endpointUrl        :'data.frame': 2 obs. of  2 variables:
-#>  $ id                 : chr "52b7f97d-df95-45d2-8533-d2a2fa43641a"
-#>  $ keyword            :'data.frame': 3 obs. of  2 variables:
-#>  $ landingPage        :'data.frame': 1 obs. of  2 variables:
-#>  $ license            : NULL
-#>  $ nextVersions       : list()
-#>  $ previousVersion    : NULL
-#>  $ publisher          :List of 2
-#>  $ theme              :'data.frame': 2 obs. of  2 variables:
-#>  $ title              :List of 2
-#>  $ version            : NULL
-#>  $ versionNotes       : NULL
-```
-
 ## Acknowledgements
 
 This R package is inspired by

@@ -1,7 +1,7 @@
 Package: I14Y
 Type: Package
 Title: Search and Get Data from the I14Y Interoperability Platform of Switzerland
-Version: 0.1.6
+Version: 0.1.7
 Authors@R: c(
     person(given = "Felix",
            family = "Luginbuhl",
