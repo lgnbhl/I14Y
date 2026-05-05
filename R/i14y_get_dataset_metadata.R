@@ -17,7 +17,7 @@ i14y_get_dataset_metadata <- function(
     return(NULL)
   }
 
-  req <- httr2::request(paste0("https://input.i14y.admin.ch/api/Dataset/", id))
+  req <- httr2::request(paste0("https://input-backend.i14y.c.bfs.admin.ch/api/Dataset/", id))
   req <- httr2::req_user_agent(
     req,
     "I14Y R package (https://github.com/lgnbhl/I14Y)"
