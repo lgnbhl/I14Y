@@ -42,7 +42,7 @@ i14y_search_catalog <- function(
     return(NULL)
   }
 
-  req <- httr2::request("https://input.i14y.admin.ch/api/Catalog/search")
+  req <- httr2::request("https://input-backend.i14y.c.bfs.admin.ch/api/Catalog/search")
   req <- httr2::req_user_agent(
     req,
     "I14Y R package (https://github.com/lgnbhl/I14Y)"
