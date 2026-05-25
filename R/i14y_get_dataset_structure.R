@@ -13,10 +13,10 @@
 #'   other formats, the raw response body as a character string.
 #' @export
 #' @examples
-#' i14y_get_data_structure(
+#' i14y_get_dataset_structure(
 #'   id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 #' )
-i14y_get_data_structure <- function(
+i14y_get_dataset_structure <- function(
   id = NULL,
   format = "JsonLd"
 ) {
