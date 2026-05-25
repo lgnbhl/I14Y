@@ -1,18 +1,18 @@
-#' Get dataset content information by ID
+#' Get dataset metadata by ID
 #'
-#' Returns metadata for a dataset including its publication level, registration
-#' status, distributions and whether structures are available
-#' (`hasDataStructures`).
+#' Calls the I14Y public API endpoint \verb{/datasets/\{datasetId\}} and returns
+#' the dataset metadata: publication level, registration status, distributions,
+#' contact points, themes, etc.
 #'
 #' @param id string. The UUID of the dataset.
 #'
 #' @return a list
 #' @examples
-#' i14y_get_content_information(
+#' i14y_get_dataset(
 #'   id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 #' )
 #' @export
-i14y_get_content_information <- function(
+i14y_get_dataset <- function(
   id = NULL
 ) {
   check_not_null(id)
