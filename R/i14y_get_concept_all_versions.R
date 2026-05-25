@@ -25,7 +25,7 @@ i14y_get_concept_all_versions <- function(
     return(NULL)
   }
 
-  req <- httr2::request("https://www.i14y.admin.ch")
+  req <- httr2::request("https://input-backend.i14y.c.bfs.admin.ch")
   req <- httr2::req_user_agent(
     req,
     "I14Y R package (https://github.com/lgnbhl/I14Y)"

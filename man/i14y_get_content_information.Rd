@@ -4,7 +4,7 @@
 \alias{i14y_get_content_information}
 \title{Get the information of a nomenclature by identifier}
 \usage{
-i14y_get_content_information(identifier = NULL)
+i14y_get_content_information(id = NULL)
 }
 \arguments{
 \item{identifier}{string. The identifier of the nomenclature.}

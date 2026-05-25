@@ -27,7 +27,7 @@ i14y_get_codelist <- function(
     return(NULL)
   }
 
-  req <- httr2::request("https://api.i14y.admin.ch")
+  req <- httr2::request("https://api.i14y.admin.ch/")
   req <- httr2::req_user_agent(
     req,
     "I14Y R package (https://github.com/lgnbhl/I14Y)"
