@@ -1,5 +1,12 @@
 #' Search for a Concept Summary
 #'
+#' @note This function calls the internal I14Y `input-backend` host
+#'   (`input-backend.i14y.c.bfs.admin.ch/api/Catalog/search`) because the
+#'   public API at `api.i14y.admin.ch` does not yet expose an equivalent
+#'   faceted concept search endpoint. That host is undocumented and may change
+#'   without notice, so this function may break between releases. It will be
+#'   migrated once a public equivalent is available.
+#'
 #' @param query string. Search query.
 #' @param language string. The language of the response data.
 #' @param page integer. The number of the result page to return.

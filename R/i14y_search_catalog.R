@@ -1,5 +1,12 @@
 #' Search the catalog for datasets, data services and public services.
 #'
+#' @note This function calls the internal I14Y `input-backend` host
+#'   (`input-backend.i14y.c.bfs.admin.ch/api/Catalog/search`) because the
+#'   public API at `api.i14y.admin.ch` does not yet expose an equivalent
+#'   faceted catalog search endpoint. That host is undocumented and may change
+#'   without notice, so this function may break between releases. It will be
+#'   migrated once a public equivalent is available.
+#'
 #' @param language string. The language to use for the search
 #' @param query string. The search query
 #' @param accessRights vector of strings. Only results with one of the

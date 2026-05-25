@@ -38,6 +38,14 @@ a tibble
 \description{
 Search for a Concept Summary
 }
+\note{
+This function calls the internal I14Y \code{input-backend} host
+(\code{input-backend.i14y.c.bfs.admin.ch/api/Catalog/search}) because the
+public API at \code{api.i14y.admin.ch} does not yet expose an equivalent
+faceted concept search endpoint. That host is undocumented and may change
+without notice, so this function may break between releases. It will be
+migrated once a public equivalent is available.
+}
 \examples{
 i14y_search_concept(query = "noga", language = "en")
 }
