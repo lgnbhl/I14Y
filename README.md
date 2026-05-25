@@ -190,20 +190,21 @@ income_by_job_and_gender |>
   filter(!str_detect(Wirtschaftsabteilung, "Sektor")) |> # remove sectors
   mutate(Code = readr::parse_number(Wirtschaftsabteilung)) |> # extract code
   left_join(noga_division, by = "Code") |>
-  select(Wirtschaftsabteilung, Name_en, Name_fr, Name_it)
+  select(Wirtschaftsabteilung, Name_en, Name_fr, Name_it) |>
+  arrange(Name_en)
 #> # A tibble: 6,400 × 4
-#>    Wirtschaftsabteilung         Name_en Name_fr Name_it
-#>    <chr>                        <chr>   <chr>   <chr>  
-#>  1 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
-#>  2 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
-#>  3 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
-#>  4 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
-#>  5 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
-#>  6 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
-#>  7 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
-#>  8 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
-#>  9 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
-#> 10 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#>    Wirtschaftsabteilung Name_en       Name_fr     Name_it            
+#>    <chr>                <chr>         <chr>       <chr>              
+#>  1 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
+#>  2 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
+#>  3 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
+#>  4 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
+#>  5 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
+#>  6 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
+#>  7 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
+#>  8 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
+#>  9 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
+#> 10 > 55 Beherbergung    Accommodation Hébergement Servizi di alloggio
 #> # ℹ 6,390 more rows
 ```
 

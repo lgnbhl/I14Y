@@ -108,7 +108,8 @@ income_by_job_and_gender |>
   filter(!str_detect(Wirtschaftsabteilung, "Sektor")) |> # remove sectors
   mutate(Code = readr::parse_number(Wirtschaftsabteilung)) |> # extract code
   left_join(noga_division, by = "Code") |>
-  select(Wirtschaftsabteilung, Name_en, Name_fr, Name_it)
+  select(Wirtschaftsabteilung, Name_en, Name_fr, Name_it) |>
+  arrange(Name_en)
 ```
 
 ### Search and get datasets
