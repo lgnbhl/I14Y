@@ -2,23 +2,28 @@
 % Please edit documentation in R/i14y_get_data_structure.R
 \name{i14y_get_data_structure}
 \alias{i14y_get_data_structure}
-\title{Get the dataStructures}
+\title{Export the data structure of a dataset}
 \usage{
-i14y_get_data_structure(identifier = NULL, language = "de")
+i14y_get_data_structure(id = NULL, format = "JsonLd")
 }
 \arguments{
-\item{identifier}{string. The identifier of the dcat dataset.}
+\item{id}{string. The UUID of the dataset.}
 
-\item{language}{string. The language of the response data.}
+\item{format}{string. The export format. One of "JsonLd" (default), "Ttl" or
+"Rdf".}
 }
 \value{
-a list
+For `format = "JsonLd"`, the parsed JSON-LD graph as a list. For
+  other formats, the raw response body as a character string.
 }
 \description{
-Get the dataStructures
+Calls the I14Y public API endpoint
+\verb{/datasets/\{datasetId\}/structures/exports/\{dataFormat\}}. The endpoint returns
+a SHACL/RDF graph in one of the supported linked-data formats. Note that many
+datasets do not have a published structure and will return an empty result.
 }
 \examples{
-df <- i14y_get_data_structure(
-  identifier = "SpiGes_Erhebung_Administratives"
+i14y_get_data_structure(
+  id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 )
 }

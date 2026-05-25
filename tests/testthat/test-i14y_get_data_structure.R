@@ -1,10 +1,10 @@
-test_that("i14y_get_data_structure() returns a data.frame", {
+test_that("i14y_get_data_structure() returns data for SpiGes_Administratives", {
   if (!curl::has_internet()) {
     skip("No internet connection")
   }
-  df <- i14y_get_data_structure(
-    identifier = "SpiGes_Erhebung_Administratives"
+  res <- i14y_get_data_structure(
+    id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
   )
-  expect_s3_class(df, "data.frame")
-  expect_true(nrow(df) >= 1)
+  expect_true(is.data.frame(res) || is.list(res))
+  expect_true(length(res) >= 1)
 })
