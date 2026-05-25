@@ -13,13 +13,13 @@ Source:
 [`DESCRIPTION`](https://github.com/lgnbhl/I14Y/blob/main/DESCRIPTION)
 
 Luginbuhl F (2026). *I14Y: Search and Get Data from the I14Y
-Interoperability Platform of Switzerland*. R package version 0.1.7,
+Interoperability Platform of Switzerland*. R package version 0.1.8,
 <https://felixluginbuhl.com/I14Y/>.
 
     @Manual{,
       title = {I14Y: Search and Get Data from the I14Y Interoperability Platform of Switzerland},
       author = {Felix Luginbuhl},
       year = {2026},
-      note = {R package version 0.1.7},
+      note = {R package version 0.1.8},
       url = {https://felixluginbuhl.com/I14Y/},
     }
