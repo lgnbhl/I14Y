@@ -64,7 +64,7 @@ concept_list <- i14y_get_concept(
   id = "08d94604-e058-62a2-aa25-53f84b974201"
 )
 
-concept_list$description
+concept_list$description$en
 ```
 
 ### A concrete example
@@ -121,10 +121,10 @@ i14y_search_catalog()
 
 Note that the "type" column returned by `i14y_search_catalog()` shows if the content is a "Dataset", a "DataService" or a "PublicService".
 
-You can get the description from the metadata of a given "Dataset" with `i14y_get_dataset_metadata()`.
+You can get the description from the metadata of a given "Dataset" with `i14y_get_dataset()`.
 
 ```{r}
-dataset_metadata <- i14y_get_dataset_metadata(
+dataset_metadata <- i14y_get_dataset(
   id = "02e34f85-14df-45b5-a38b-2f063c999481"
 )
 
@@ -162,17 +162,17 @@ i14y_search_catalog(query = "SpiGes_Administratives")
 You can check first the dataset metadata (note that the API now uses dataset UUIDs rather than string identifiers):
 
 ```{r}
-content_info <- i14y_get_content_information(
+spiges <- i14y_get_dataset(
   id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 )
 
-names(content_info)
+names(spiges)
 ```
 
-You can get its data structure with `i14y_get_data_structure()`. The new public API returns the structure as a SHACL/RDF graph in JSON-LD, Turtle or RDF/XML — pick a format with the `format` argument:
+You can get its data structure with `i14y_get_dataset_structure()`. The new public API returns the structure as a SHACL/RDF graph in JSON-LD, Turtle or RDF/XML — pick a format with the `format` argument:
 
 ```{r}
-data_structure <- i14y_get_data_structure(
+data_structure <- i14y_get_dataset_structure(
   id = "b902add5-9538-47ed-b663-f9fbfac92381", # SpiGes_Administratives
   format = "JsonLd"
 )
