@@ -16,8 +16,6 @@ knitr::opts_chunk$set(
 # I14Y <img src="man/figures/logo.png" align="right" width="138" />
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/I14Y)](https://CRAN.R-project.org/package=I14Y)
-[![Grand total](https://cranlogs.r-pkg.org/badges/grand-total/I14Y)](https://cran.r-project.org/package=I14Y)
 [![R-CMD-check](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&logo=linkedin)](https://www.linkedin.com/in/FelixLuginbuhl)
 [![Codecov test coverage](https://codecov.io/gh/lgnbhl/I14Y/branch/main/graph/badge.svg)](https://app.codecov.io/gh/lgnbhl/I14Y?branch=main)
@@ -28,10 +26,7 @@ Search and download official Swiss metadata from the [I14Y interoperability plat
 ## Install
 
 ``` r
-install.packages("I14Y")
-
-# development version from GitHub:
-#remotes::install_github("lgnbhl/I14Y")
+remotes::install_github("lgnbhl/I14Y")
 ```
 
 ## Usage
@@ -144,33 +139,11 @@ Some datasets can be access directly using the I14Y API. But other datasets are 
 str(dataset_metadata$distributions, max.level = 1)
 ```
 
-We see using `i14y_get_dataset_distributions()` that the dataset above is accessible using the Nomenclatures endpoint of the I14Y API. You can get a nomenclature dataset level with `i14y_get_nomenclature_level()`.
+Note: the previous I14Y API exposed multi-level "Nomenclature" endpoints (`i14y_get_nomenclature_level()`, `i14y_get_nomenclature_level_multiple()`, `i14y_search_nomenclature()`). These have been removed upstream. In the new I14Y data model, each level of a former nomenclature is published as a separate codelist concept (for example NOGA is split into `NOGA_SECTION`, `NOGA_DIVISION`, `NOGA_GROUP`, `NOGA_CLASS`). Use `i14y_search_concept()` to find the relevant concept and then `i14y_get_codelist()` to download the codes for that level.
 
 ```{r}
-i14y_get_nomenclature_level(
-  identifier = "HCL_NOGA",
-  level = 2,
-  language = "de"
-)
-```
-
-You can get nomenclature multi levels with `i14y_get_nomenclature_level_multi()`:
-
-```{r}
-# https://www.i14y.admin.ch/fr/catalog/datasets/HCL_CH_ISCO_19_PROF_1_2_2
-i14y_get_nomenclature_level_multiple(
-  identifier = "HCL_NOGA",
-  levelFrom = 1,
-  levelTo = 2,
-  language = "de"
-)
-```
-
-You can also search within a nomenclature:
-
-```{r}
-i14y_search_nomenclature(
-  identifier = "HCL_NOGA",
+i14y_search_codelist(
+  id = "08d94604-e058-62a2-aa25-53f84b974201", # NOGA_DIVISION
   query = "agriculture",
   language = "fr"
 )
@@ -183,28 +156,28 @@ Note that other official Swiss datasets from the Swiss Federal Statistical Offic
 You can search for data structure of a dataset. Let's search for example for the SpiGes project:
 
 ```{r}
-i14y_search_catalog(query = "SpiGes")
+i14y_search_catalog(query = "SpiGes_Administratives")
 ```
 
-You can check first if the dataset has a data structure:
+You can check first the dataset metadata (note that the API now uses dataset UUIDs rather than string identifiers):
 
 ```{r}
-nomenclature_info <- i14y_get_content_information(
-  identifier = "SpiGes_Erhebung_Administratives"
+content_info <- i14y_get_content_information(
+  id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 )
 
-nomenclature_info$hasDataStructures
+names(content_info)
 ```
 
-You can get its data structure with `i14y_get_data_structure()`:
+You can get its data structure with `i14y_get_data_structure()`. The new public API returns the structure as a SHACL/RDF graph in JSON-LD, Turtle or RDF/XML — pick a format with the `format` argument:
 
 ```{r}
-library(tibble)
+data_structure <- i14y_get_data_structure(
+  id = "b902add5-9538-47ed-b663-f9fbfac92381", # SpiGes_Administratives
+  format = "JsonLd"
+)
 
-data_structure <- i14y_get_data_structure(identifier = "SpiGes_Erhebung_Administratives")
-
-# get "data_structure$variables" data.frame
-as_tibble(as.data.frame(data_structure$variables))
+str(data_structure, max.level = 1)
 ```
 
 Note that if you have a SpiGes XML file, you can extract the data using the **[SpiGesXML](https://github.com/SwissStatsR/SpiGesXML)** R package.

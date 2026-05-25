@@ -5,10 +5,6 @@
 
 <!-- badges: start -->
 
-[![CRAN
-status](https://www.r-pkg.org/badges/version/I14Y)](https://CRAN.R-project.org/package=I14Y)
-[![Grand
-total](https://cranlogs.r-pkg.org/badges/grand-total/I14Y)](https://cran.r-project.org/package=I14Y)
 [![R-CMD-check](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/lgnbhl/I14Y/actions/workflows/R-CMD-check.yaml)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Follow-E4405F?style=social&logo=linkedin)](https://www.linkedin.com/in/FelixLuginbuhl)
 [![Codecov test
@@ -24,10 +20,7 @@ any language (“en”, “de”, “fr” or “it”).
 ## Install
 
 ``` r
-install.packages("I14Y")
-
-# development version from GitHub:
-#remotes::install_github("lgnbhl/I14Y")
+remotes::install_github("lgnbhl/I14Y")
 ```
 
 ## Usage
@@ -43,26 +36,26 @@ You can get the full concept public catalog with
 
 ``` r
 i14y_search_concept()
-#> # A tibble: 500 × 31
+#> # A tibble: 604 × 32
 #>    accessRights businessEvents conceptValueType id        identifiers lifeEvents
 #>    <lgl>        <list>         <chr>            <chr>     <list>      <list>    
-#>  1 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
-#>  2 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
-#>  3 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
-#>  4 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
-#>  5 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
-#>  6 NA           <list [0]>     CodeList         08d9407c… <chr [1]>   <list [0]>
-#>  7 NA           <list [0]>     CodeList         08d93fc7… <chr [1]>   <list [0]>
-#>  8 NA           <list [0]>     CodeList         08d9407c… <chr [1]>   <list [0]>
-#>  9 NA           <list [0]>     CodeList         08d92cdc… <chr [1]>   <list [0]>
-#> 10 NA           <list [0]>     Numeric          08d93fba… <chr [1]>   <list [0]>
-#> # ℹ 490 more rows
-#> # ℹ 25 more variables: publicationLevel <chr>, publicationLevelProposal <lgl>,
-#> #   registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>,
-#> #   themes <list>, type <chr>, validFrom <chr>, validTo <chr>, version <chr>,
-#> #   description.de <chr>, description.en <chr>, description.fr <chr>,
-#> #   description.it <chr>, description.rm <lgl>, publisherName.de <chr>,
-#> #   publisherName.en <chr>, publisherName.fr <chr>, publisherName.it <chr>, …
+#>  1 NA           <list [0]>     CodeList         08db7950… <chr [1]>   <list [0]>
+#>  2 NA           <list [0]>     CodeList         08db7950… <chr [1]>   <list [0]>
+#>  3 NA           <list [0]>     CodeList         08db7950… <chr [1]>   <list [0]>
+#>  4 NA           <list [0]>     CodeList         08db7950… <chr [1]>   <list [0]>
+#>  5 NA           <list [0]>     CodeList         08db7951… <chr [1]>   <list [0]>
+#>  6 NA           <list [0]>     CodeList         08db7951… <chr [1]>   <list [0]>
+#>  7 NA           <list [0]>     CodeList         08db7951… <chr [1]>   <list [0]>
+#>  8 NA           <list [0]>     CodeList         08db7951… <chr [1]>   <list [0]>
+#>  9 NA           <list [0]>     CodeList         08db7951… <chr [1]>   <list [0]>
+#> 10 NA           <list [0]>     CodeList         08db7951… <chr [1]>   <list [0]>
+#> # ℹ 594 more rows
+#> # ℹ 26 more variables: publicationLevel <chr>, publicationLevelProposal <lgl>,
+#> #   registrationStatus <chr>, registrationStatusProposal <chr>, status <chr>,
+#> #   structure <lgl>, themes <list>, type <chr>, validFrom <chr>, validTo <chr>,
+#> #   version <chr>, description.de <chr>, description.en <chr>,
+#> #   description.fr <chr>, description.it <chr>, description.rm <chr>,
+#> #   publisherName.de <chr>, publisherName.en <chr>, publisherName.fr <chr>, …
 ```
 
 Search for a specific concept in a given language (“en”, “de”, “fr” or
@@ -70,26 +63,27 @@ Search for a specific concept in a given language (“en”, “de”, “fr” 
 
 ``` r
 i14y_search_concept(query = "noga", language = "en")
-#> # A tibble: 10 × 31
+#> # A tibble: 11 × 32
 #>    accessRights businessEvents conceptValueType id        identifiers lifeEvents
 #>    <lgl>        <list>         <chr>            <chr>     <list>      <list>    
-#>  1 NA           <list [0]>     CodeList         08d9f1f9… <chr [1]>   <list [0]>
+#>  1 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
 #>  2 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
 #>  3 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
-#>  4 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
-#>  5 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
-#>  6 NA           <list [0]>     CodeList         08dc481b… <chr [1]>   <list [0]>
-#>  7 NA           <list [0]>     CodeList         08dd28d2… <chr [1]>   <list [0]>
-#>  8 NA           <list [0]>     CodeList         08d94603… <chr [1]>   <list [0]>
+#>  4 NA           <list [0]>     CodeList         08dc481b… <chr [1]>   <list [0]>
+#>  5 NA           <list [0]>     CodeList         001bfaa8… <chr [1]>   <list [0]>
+#>  6 NA           <list [0]>     CodeList         08d94603… <chr [1]>   <list [0]>
+#>  7 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
+#>  8 NA           <list [0]>     CodeList         08d9f1f9… <chr [1]>   <list [0]>
 #>  9 NA           <list [0]>     CodeList         08d94604… <chr [1]>   <list [0]>
-#> 10 NA           <list [0]>     CodeList         08d9f6dd… <chr [1]>   <list [0]>
-#> # ℹ 25 more variables: publicationLevel <chr>, publicationLevelProposal <lgl>,
+#> 10 NA           <list [0]>     CodeList         08dd28d2… <chr [1]>   <list [0]>
+#> 11 NA           <list [0]>     CodeList         08d9f6dd… <chr [1]>   <list [0]>
+#> # ℹ 26 more variables: publicationLevel <chr>, publicationLevelProposal <lgl>,
 #> #   registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>,
-#> #   themes <list>, type <chr>, validFrom <chr>, validTo <lgl>, version <chr>,
-#> #   description.de <chr>, description.en <chr>, description.fr <chr>,
-#> #   description.it <chr>, description.rm <lgl>, publisherName.de <chr>,
-#> #   publisherName.en <chr>, publisherName.fr <chr>, publisherName.it <chr>,
-#> #   publisherName.rm <chr>, title.de <chr>, title.en <chr>, title.fr <chr>, …
+#> #   structure <lgl>, themes <list>, type <chr>, validFrom <chr>, validTo <chr>,
+#> #   version <chr>, description.de <chr>, description.en <chr>,
+#> #   description.fr <chr>, description.it <chr>, description.rm <lgl>,
+#> #   publisherName.de <chr>, publisherName.en <chr>, publisherName.fr <chr>,
+#> #   publisherName.it <chr>, publisherName.rm <lgl>, title.de <chr>, …
 ```
 
 As showed in the `conceptType` column, some concepts have the type
@@ -131,11 +125,20 @@ concept_list <- i14y_get_concept(
 )
 
 concept_list$description
-#> $cultureCode
-#> [1] "de"
-#> 
-#> $text
+#> $de
 #> [1] "Zweite Ebene der Allgemeinen Systematik der Wirtschaftszweige (NOGA), bestehend aus Rubriken, die durch einen zweistelligen numerischen Code gekennzeichnet sind. Diese zweite Ebene wird durch die International Standard Industrial Classification of All Economic Activities (ISIC Rev.4) bestimmt."
+#> 
+#> $en
+#> [1] "Second level of the General Classification of Economic Activities (NOGA) composed of headings identified by a two-digit numerical code. This second level is determined by the International Standard Industrial Classification of All Economic Activities (ISIC Rev.4)."
+#> 
+#> $fr
+#> [1] "Deuxième niveau de la Nomenclature générale des activités économiques (NOGA) composé de rubriques identifiées par un code numérique à deux chiffres. Ce deuxième niveau est déterminé par la Classification internationale type, par industrie, de toutes les branches d’activité économique (CITI Rev.4)."
+#> 
+#> $it
+#> [1] "Secondo livello della Nomenclatura generale delle attività economiche (NOGA) composto da rubriche identificate da un codice numerico a due cifre. Questo secondo livello è determinato dalla Classificazione Internazionale Standard Industriale di tutte le attività economiche (ISIC Rev.4)."
+#> 
+#> $rm
+#> NULL
 ```
 
 ### A concrete example
@@ -164,22 +167,22 @@ income_by_job_and_gender <- BFS::bfs_get_data(
 )
 
 income_by_job_and_gender
-#> # A tibble: 164 × 5
-#>    Jahr  Wirtschaftsabteilung                  Geschlecht Zentralwert und ande…¹
-#>    <chr> <chr>                                 <chr>      <chr>                 
-#>  1 2022  Wirtschaftsabteilung - Total          Frauen     Zentralwert           
-#>  2 2022  Wirtschaftsabteilung - Total          Männer     Zentralwert           
-#>  3 2022  05-43 Sektor 2: Produktion            Frauen     Zentralwert           
-#>  4 2022  05-43 Sektor 2: Produktion            Männer     Zentralwert           
-#>  5 2022  > 8 Gewinnung von Steinen und Erden,… Frauen     Zentralwert           
-#>  6 2022  > 8 Gewinnung von Steinen und Erden,… Männer     Zentralwert           
-#>  7 2022  > 9 Erbringung von Dienstleistungen … Frauen     Zentralwert           
-#>  8 2022  > 9 Erbringung von Dienstleistungen … Männer     Zentralwert           
-#>  9 2022  > 10 Herstellung von Nahrungs- und F… Frauen     Zentralwert           
-#> 10 2022  > 10 Herstellung von Nahrungs- und F… Männer     Zentralwert           
-#> # ℹ 154 more rows
-#> # ℹ abbreviated name: ¹​`Zentralwert und andere Perzentile`
-#> # ℹ 1 more variable: `Monatlicher Bruttolohn` <dbl>
+#> # A tibble: 6,560 × 7
+#>    Jahr  Grossregion Wirtschaftsabteilung       `Berufliche Stellung` Geschlecht
+#>    <chr> <chr>       <chr>                      <chr>                 <chr>     
+#>  1 2022  Schweiz     Wirtschaftsabteilung - To… Berufliche Stellung … Frauen    
+#>  2 2022  Schweiz     Wirtschaftsabteilung - To… Berufliche Stellung … Männer    
+#>  3 2022  Schweiz     Wirtschaftsabteilung - To… Oberes und mittleres… Frauen    
+#>  4 2022  Schweiz     Wirtschaftsabteilung - To… Oberes und mittleres… Männer    
+#>  5 2022  Schweiz     Wirtschaftsabteilung - To… Unteres Kader         Frauen    
+#>  6 2022  Schweiz     Wirtschaftsabteilung - To… Unteres Kader         Männer    
+#>  7 2022  Schweiz     Wirtschaftsabteilung - To… Verantwortlich für d… Frauen    
+#>  8 2022  Schweiz     Wirtschaftsabteilung - To… Verantwortlich für d… Männer    
+#>  9 2022  Schweiz     Wirtschaftsabteilung - To… Ohne Kaderfunktion    Frauen    
+#> 10 2022  Schweiz     Wirtschaftsabteilung - To… Ohne Kaderfunktion    Männer    
+#> # ℹ 6,550 more rows
+#> # ℹ 2 more variables: `Zentralwert und andere Perzentile` <chr>,
+#> #   `Monatlicher Bruttolohn` <dbl>
 ```
 
 Using I14Y, you can get the English, French or Italian translation of
@@ -201,20 +204,20 @@ income_by_job_and_gender |>
   mutate(Code = readr::parse_number(Wirtschaftsabteilung)) |> # extract code
   left_join(noga_division, by = "Code") |>
   select(Wirtschaftsabteilung, Name_en, Name_fr, Name_it)
-#> # A tibble: 160 × 4
-#>    Wirtschaftsabteilung                                  Name_en Name_fr Name_it
-#>    <chr>                                                 <chr>   <chr>   <chr>  
-#>  1 Wirtschaftsabteilung - Total                          <NA>    <NA>    <NA>   
-#>  2 Wirtschaftsabteilung - Total                          <NA>    <NA>    <NA>   
-#>  3 > 8 Gewinnung von Steinen und Erden, sonstiger Bergb… Other … Autres… Altre …
-#>  4 > 8 Gewinnung von Steinen und Erden, sonstiger Bergb… Other … Autres… Altre …
-#>  5 > 9 Erbringung von Dienstleistungen für den Bergbau … Mining… Servic… Attivi…
-#>  6 > 9 Erbringung von Dienstleistungen für den Bergbau … Mining… Servic… Attivi…
-#>  7 > 10 Herstellung von Nahrungs- und Futtermitteln      Manufa… Indust… Indust…
-#>  8 > 10 Herstellung von Nahrungs- und Futtermitteln      Manufa… Indust… Indust…
-#>  9 > 11 Getränkeherstellung                              Manufa… Fabric… Produz…
-#> 10 > 11 Getränkeherstellung                              Manufa… Fabric… Produz…
-#> # ℹ 150 more rows
+#> # A tibble: 6,400 × 4
+#>    Wirtschaftsabteilung         Name_en Name_fr Name_it
+#>    <chr>                        <chr>   <chr>   <chr>  
+#>  1 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#>  2 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#>  3 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#>  4 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#>  5 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#>  6 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#>  7 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#>  8 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#>  9 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#> 10 Wirtschaftsabteilung - Total <NA>    <NA>    <NA>   
+#> # ℹ 6,390 more rows
 ```
 
 ### Search and get datasets
@@ -224,24 +227,24 @@ public services with `i14y_search_catalog()`:
 
 ``` r
 i14y_search_catalog()
-#> # A tibble: 688 × 37
+#> # A tibble: 2,806 × 38
 #>    businessEvents conceptValueType id    identifiers lifeEvents publicationLevel
 #>    <list>         <chr>            <chr> <list>      <list>     <chr>           
-#>  1 <df [0 × 0]>   <NA>             171b… <chr [1]>   <df>       Public          
-#>  2 <df [0 × 0]>   <NA>             0aae… <chr [1]>   <df>       Public          
-#>  3 <df [0 × 0]>   <NA>             15d7… <chr [1]>   <df>       Public          
-#>  4 <df [0 × 0]>   <NA>             14e6… <chr [1]>   <df>       Public          
-#>  5 <df [0 × 0]>   <NA>             1f97… <chr [1]>   <df>       Public          
-#>  6 <df [0 × 0]>   <NA>             08b7… <chr [1]>   <df>       Public          
-#>  7 <df [0 × 0]>   <NA>             17ec… <chr [1]>   <df>       Public          
-#>  8 <df [0 × 0]>   <NA>             49fe… <chr [1]>   <df>       Public          
-#>  9 <df [0 × 0]>   <NA>             4cfc… <chr [1]>   <df>       Public          
-#> 10 <df [0 × 0]>   <NA>             6ef8… <chr [1]>   <df>       Public          
-#> # ℹ 678 more rows
-#> # ℹ 31 more variables: publicationLevelProposal <lgl>,
-#> #   registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>,
-#> #   themes <list>, type <chr>, validFrom <chr>, validTo <chr>, version <chr>,
-#> #   accessRights.code <chr>, accessRights.uri <chr>,
+#>  1 <df [0 × 0]>   <NA>             0091… <chr [1]>   <df>       Public          
+#>  2 <df [0 × 0]>   <NA>             00b3… <chr [1]>   <df>       Public          
+#>  3 <df [0 × 0]>   <NA>             02b4… <chr [1]>   <df>       Public          
+#>  4 <df [0 × 0]>   <NA>             02e3… <chr [1]>   <df>       Public          
+#>  5 <df [0 × 0]>   <NA>             0466… <chr [1]>   <df>       Public          
+#>  6 <df [0 × 0]>   <NA>             0490… <chr [1]>   <df>       Public          
+#>  7 <df [0 × 0]>   <NA>             04f0… <chr [1]>   <df>       Public          
+#>  8 <df [0 × 0]>   <NA>             05c7… <chr [1]>   <df>       Public          
+#>  9 <df [0 × 0]>   <NA>             0623… <chr [1]>   <df>       Public          
+#> 10 <df [0 × 0]>   <NA>             0699… <chr [1]>   <df>       Public          
+#> # ℹ 2,796 more rows
+#> # ℹ 32 more variables: publicationLevelProposal <lgl>,
+#> #   registrationStatus <chr>, registrationStatusProposal <chr>, status <chr>,
+#> #   structure <chr>, themes <list>, type <chr>, validFrom <chr>, validTo <chr>,
+#> #   version <chr>, accessRights.code <chr>, accessRights.uri <chr>,
 #> #   accessRights.name.de <chr>, accessRights.name.en <chr>,
 #> #   accessRights.name.fr <chr>, accessRights.name.it <chr>, …
 ```
@@ -291,14 +294,14 @@ str(dataset_metadata$distributions, max.level = 1)
 #>  $ accessUrl.label   : logi  NA NA NA NA NA NA ...
 #>  $ accessUrl.uri     : chr  "https://www.li.admin.ch/sites/default/files/2024-04/auskunfte-2023.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2011.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2015.xlsx" "https://www.li.admin.ch/sites/default/files/2021-03/auskuenfte_2020.xlsx" ...
 #>  $ description.de    : chr  "Die Schweizer Strafverfolgungsbehörden und der Nachrichtendienst des Bundes (NDB) können zur Aufklärung von sch"| __truncated__ "Eine Echtzeitüberwachung ist die simultane, leicht verzögerte oder periodische Übertragung der Post- oder Fernm"| __truncated__ "Eine Echtzeitüberwachung ist die simultane, leicht verzögerte oder periodische Übertragung der Post- oder Fernm"| __truncated__ "Echtzeitüberwachung \r\nEine Echtzeitüberwachung ist die simultane, leicht verzögerte oder periodische Übertrag"| __truncated__ ...
-#>  $ description.en    : chr  "The Swiss prosecution authorities and the Federal intelligence service (FIS) may order post and telecommunicati"| __truncated__ "" "" "" ...
+#>  $ description.en    : chr  "The Swiss prosecution authorities and the Federal intelligence service (FIS) may order post and telecommunicati"| __truncated__ NA NA NA ...
 #>  $ description.fr    : chr  "Les autorités suisses de poursuite pénale et le Service de renseignement de la Confédération (SRC) peuvent, en "| __truncated__ "Une surveillance en temps réel est l’interception en temps réel et la transmission simultanée, légèrement diffé"| __truncated__ "Une surveillance en temps réel est l’interception en temps réel et la transmission simultanée, légèrement diffé"| __truncated__ "Surveillance en temps réel \r\nUne surveillance en temps réel est l’interception en temps réel et la transmissi"| __truncated__ ...
 #>  $ description.it    : chr  "Per indagare su reati gravi, le autorità di perseguimento penale svizzere e il Servizio delle attività informat"| __truncated__ "Una sorveglianza in tempo reale consiste nella trasmissione simultanea, leggermente ritardata o periodica di da"| __truncated__ "Una sorveglianza in tempo reale consiste nella trasmissione simultanea, leggermente ritardata o periodica di da"| __truncated__ "Sorveglianza in tempo reale \r\nUna sorveglianza in tempo reale consiste nella trasmissione simultanea, leggerm"| __truncated__ ...
 #>  $ description.rm    : logi  NA NA NA NA NA NA ...
 #>  $ downloadUrl.label : logi  NA NA NA NA NA NA ...
 #>  $ downloadUrl.uri   : chr  "https://www.li.admin.ch/sites/default/files/2024-04/auskunfte-2023.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2011.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2015.xlsx" "https://www.li.admin.ch/sites/default/files/2021-03/auskuenfte_2020.xlsx" ...
 #>  $ format.code       : chr  "XLS" "XLS" "XLS" "XLS" ...
-#>  $ format.uri        : chr  "" "" "" "" ...
+#>  $ format.uri        : logi  NA NA NA NA NA NA ...
 #>  $ format.name.de    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...
 #>  $ format.name.en    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...
 #>  $ format.name.fr    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...
@@ -312,85 +315,49 @@ str(dataset_metadata$distributions, max.level = 1)
 #>  $ license.name.it   : chr  "Opendata OPEN: Libero utilizzo." "Opendata OPEN: Libero utilizzo." "Opendata OPEN: Libero utilizzo." "Opendata OPEN: Libero utilizzo." ...
 #>  $ license.name.rm   : logi  NA NA NA NA NA NA ...
 #>  $ title.de          : chr  "Detaillierte Statistik 2023 - Auskünfte" "Detaillierte Statistik 2011" "Detaillierte Statistik 2015" "Detaillierte Statistik 2020 - Auskünfte" ...
-#>  $ title.en          : chr  "" "" "" "" ...
-#>  $ title.fr          : chr  "Statistique détaillée 2023 - Renseignements" "Statistique détaillée 2011" "Statistique détaillée 2015" "" ...
-#>  $ title.it          : chr  "Statistica dettagliata 2023 - Informazioni" "Statistica dettagliata 2011" "Statistica dettagliata 2015" "" ...
+#>  $ title.en          : chr  NA NA NA NA ...
+#>  $ title.fr          : chr  "Statistique détaillée 2023 - Renseignements" "Statistique détaillée 2011" "Statistique détaillée 2015" NA ...
+#>  $ title.it          : chr  "Statistica dettagliata 2023 - Informazioni" "Statistica dettagliata 2011" "Statistica dettagliata 2015" NA ...
 #>  $ title.rm          : logi  NA NA NA NA NA NA ...
 ```
 
-We see using `i14y_get_dataset_distributions()` that the dataset above
-is accessible using the Nomenclatures endpoint of the I14Y API. You can
-get a nomenclature dataset level with `i14y_get_nomenclature_level()`.
+Note: the previous I14Y API exposed multi-level “Nomenclature” endpoints
+(`i14y_get_nomenclature_level()`,
+`i14y_get_nomenclature_level_multiple()`, `i14y_search_nomenclature()`).
+These have been removed upstream. In the new I14Y data model, each level
+of a former nomenclature is published as a separate codelist concept
+(for example NOGA is split into `NOGA_SECTION`, `NOGA_DIVISION`,
+`NOGA_GROUP`, `NOGA_CLASS`). Use `i14y_search_concept()` to find the
+relevant concept and then `i14y_get_codelist()` to download the codes
+for that level.
 
 ``` r
-i14y_get_nomenclature_level(
-  identifier = "HCL_NOGA",
-  level = 2,
-  language = "de"
-)
-#> # A tibble: 88 × 3
-#>    Code  Parent Name_de                                                         
-#>    <chr> <chr>  <chr>                                                           
-#>  1 01    A      Landwirtschaft, Jagd und damit verbundene Tätigkeiten           
-#>  2 02    A      Forstwirtschaft und Holzeinschlag                               
-#>  3 03    A      Fischerei und Aquakultur                                        
-#>  4 05    B      Kohlenbergbau                                                   
-#>  5 06    B      Gewinnung von Erdöl und Erdgas                                  
-#>  6 07    B      Erzbergbau                                                      
-#>  7 08    B      Gewinnung von Steinen und Erden, sonstiger Bergbau              
-#>  8 09    B      Erbringung von Dienstleistungen für den Bergbau und für die Gew…
-#>  9 10    C      Herstellung von Nahrungs- und Futtermitteln                     
-#> 10 11    C      Getränkeherstellung                                             
-#> # ℹ 78 more rows
-```
-
-You can get nomenclature multi levels with
-`i14y_get_nomenclature_level_multi()`:
-
-``` r
-# https://www.i14y.admin.ch/fr/catalog/datasets/HCL_CH_ISCO_19_PROF_1_2_2
-i14y_get_nomenclature_level_multiple(
-  identifier = "HCL_NOGA",
-  levelFrom = 1,
-  levelTo = 2,
-  language = "de"
-)
-#> # A tibble: 109 × 4
-#>    Abschnitt Abteilung Code  Name_de                                            
-#>    <chr>     <chr>     <chr> <chr>                                              
-#>  1 A         <NA>      A     LAND- UND FORSTWIRTSCHAFT, FISCHEREI               
-#>  2 <NA>      01        01    Landwirtschaft, Jagd und damit verbundene Tätigkei…
-#>  3 <NA>      02        02    Forstwirtschaft und Holzeinschlag                  
-#>  4 <NA>      03        03    Fischerei und Aquakultur                           
-#>  5 B         <NA>      B     BERGBAU UND GEWINNUNG VON STEINEN UND ERDEN        
-#>  6 <NA>      05        05    Kohlenbergbau                                      
-#>  7 <NA>      06        06    Gewinnung von Erdöl und Erdgas                     
-#>  8 <NA>      07        07    Erzbergbau                                         
-#>  9 <NA>      08        08    Gewinnung von Steinen und Erden, sonstiger Bergbau 
-#> 10 <NA>      09        09    Erbringung von Dienstleistungen für den Bergbau un…
-#> # ℹ 99 more rows
-```
-
-You can also search within a nomenclature:
-
-``` r
-i14y_search_nomenclature(
-  identifier = "HCL_NOGA",
+i14y_search_codelist(
+  id = "08d94604-e058-62a2-aa25-53f84b974201", # NOGA_DIVISION
   query = "agriculture",
   language = "fr"
 )
-#>                                                                                                                                                                                                                                                                                                                                                                                                                                                                               annotations
-#> 1                                                                                                              NA, NA, 0, 0, , , ABBREV, INCLUDES, , , fr, fr, AGRICULT., SYLVICULT. ET PÊCHE, Cette section couvre l'exploitation des ressources naturelles végétales et animales et comprend les activités de culture, d'élevage, de récolte de bois et d'autres plantes et de production d'animaux ou de produits animaux dans une exploitation agricole ou dans leur habitat naturel.
-#> 2 NA, NA, 0, 0, , , ABBREV, INCLUDES, , , fr, fr, Activ. de soutien à l'agriculture, Ce groupe comprend les activités annexes à la production agricole et les activités similaires à l'agriculture qui ne sont pas effectuées à des fins de production (dans le sens de récolter des produits agricoles) et qui sont exercées pour le compte de tiers. Le traitement primaire des récoltes en vue de la préparation des produits agricoles pour le marché primaire est également compris.
-#>                                                                                                   breadCrumbPath
-#> 1                                                                                                           NULL
-#> 2 A, A/01, fr, fr, AGRICULTURE, SYLVICULTURE ET PÊCHE, Culture et production animale, chasse et services annexes
-#>   code name.cultureCode
-#> 1    A               fr
-#> 2  016               fr
-#>                                                                  name.text
-#> 1                                       AGRICULTURE, SYLVICULTURE ET PÊCHE
-#> 2 Activités de soutien à l'agriculture et traitement primaire des récoltes
+#>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           annotations
+#> 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      0a212c98-9ed0-4357-a506-106cf447debe, 6a9889c9-c662-4b21-adff-5c7eb4dbae90, 411ed36c-8e3f-4231-8fb5-55d70e225359, 411ed36c-8e3f-4231-8fb5-55d70e225359, , , ABBREV, INCLUDES, Forstw. u. Holzeinschlag, Diese Abteilung umfasst die Erzeugung von Rundholz sowie die Gewinnung und Sammlung von wachsenden Erzeugnissen des Waldes. Hinzu kommen geringfügig bearbeitete Erzeugnisse wie Brennholz, Holzkohle oder Industrieholz (z. B. Grubenholz, Papierholz usw.). Diese Tätigkeiten können sowohl in natürlichen als auch in angepflanzten Wäldern ausgeführt werden., Forestry and logging, This division includes the production of roundwood as well as the extraction and gathering of wild growing non-wood forest products. Besides the production of timber, forestry activities result in products that undergo little processing, such as firewood, charcoal and roundwood used in an unprocessed form (e.g. pit-props, pulpwood, etc.). These activities can be carried out in natural or planted forests., Sylviculture et exploitation forestière, Cette division comprend la production de bois rond, ainsi que l'extraction et la cueillette de produits forestiers autres que du bois et poussant à l'état sauvage. À côté de la production de grumes, l'exploitation forestière conduit à des produits peu transformés comme le bois de chauffage, le charbon de bois ou le bois rond utilisé sous une forme brute (bois de mine, bois de trituration, etc.). Ces activités peuvent être effectuées dans des forêts naturelles ou dans des plantations., Silvicolt. e utilizzo di aree forestali, Questa divisione include la produzione di tronchi (tondame) per le industrie del settore così come l'estrazione e la raccolta di altri materiali dalle foreste e dai boschi incolti. Oltre alla produzione di tronchi (tondame) le attività forestali danno prodotti che vengono sottoposti ad un minimo di lavorazione, quali la legna da ardere, il carbone e il legname da industria (per esempio, puntelli per miniere, pasta di cellulosa, ecc.). Queste attività possono essere effettuate in foreste naturali o create dall'uomo.\nDalla divisione è escluso ogni ulteriore trattamento del legno a cominciare dal taglio e dalla piallatura (cfr. Divisione 16).
+#> 2 d16474e6-3bcf-447a-9464-dd10530b40e1, da8d225a-153d-4bbd-89c3-8b3b0d0a94b8, 056ec921-6947-447b-b836-6f5509f27be2, 056ec921-6947-447b-b836-6f5509f27be2, , , ABBREV, INCLUDES, Landw. u. Jagd, Diese Abteilung umfasst die beiden Tätigkeitsbereiche Gewinnung pflanzlicher Erzeugnisse und Gewinnung tierischer Erzeugnisse. Sie umfasst ferner die ökologische Landwirtschaft sowie den Anbau gentechnisch veränderter Nutzpflanzen und die Haltung gentechnisch veränderter Nutztiere. Diese Abteilung umfasst Freiland- wie auch Gewächshauskulturen.\n\nFerner in dieser Abteilung eingeschlossen sind die Erbringung von mit der Landwirtschaft und der gewerblichen Jagd verbundenen Dienstleistungen sowie die Fallenstellerei und damit verbundene Tätigkeiten.\n\nGruppe 015 (Gemischte Landwirtschaft) bildet eine Ausnahme von den Grundregeln zur Bestimmung der Haupttätigkeit. Man geht hier davon aus, dass in zahlreichen landwirtschaftlichen Betrieben ein Gleichgewicht zwischen pflanzlicher und tierischer Erzeugung besteht und es willkürlich wäre, sie in die eine oder die andere Kategorie einzuordnen., Crop and animal produc., hunting, This division includes two basic activities, namely the production of crop products and production of animal products, covering also the forms of organic agriculture, the growing of genetically modified crops and the raising of genetically modified animals. This division includes growing of crops in open fields as well in greenhouses.\nThis division also includes service activities incidental to agriculture, as well as hunting, trapping and related activities.\nGroup 015 (Mixed farming) breaks with the usual principles for identifying main activity. It accepts that many agricultural holdings have reasonably balanced crop and animal production, and that it would be arbitrary to classify them in one category or the other., Cult. et p. anim., chasse, Cette division comprend deux activités de base, à savoir la production de produits végétaux et la production de produits animaux, ainsi que l'agriculture biologique, la culture de plantes génétiquement modifiées et l'élevage d'animaux génétiquement modifiés. Cette division comprend la culture de plein champ et la culture sous abris.\n\nCette division comprend également les services annexes à l'agriculture, à la chasse, au piégeage et aux activités connexes.\n\nLe groupe 015 (Culture et élevage associés) rompt avec les principes usuels pour identifier l'activité principale. Il tient compte du fait que de nombreuses exploitations agricoles ont une production végétale et animale assez équilibrée et qu'il serait arbitraire de les classer dans l'une ou l'autre catégorie., Prod. vegetali  e animali, caccia, Questa divisione include due attività di base, la produzione di prodotti derivanti da coltivazioni agricole e la produzione di prodotti animali; includendo anche le forme di agricoltura biologica, coltivazione di prodotti geneticamente modificati e l'allevamento di animali geneticamente modificati. Questa divisione include la coltivazione di colture in piena aria ed in serre.\n\nInoltre, sono incluse le attività di servizio accessorie all'agricoltura, alla caccia e alle attività a queste relative.\n\nIl gruppo 015 (Coltivazioni agricole associate all'allevamento di animali: attività mista) costituisce una eccezione ai principi generali adottati per l'identificazione dell'attività principale. Si ammette che un'azienda agricola possa avere una ben bilanciata produzione sia agricola che animale. In questo caso sarebbe arbitrario classificare l'azienda in una categoria o nell'altra.
+#>   code                            conceptId
+#> 1   02 08d94604-e058-62a2-aa25-53f84b974201
+#> 2   01 08d94604-e058-62a2-aa25-53f84b974201
+#>                                     id
+#> 1 411ed36c-8e3f-4231-8fb5-55d70e225359
+#> 2 056ec921-6947-447b-b836-6f5509f27be2
+#>                                                 name.de
+#> 1                     Forstwirtschaft und Holzeinschlag
+#> 2 Landwirtschaft, Jagd und damit verbundene Tätigkeiten
+#>                                                              name.en
+#> 1                                               Forestry and logging
+#> 2 Crop and animal production, hunting and related service activities
+#>                                                     name.fr
+#> 1                   Sylviculture et exploitation forestière
+#> 2 Culture et production animale, chasse et services annexes
+#>                                                    name.it
+#> 1                Silvicoltura e utilizzo di aree forestali
+#> 2 Produzioni vegetali e animali, caccia e servizi connessi
 ```
 
 Note that other official Swiss datasets from the Swiss Federal
@@ -403,65 +370,75 @@ You can search for data structure of a dataset. Let’s search for example
 for the SpiGes project:
 
 ``` r
-i14y_search_catalog(query = "SpiGes")
-#> # A tibble: 21 × 37
-#>    businessEvents conceptValueType id    identifiers lifeEvents publicationLevel
-#>    <list>         <chr>            <chr> <list>      <list>     <chr>           
-#>  1 <list [0]>     CodeList         08db… <chr [1]>   <list [0]> Public          
-#>  2 <list [0]>     <NA>             18d8… <chr [1]>   <list [0]> Public          
-#>  3 <list [0]>     <NA>             0da6… <chr [1]>   <list [0]> Public          
-#>  4 <list [0]>     <NA>             18e6… <chr [1]>   <list [0]> Public          
-#>  5 <list [0]>     <NA>             27c1… <chr [1]>   <list [0]> Public          
-#>  6 <list [0]>     <NA>             49d9… <chr [1]>   <list [0]> Public          
-#>  7 <list [0]>     <NA>             4b6d… <chr [1]>   <list [0]> Public          
-#>  8 <list [0]>     <NA>             6a26… <chr [1]>   <list [0]> Public          
-#>  9 <list [0]>     <NA>             75d4… <chr [1]>   <list [0]> Public          
-#> 10 <list [0]>     <NA>             7d41… <chr [1]>   <list [0]> Public          
-#> # ℹ 11 more rows
-#> # ℹ 31 more variables: publicationLevelProposal <lgl>,
+i14y_search_catalog(query = "SpiGes_Administratives")
+#> # A tibble: 1 × 38
+#>   businessEvents conceptValueType id     identifiers lifeEvents publicationLevel
+#>   <list>         <lgl>            <chr>  <list>      <list>     <chr>           
+#> 1 <list [0]>     NA               b902a… <chr [1]>   <list [0]> Public          
+#> # ℹ 32 more variables: publicationLevelProposal <lgl>,
 #> #   registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>,
-#> #   themes <list>, type <chr>, validFrom <chr>, validTo <chr>, version <chr>,
-#> #   accessRights.code <chr>, accessRights.uri <chr>,
+#> #   structure <chr>, themes <list>, type <chr>, validFrom <lgl>, validTo <lgl>,
+#> #   version <chr>, accessRights.code <chr>, accessRights.uri <chr>,
 #> #   accessRights.name.de <chr>, accessRights.name.en <chr>,
-#> #   accessRights.name.fr <chr>, accessRights.name.it <chr>, …
+#> #   accessRights.name.fr <chr>, accessRights.name.it <chr>,
+#> #   accessRights.name.rm <lgl>, description.de <chr>, description.en <chr>, …
 ```
 
-You can check first if the dataset has a data structure:
+You can check first the dataset metadata (note that the API now uses
+dataset UUIDs rather than string identifiers):
 
 ``` r
-nomenclature_info <- i14y_get_content_information(
-  identifier = "SpiGes_Erhebung_Administratives"
+content_info <- i14y_get_content_information(
+  id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 )
 
-nomenclature_info$hasDataStructures
-#> [1] TRUE
+names(content_info)
+#>  [1] "accessRights"          "confidentialityPerson" "conformsTo"           
+#>  [4] "contactPoints"         "description"           "distributions"        
+#>  [7] "documentation"         "frequency"             "geoIvIds"             
+#> [10] "id"                    "identifiers"           "images"               
+#> [13] "isReferencedBy"        "issued"                "keywords"             
+#> [16] "landingPages"          "languages"             "modified"             
+#> [19] "publicationLevel"      "publisher"             "qualifiedAttributions"
+#> [22] "qualifiedRelations"    "registrationStatus"    "relations"            
+#> [25] "system"                "spatial"               "temporalCoverage"     
+#> [28] "themes"                "title"                 "version"
 ```
 
-You can get its data structure with `i14y_get_data_structure()`:
+You can get its data structure with `i14y_get_data_structure()`. The new
+public API returns the structure as a SHACL/RDF graph in JSON-LD, Turtle
+or RDF/XML — pick a format with the `format` argument:
 
 ``` r
-library(tibble)
+data_structure <- i14y_get_data_structure(
+  id = "b902add5-9538-47ed-b663-f9fbfac92381", # SpiGes_Administratives
+  format = "JsonLd"
+)
 
-data_structure <- i14y_get_data_structure(identifier = "SpiGes_Erhebung_Administratives")
-
-# get "data_structure$variables" data.frame
-as_tibble(as.data.frame(data_structure$variables))
-#> # A tibble: 33 × 9
-#>    id    identifier position role  type  description.cultureC…¹ description.text
-#>    <chr> <chr>         <int> <chr> <chr> <chr>                  <chr>           
-#>  1 af3b… aufenthal…        1 Meas… Nume… de                     "Erfassung der …
-#>  2 ae25… eintritts…        2 Meas… Code… de                     "Beschreibung d…
-#>  3 9d33… einw_inst…        3 Meas… Code… de                     "Wer hat die In…
-#>  4 d3cd… tarif             4 Meas… Code… de                     "Mit dieser Spe…
-#>  5 5a6c… admin_url…        5 Meas… Nume… de                     "Verlässt ein P…
-#>  6 fa36… nationali…        6 Meas… Code… de                     "ISO-Kode des H…
-#>  7 4895… eintritts…        7 Meas… Date  de                     "Angabe des Ein…
-#>  8 0f75… austritt_…        8 Meas… Code… de                     "Wohin wurde de…
-#>  9 576e… wohnkanton        9 Meas… Code… de                     "Für Personen m…
-#> 10 3669… chlz             10 Meas… Nume… de                     "Kumulierte chL…
-#> # ℹ 23 more rows
-#> # ℹ abbreviated name: ¹​description.cultureCode
-#> # ℹ 2 more variables: name.cultureCode <chr>, name.text <chr>
+str(data_structure, max.level = 1)
+#> 'data.frame':    252 obs. of  22 variables:
+#>  $ @id                                      : chr  "https://register.ld.admin.ch/i14y/dataset/SpiGes_Administratives/structure/UnternehmenType/version" "https://register.ld.admin.ch/i14y/dataset/SpiGes_Administratives/structure/UnternehmenType/ent_id" "https://register.ld.admin.ch/i14y/dataset/SpiGes_Administratives/structure/UnternehmenType/Standort" "https://register.ld.admin.ch/i14y/dataset/SpiGes_Administratives/structure/StandortType" ...
+#>  $ @type                                    :List of 252
+#>  $ http://www.w3.org/ns/shacl#datatype      :List of 252
+#>  $ http://www.w3.org/ns/shacl#in            :List of 252
+#>  $ http://www.w3.org/ns/shacl#minCount      :List of 252
+#>  $ http://www.w3.org/ns/shacl#name          :List of 252
+#>  $ http://www.w3.org/ns/shacl#path          :List of 252
+#>  $ http://purl.org/dc/terms/conformsTo      :List of 252
+#>  $ http://purl.org/dc/terms/description     :List of 252
+#>  $ http://www.w3.org/ns/shacl#description   :List of 252
+#>  $ http://www.w3.org/ns/shacl#maxInclusive  :List of 252
+#>  $ http://www.w3.org/ns/shacl#maxCount      :List of 252
+#>  $ http://www.w3.org/ns/shacl#node          :List of 252
+#>  $ http://www.w3.org/ns/shacl#order         :List of 252
+#>  $ http://www.w3.org/ns/shacl#property      :List of 252
+#>  $ http://www.w3.org/ns/shacl#targetClass   :List of 252
+#>  $ http://www.w3.org/ns/shacl#maxLength     :List of 252
+#>  $ http://www.w3.org/ns/shacl#minLength     :List of 252
+#>  $ http://www.w3.org/ns/shacl#minInclusive  :List of 252
+#>  $ http://www.w3.org/ns/shacl#fractionDigits:List of 252
+#>  $ http://www.w3.org/ns/shacl#totalDigits   :List of 252
+#>  $ http://www.w3.org/ns/shacl#pattern       :List of 252
 ```
 
 Note that if you have a SpiGes XML file, you can extract the data using
