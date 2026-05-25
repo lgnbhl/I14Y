@@ -2,21 +2,23 @@
 % Please edit documentation in R/i14y_get_content_information.R
 \name{i14y_get_content_information}
 \alias{i14y_get_content_information}
-\title{Get the information of a nomenclature by identifier}
+\title{Get dataset content information by ID}
 \usage{
 i14y_get_content_information(id = NULL)
 }
 \arguments{
-\item{identifier}{string. The identifier of the nomenclature.}
+\item{id}{string. The UUID of the dataset.}
 }
 \value{
 a list
 }
 \description{
-Get the information of a nomenclature by identifier
+Returns metadata for a dataset including its publication level, registration
+status, distributions and whether structures are available
+(`hasDataStructures`).
 }
 \examples{
 i14y_get_content_information(
-  identifier = "HCL_CH_ISCO_19_PROF"
+  id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 )
 }

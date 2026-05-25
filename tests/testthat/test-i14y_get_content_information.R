@@ -2,9 +2,9 @@ test_that("i14y_get_content_information() returns a list", {
   if (!curl::has_internet()) {
     skip("No internet connection")
   }
-  list <- i14y_get_content_information(
-    identifier = "HCL_CH_ISCO_19_PROF"
+  res <- i14y_get_content_information(
+    id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
   )
-  expect_equal(class(list), "list")
-  expect_true(length(list) >= 1)
+  expect_type(res, "list")
+  expect_true(length(res) >= 1)
 })
