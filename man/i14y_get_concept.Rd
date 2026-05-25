@@ -2,24 +2,23 @@
 % Please edit documentation in R/i14y_get_concept.R
 \name{i14y_get_concept}
 \alias{i14y_get_concept}
-\title{Get Concept view entity by ID}
+\title{Get a concept by ID}
 \usage{
-i14y_get_concept(id = NULL, language = "de")
+i14y_get_concept(id = NULL)
 }
 \arguments{
-\item{id}{string. The Id of the response data.}
-
-\item{language}{string. The language of the response data.}
+\item{id}{string. The UUID of the concept.}
 }
 \value{
 a list
 }
 \description{
-Get Concept view entity by ID
+Calls the I14Y public API endpoint \verb{/concepts/\{conceptId\}} and returns
+the concept metadata. Multilingual fields (`name`, `description`, ...) are
+returned with one entry per language (de, en, fr, it).
 }
 \examples{
 i14y_get_concept(
- id = "08d94604-e058-62a2-aa25-53f84b974201", # DV_NOGA_DIVISION
- language = "en"
+ id = "08d94604-e058-62a2-aa25-53f84b974201" # DV_NOGA_DIVISION
 )
 }

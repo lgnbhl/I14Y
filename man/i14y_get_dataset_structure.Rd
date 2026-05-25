@@ -13,8 +13,8 @@ i14y_get_dataset_structure(id = NULL, format = "JsonLd")
 "Rdf".}
 }
 \value{
-For \code{format = "JsonLd"}, the parsed JSON-LD graph as a list. For
-other formats, the raw response body as a character string.
+For `format = "JsonLd"`, the parsed JSON-LD graph as a list. For
+  other formats, the raw response body as a character string.
 }
 \description{
 Calls the I14Y public API endpoint
