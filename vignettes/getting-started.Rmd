@@ -1,0 +1,112 @@
+---
+title: "Getting started with I14Y"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with I14Y}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = curl::has_internet()
+)
+```
+
+The **I14Y** R package wraps the public API of the
+[I14Y interoperability platform](https://www.i14y.admin.ch) of Switzerland.
+The platform publishes metadata about five kinds of resources:
+
+| Resource type    | Description                                        | Functions                                                                 |
+|------------------|----------------------------------------------------|---------------------------------------------------------------------------|
+| **Concept**      | Definitions and codelists                          | `i14y_search_concept()`, `i14y_get_concept()`, `i14y_get_codelist()`      |
+| **Dataset**      | Tabular or non-tabular datasets                    | `i14y_list_datasets()`, `i14y_get_dataset()`, `i14y_get_dataset_structure()` |
+| **DataService**  | APIs and data services                             | `i14y_list_dataservices()`, `i14y_get_dataservice()`                      |
+| **PublicService**| Administrative services for citizens and business  | `i14y_list_publicservices()`, `i14y_get_publicservice()`                  |
+| **MappingTable** | Mappings between codelists                         | `i14y_list_mappingtables()`, `i14y_get_mappingtable()`                    |
+
+A single `i14y_search()` function searches across all five at once.
+
+```{r setup}
+library(I14Y)
+```
+
+## A typical workflow
+
+Most workflows follow the same three steps:
+
+1. **Search** for a resource, either with the faceted `i14y_search()` or with
+   one of the convenience wrappers (`i14y_search_catalog()`,
+   `i14y_search_concept()`).
+2. **Inspect** the metadata of a single item with `i14y_get_*()`.
+3. **Download** the actual payload (codelist entries, dataset structure,
+   DCAT export, ...) with the matching `i14y_get_*()` / `i14y_export_*()`
+   function.
+
+### 1. Search
+
+Search the whole catalog in English for the keyword "noga":
+
+```{r}
+i14y_search(query = "noga", language = "en")
+```
+
+The `types` column shows which resource type each row is. You can restrict
+to one type:
+
+```{r}
+i14y_search(
+  query = "noga",
+  language = "en",
+  types = "Concept"
+)
+```
+
+The faceted parameters mirror the OpenAPI spec —
+see `?i14y_search` for the full list (publication levels, registration
+statuses, life events, business events, themes, publishers, ...).
+
+### 2. Inspect
+
+Pick an `id` from the search result and fetch the full metadata:
+
+```{r}
+concept <- i14y_get_concept(id = "08d94604-e058-62a2-aa25-53f84b974201")
+concept$name
+concept$description$en
+```
+
+Multilingual fields always carry the four official Swiss languages plus
+Romansh (`de`, `fr`, `it`, `en`, `rm` when available).
+
+### 3. Download
+
+For a code-list concept, download the entries as a tibble:
+
+```{r}
+i14y_get_codelist(id = "08d94604-e058-62a2-aa25-53f84b974201")
+```
+
+For a dataset, the SHACL/RDF structure is available in three formats
+(`JsonLd`, `Ttl`, `Rdf`):
+
+```{r}
+str(
+  i14y_get_dataset_structure(
+    id = "b902add5-9538-47ed-b663-f9fbfac92381",
+    format = "JsonLd"
+  ),
+  max.level = 1
+)
+```
+
+## Going further
+
+Two further vignettes drill down into common workflows:
+
+- `vignette("codelists-with-bfs")` — translate official BFS dataset codes
+  to multilingual labels.
+- `vignette("discovering-the-catalog")` — list and filter resources by type,
+  publisher, theme, ...; export catalog metadata as DCAT.

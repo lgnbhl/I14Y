@@ -1,0 +1,155 @@
+---
+title: "Enrich BFS data with I14Y codelists"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Enrich BFS data with I14Y codelists}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = curl::has_internet() &&
+    requireNamespace("BFS", quietly = TRUE) &&
+    requireNamespace("dplyr", quietly = TRUE) &&
+    requireNamespace("stringr", quietly = TRUE) &&
+    requireNamespace("readr", quietly = TRUE)
+)
+```
+
+Official Swiss datasets distributed by the [Bundesamt für Statistik
+(BFS)](https://www.bfs.admin.ch) often label rows in German only, using
+codes from a published nomenclature (NOGA, NOMEM, NUTS, ...). The
+companion [BFS R package](https://felixluginbuhl.com/BFS/) gives you the
+data; **I14Y** gives you the official multilingual labels for those codes.
+
+This vignette shows the typical pattern: **find the right codelist, download
+it, join it onto a BFS dataset**.
+
+```{r setup}
+library(I14Y)
+library(BFS)
+library(dplyr)
+library(stringr)
+library(readr)
+```
+
+## 1. Find the right codelist
+
+In the new I14Y data model, each level of a former multi-level nomenclature
+is published as a **separate codelist concept**. For NOGA, that means
+four concepts: `NOGA_SECTION`, `NOGA_DIVISION`, `NOGA_GROUP`, `NOGA_CLASS`.
+
+Search for them:
+
+```{r}
+i14y_search_concept(query = "NOGA", language = "en", pageSize = 10)
+```
+
+Pick the one matching the granularity of your data. For "Wirtschaftsabteilung"
+(economic division) we want `DV_NOGA_DIVISION`.
+
+## 2. Download the codelist
+
+```{r}
+noga_division <- i14y_get_codelist(
+  id = "08d94604-e058-62a2-aa25-53f84b974201" # DV_NOGA_DIVISION
+) |>
+  mutate(Code = as.numeric(Code))
+
+noga_division
+```
+
+The tibble carries one column per official language (`Name_de`, `Name_fr`,
+`Name_it`, `Name_en`) ready for joining.
+
+## 3. Join to a BFS dataset
+
+Get the monthly income by gender and economic division for 2022:
+
+```{r, message=FALSE, warning=FALSE}
+income_meta <- BFS::bfs_get_metadata(number_bfs = "px-x-0304010000_201")
+
+income <- BFS::bfs_get_data(
+  number_bfs = "px-x-0304010000_201",
+  language = "de",
+  query = list(
+    Jahr = "2022",
+    Geschlecht = c("1", "2"),
+    Wirtschaftsabteilung = income_meta$values[[3]],
+    "Zentralwert und andere Perzentile" = "1"
+  )
+)
+```
+
+Extract the NOGA code from the German label and left-join the multilingual
+codelist:
+
+```{r}
+income |>
+  filter(!str_detect(Wirtschaftsabteilung, "Sektor")) |>
+  mutate(Code = readr::parse_number(Wirtschaftsabteilung)) |>
+  left_join(noga_division, by = "Code") |>
+  select(Wirtschaftsabteilung, Name_en, Name_fr, Name_it) |>
+  arrange(Name_en) |>
+  head(10)
+```
+
+## 4. Narrow-search inside a codelist
+
+If you only need a few entries, search **within** a codelist concept
+instead of downloading it whole. The faceted endpoint accepts a free-text
+query in any of the five languages:
+
+```{r}
+i14y_search_codelist(
+  id = "08d94604-e058-62a2-aa25-53f84b974201", # NOGA_DIVISION
+  query = "agriculture",
+  language = "fr"
+)
+```
+
+And if you'd rather get the search result as a downloadable CSV:
+
+```{r}
+i14y_export_codelist_search(
+  id = "08d94604-e058-62a2-aa25-53f84b974201",
+  query = "agriculture",
+  language = "fr",
+  format = "csv"
+)
+```
+
+## Concept metadata
+
+The full concept descriptor — including version, publisher, registration
+status, value type, and conformance statements — is available via
+`i14y_get_concept()`:
+
+```{r}
+concept <- i14y_get_concept(
+  id = "08d94604-e058-62a2-aa25-53f84b974201",
+  includeCodeListEntries = FALSE
+)
+
+concept$publisher
+concept$registrationStatus
+concept$description$en
+```
+
+Pass `includeCodeListEntries = TRUE` if you want the entries embedded in
+the same response (rarely needed when you already have
+`i14y_get_codelist()`).
+
+If you need the full canonical JSON export of a concept (useful when
+archiving or feeding the concept into another system), use
+`i14y_get_concept_export()`:
+
+```{r}
+concept_export <- i14y_get_concept_export(
+  id = "08d94604-e058-62a2-aa25-53f84b974201"
+)
+str(concept_export, max.level = 1)
+```
