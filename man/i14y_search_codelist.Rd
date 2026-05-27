@@ -8,6 +8,7 @@ i14y_search_codelist(
   id = NULL,
   query = NULL,
   language = "de",
+  filters = NULL,
   page = NULL,
   pageSize = NULL
 )
@@ -15,17 +16,21 @@ i14y_search_codelist(
 \arguments{
 \item{id}{string. The UUID of the codelist concept.}
 
-\item{query}{string. The search query.}
+\item{query}{string. The search query. If `NULL`, all entries are returned
+(subject to `filters`, `page` and `pageSize`).}
 
 \item{language}{string. The language of the response data
-("de", "fr", "en" or "it"). Default "de".}
+("de", "fr", "en", "it", "rm"). Default "de".}
+
+\item{filters}{character vector. Optional filter expressions, passed through
+to the API as the `filters` array parameter.}
 
 \item{page}{integer. The number of the result page to return.}
 
 \item{pageSize}{integer. The size of each result page.}
 }
 \value{
-a list
+A tibble of codelist entry summaries. `NULL` when offline.
 }
 \description{
 Calls the I14Y public API endpoint
@@ -35,9 +40,11 @@ single multi-level nomenclature is now a set of separate codelist concepts
 (e.g. `NOGA_SECTION`, `NOGA_DIVISION`, `NOGA_GROUP`, `NOGA_CLASS`).
 }
 \examples{
+\donttest{
 i14y_search_codelist(
   id = "08d94604-e058-62a2-aa25-53f84b974201", # NOGA_DIVISION
   query = "agriculture",
   language = "fr"
 )
+}
 }
