@@ -8,6 +8,17 @@
 - BREAKING CHANGE: remove `i14y_get_dataset_metadata()`. It targeted the internal `input-backend` host and is superseded by `i14y_get_dataset()`, which calls the equivalent public API endpoint.
 - BREAKING CHANGE: remove `i14y_get_concept_all_versions()`. It targeted the internal `input-backend` host and the public API exposes no equivalent. If/when `/concepts/{id}/versions` becomes available publicly, it may be reintroduced.
 - BREAKING CHANGE: `i14y_get_concept()` now calls `/concepts/{conceptId}` on the public API. The `language` argument is removed (the public endpoint always returns all four languages, de/en/fr/it). The response is unwrapped from the `{data: ...}` envelope; a few internal-only fields (`responsiblePerson`, `validTo`, `codeListId`, ...) are no longer returned, and the casing of `codelistEntryValueMaxLength` becomes `codeListEntryValueMaxLength`.
+- New generic search: `i14y_search()` exposes the faceted public-API search over all resource types (Dataset, DataService, PublicService, Concept, MappingTable). `i14y_search_catalog()` and `i14y_search_concept()` become thin wrappers around it and no longer call the undocumented `input-backend` host.
+- New listing functions for every catalog resource: `i14y_list_catalogs()`, `i14y_list_datasets()`, `i14y_list_concepts()`, `i14y_list_dataservices()`, `i14y_list_publicservices()`, `i14y_list_mappingtables()`. All accept the standard `language`, `publishers`, `themes`, `registrationStatuses`, `page` and `pageSize` filters.
+- New catalog endpoints: `i14y_get_catalog()`, `i14y_get_catalog_records()`, `i14y_get_catalog_record()` and `i14y_get_catalog_dcat()` (RDF/TTL export).
+- New mapping table endpoints: `i14y_get_mappingtable()` and `i14y_get_mappingtable_relations()` (Json/Csv).
+- New endpoints `i14y_get_dataservice()` and `i14y_get_publicservice()` for single-resource lookups.
+- New `i14y_get_concept_export()` to fetch the full DCAT export of a concept.
+- New `i14y_export_codelist_search()` to download codelist search results as CSV or JSON, with optional annotations.
+- `i14y_search_codelist()` accepts a `NULL` query (list-all mode) and a `filters` argument, and supports the Rm (Romansh) language.
+- `i14y_get_codelist()` gains `withAnnotations`; `i14y_get_concept()` gains `includeCodeListEntries`.
+- Internal: all exported functions now share a single HTTP layer (`i14y_request()`) with retry on transient statuses, RFC 7807-aware error messages, and consistent `{data: ...}` envelope unwrapping.
+- New vignettes: "Getting started", "Discovering the catalog" and "Codelists with BFS".
 - Update `README.Rmd` to reflect the new model and use UUIDs in examples.
 
 # I14Y 0.1.7

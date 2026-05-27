@@ -18,11 +18,12 @@ i14y_get_dataset(id = NULL)
 
 ## Value
 
-a list
+A list with the dataset metadata. \`NULL\` when offline.
 
 ## Examples
 
 ``` r
+# \donttest{
 i14y_get_dataset(
   id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 )
@@ -346,4 +347,5 @@ i14y_get_dataset(
 #> $version
 #> [1] "1.5"
 #> 
+# }
 ```

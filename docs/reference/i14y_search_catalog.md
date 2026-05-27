@@ -1,6 +1,7 @@
 # Search the catalog for datasets, data services and public services.
 
-Search the catalog for datasets, data services and public services.
+Thin wrapper around \[i14y_search()\] that restricts the result to the
+catalog resource types ("Dataset", "DataService", "PublicService").
 
 ## Usage
 
@@ -23,85 +24,76 @@ i14y_search_catalog(
 
 - query:
 
-  string. The search query
+  string. The search query.
 
 - language:
 
-  string. The language to use for the search
+  string. The language to use for the search.
 
 - accessRights:
 
-  vector of strings. Only results with one of the specified access
-  rights (PUBLIC, NON_PUBLIC, RESTRICTED) are returned
+  character vector. Filter by access rights.
 
 - formats:
 
-  vector of strings. Only results with at least one distribution
-  providing one of the specified formats are returned
+  character vector. Filter by distribution formats.
 
 - publishers:
 
-  vector of strings. Only results with one of the specified publishers
-  are returned
+  character vector. Filter by publisher identifiers.
 
 - statuses:
 
-  vector of strings. Only results with one of the specified registration
-  statuses are returned
+  character vector. Filter by registration status. Forwarded to the
+  \`registrationStatuses\` parameter of \[i14y_search()\].
 
 - themes:
 
-  vector of strings. Only results corresponding to one of the specified
-  themes are returned
+  character vector. Filter by theme codes.
 
 - types:
 
-  vector of strings. Only results with one of the specified types
-  (Dataset, DataService, PublicService) are returned
+  character vector. Restrict to a subset of catalog types. One or more
+  of "Dataset", "DataService", "PublicService". Defaults to all three.
 
 - page:
 
-  integer. The number of the result page to return
+  integer. The number of the result page to return.
 
 - pageSize:
 
-  integer. The size of each result page
+  integer. The size of each result page.
 
 ## Value
 
-a tibble
-
-## Note
-
-This function calls the internal I14Y `input-backend` host
-(`input-backend.i14y.c.bfs.admin.ch/api/Catalog/search`) because the
-public API at `api.i14y.admin.ch` does not yet expose an equivalent
-faceted catalog search endpoint. That host is undocumented and may
-change without notice, so this function may break between releases. It
-will be migrated once a public equivalent is available.
+A tibble of catalog search results. \`NULL\` when offline.
 
 ## Examples
 
 ``` r
+# \donttest{
 i14y_search_catalog(query = "noga")
-#> # A tibble: 23 × 38
-#>    businessEvents conceptValueType id    identifiers lifeEvents publicationLevel
-#>    <list>         <chr>            <chr> <list>      <list>     <chr>           
-#>  1 <list [0]>     NA               4f71… <chr [1]>   <list [0]> Public          
-#>  2 <list [0]>     CodeList         08d9… <chr [1]>   <list [0]> Public          
-#>  3 <list [0]>     CodeList         08d9… <chr [1]>   <list [0]> Public          
-#>  4 <list [0]>     CodeList         08d9… <chr [1]>   <list [0]> Public          
-#>  5 <list [0]>     CodeList         08dc… <chr [1]>   <list [0]> Public          
-#>  6 <list [0]>     CodeList         001b… <chr [1]>   <list [0]> Public          
-#>  7 <list [0]>     CodeList         08d9… <chr [1]>   <list [0]> Public          
-#>  8 <list [0]>     CodeList         08d9… <chr [1]>   <list [0]> Public          
-#>  9 <list [0]>     CodeList         08d9… <chr [1]>   <list [0]> Public          
-#> 10 <list [0]>     CodeList         08d9… <chr [1]>   <list [0]> Public          
-#> # ℹ 13 more rows
-#> # ℹ 32 more variables: publicationLevelProposal <lgl>,
-#> #   registrationStatus <chr>, registrationStatusProposal <lgl>, status <chr>,
-#> #   structure <chr>, themes <list>, type <chr>, validFrom <chr>, validTo <chr>,
-#> #   version <chr>, accessRights.code <chr>, accessRights.uri <chr>,
+#> # A tibble: 12 × 61
+#>    businessEvents formats      id         identifier lifeEvents publicationLevel
+#>    <list>         <list>       <chr>      <chr>      <list>     <chr>           
+#>  1 <list [0]>     <df [1 × 6]> 4f71b53b-… HCL_NOGA   <list [0]> Public          
+#>  2 <list [0]>     <df [0 × 0]> 36c44972-… 36576934@… <list [0]> Public          
+#>  3 <list [0]>     <df [0 × 0]> 1af9c3b3-… 36576962@… <list [0]> Public          
+#>  4 <list [0]>     <df [0 × 0]> 1f9eee4b-… 36576963@… <list [0]> Public          
+#>  5 <list [0]>     <df [0 × 0]> 85b17aa2-… 36576955@… <list [0]> Public          
+#>  6 <list [0]>     <df [5 × 6]> 1b9ac548-… CH_KT_BL_… <list [0]> Public          
+#>  7 <list [0]>     <df [5 × 6]> 83cb7801-… CH_KT_BL_… <list [0]> Public          
+#>  8 <list [0]>     <df [0 × 0]> 41eb0bf6-… 35270626@… <list [0]> Public          
+#>  9 <list [0]>     <df [5 × 6]> ce087cbd-… CH_KT_BL_… <list [0]> Public          
+#> 10 <list [0]>     <df [0 × 0]> 17d00792-… 36506623@… <list [0]> Public          
+#> 11 <list [0]>     <df [0 × 0]> a145d726-… 36506617@… <list [0]> Public          
+#> 12 <list [0]>     <df [0 × 0]> e12c39d1-… 36506622@… <list [0]> Public          
+#> # ℹ 55 more variables: registrationStatus <chr>, structure <chr>,
+#> #   themes <list>, type <chr>, accessRights.code <chr>, accessRights.uri <chr>,
 #> #   accessRights.name.de <chr>, accessRights.name.en <chr>,
-#> #   accessRights.name.fr <chr>, accessRights.name.it <chr>, …
+#> #   accessRights.name.fr <chr>, accessRights.name.it <chr>,
+#> #   description.de <chr>, description.en <chr>, description.fr <chr>,
+#> #   description.it <chr>, publisher.homePage <chr>, publisher.id <chr>,
+#> #   publisher.identifier <chr>, publisher.spatial <list>, …
+# }
 ```

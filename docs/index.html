@@ -60,7 +60,8 @@
 </div>
 <!-- badges: start -->
 
-<p>Search and download official Swiss metadata from the <a href="https://www.i14y.admin.ch" class="external-link">I14Y interoperability plateform</a> of Switzerland using its public <a href="https://www.i14y.admin.ch/api/index.html" class="external-link">IOP API</a> and <a href="https://apiconsole.i14y.admin.ch/public/v1/index.html" class="external-link">Console API</a> in any language (“en”, “de”, “fr” or “it”).</p>
+<p>Search and download official Swiss metadata from the <a href="https://www.i14y.admin.ch" class="external-link">I14Y interoperability platform</a> of Switzerland using its public <a href="https://www.i14y.admin.ch/api/index.html" class="external-link">IOP API</a> and <a href="https://apiconsole.i14y.admin.ch/public/v1/index.html" class="external-link">Console API</a> in any of the four official languages plus English (“de”, “fr”, “it”, “en”, “rm”).</p>
+<p>The platform publishes metadata about five kinds of resources — <strong>Concepts</strong> (definitions and codelists), <strong>Datasets</strong>, <strong>DataServices</strong>, <strong>PublicServices</strong> and <strong>MappingTables</strong> — all organised in <strong>Catalogs</strong>. The package mirrors that structure with one family of functions per resource type.</p>
 <div class="section level2">
 <h2 id="install">Install<a class="anchor" aria-label="anchor" href="#install"></a>
 </h2>
@@ -68,66 +69,44 @@
 <code class="sourceCode R"><span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"lgnbhl/I14Y"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+<h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/I14Y/">I14Y</a></span><span class="op">)</span></span></code></pre></div>
-<div class="section level3">
-<h3 id="get-concepts-and-codelists">Get concepts and codelists<a class="anchor" aria-label="anchor" href="#get-concepts-and-codelists"></a>
-</h3>
-<p>You can get the full concept public catalog with <code><a href="reference/i14y_search_concept.html">i14y_search_concept()</a></code>:</p>
+<p>Search the whole catalog in English:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_concept.html">i14y_search_concept</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 604 × 32</span></span>
-<span><span class="co">#&gt;    accessRights businessEvents conceptValueType id        identifiers lifeEvents</span></span>
-<span><span class="co">#&gt;    &lt;lgl&gt;        &lt;list&gt;         &lt;chr&gt;            &lt;chr&gt;     &lt;list&gt;      &lt;list&gt;    </span></span>
-<span><span class="co">#&gt;  1 NA           &lt;list [0]&gt;     CodeList         08db7950… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  2 NA           &lt;list [0]&gt;     CodeList         08db7950… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  3 NA           &lt;list [0]&gt;     CodeList         08db7950… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  4 NA           &lt;list [0]&gt;     CodeList         08db7950… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  5 NA           &lt;list [0]&gt;     CodeList         08db7951… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  6 NA           &lt;list [0]&gt;     CodeList         08db7951… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  7 NA           &lt;list [0]&gt;     CodeList         08db7951… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  8 NA           &lt;list [0]&gt;     CodeList         08db7951… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  9 NA           &lt;list [0]&gt;     CodeList         08db7951… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt; 10 NA           &lt;list [0]&gt;     CodeList         08db7951… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt; # ℹ 594 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 26 more variables: publicationLevel &lt;chr&gt;, publicationLevelProposal &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   registrationStatus &lt;chr&gt;, registrationStatusProposal &lt;chr&gt;, status &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   structure &lt;lgl&gt;, themes &lt;list&gt;, type &lt;chr&gt;, validFrom &lt;chr&gt;, validTo &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   version &lt;chr&gt;, description.de &lt;chr&gt;, description.en &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   description.fr &lt;chr&gt;, description.it &lt;chr&gt;, description.rm &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   publisherName.de &lt;chr&gt;, publisherName.en &lt;chr&gt;, publisherName.fr &lt;chr&gt;, …</span></span></code></pre></div>
-<p>Search for a specific concept in a given language (“en”, “de”, “fr” or “it”) with <code><a href="reference/i14y_search_concept.html">i14y_search_concept()</a></code>:</p>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search.html">i14y_search</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"noga"</span>, language <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; # A tibble: 15 × 1</span></span>
+<span><span class="co">#&gt;    data$businessEvents $formats $id    $identifier $lifeEvents $publicationLevel</span></span>
+<span><span class="co">#&gt;    &lt;list&gt;              &lt;list&gt;   &lt;chr&gt;  &lt;chr&gt;       &lt;list&gt;      &lt;chr&gt;            </span></span>
+<span><span class="co">#&gt;  1 &lt;list [0]&gt;          &lt;df&gt;     4f71b… HCL_NOGA    &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt;  2 &lt;list [0]&gt;          &lt;df&gt;     08dc4… nogaCode    &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt;  3 &lt;list [0]&gt;          &lt;df&gt;     001bf… nogaCode    &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt;  4 &lt;list [0]&gt;          &lt;df&gt;     08d94… NOGA_SECTI… &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt;  5 &lt;list [0]&gt;          &lt;df&gt;     08d94… NOGA_CLASS  &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt;  6 &lt;list [0]&gt;          &lt;df&gt;     08d94… NOGA_DIVIS… &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt;  7 &lt;list [0]&gt;          &lt;df&gt;     08d94… NOGA_GROUP  &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt;  8 &lt;list [0]&gt;          &lt;df&gt;     08d94… NOGA_TYPE   &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt;  9 &lt;list [0]&gt;          &lt;df&gt;     08d9f… NOGA_SECTOR &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt; 10 &lt;list [0]&gt;          &lt;df&gt;     08d94… NOGA_OFS50  &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt; 11 &lt;list [0]&gt;          &lt;df&gt;     08dd2… nogaCode    &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt; 12 &lt;list [0]&gt;          &lt;df&gt;     08d9f… NOGA_ESTAT… &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt; 13 &lt;list [0]&gt;          &lt;df&gt;     17d00… 36506623@b… &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt; 14 &lt;list [0]&gt;          &lt;df&gt;     a145d… 36506617@b… &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt; 15 &lt;list [0]&gt;          &lt;df&gt;     e12c3… 36506622@b… &lt;list [0]&gt;  Public           </span></span>
+<span><span class="co">#&gt; # ℹ 59 more variables: data$registrationStatus &lt;chr&gt;, $structure &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   $themes &lt;list&gt;, $type &lt;chr&gt;, $conceptType &lt;chr&gt;, $validFrom &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   $version &lt;chr&gt;, $structureReferencesCount &lt;int&gt;, $validTo &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   $accessRights.code &lt;chr&gt;, $accessRights.uri &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   $accessRights.name.de &lt;chr&gt;, $accessRights.name.en &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   $accessRights.name.fr &lt;chr&gt;, $accessRights.name.it &lt;chr&gt;,</span></span>
+<span><span class="co">#&gt; #   $description.de &lt;chr&gt;, $description.en &lt;chr&gt;, $description.fr &lt;chr&gt;, …</span></span></code></pre></div>
+<p>Download a codelist as a tidy multilingual tibble:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_concept.html">i14y_search_concept</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"noga"</span>, language <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 11 × 32</span></span>
-<span><span class="co">#&gt;    accessRights businessEvents conceptValueType id        identifiers lifeEvents</span></span>
-<span><span class="co">#&gt;    &lt;lgl&gt;        &lt;list&gt;         &lt;chr&gt;            &lt;chr&gt;     &lt;list&gt;      &lt;list&gt;    </span></span>
-<span><span class="co">#&gt;  1 NA           &lt;list [0]&gt;     CodeList         08d94604… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  2 NA           &lt;list [0]&gt;     CodeList         08d94604… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  3 NA           &lt;list [0]&gt;     CodeList         08d94604… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  4 NA           &lt;list [0]&gt;     CodeList         08dc481b… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  5 NA           &lt;list [0]&gt;     CodeList         001bfaa8… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  6 NA           &lt;list [0]&gt;     CodeList         08d94603… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  7 NA           &lt;list [0]&gt;     CodeList         08d94604… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  8 NA           &lt;list [0]&gt;     CodeList         08d9f1f9… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt;  9 NA           &lt;list [0]&gt;     CodeList         08d94604… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt; 10 NA           &lt;list [0]&gt;     CodeList         08dd28d2… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt; 11 NA           &lt;list [0]&gt;     CodeList         08d9f6dd… &lt;chr [1]&gt;   &lt;list [0]&gt;</span></span>
-<span><span class="co">#&gt; # ℹ 26 more variables: publicationLevel &lt;chr&gt;, publicationLevelProposal &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   registrationStatus &lt;chr&gt;, registrationStatusProposal &lt;lgl&gt;, status &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   structure &lt;lgl&gt;, themes &lt;list&gt;, type &lt;chr&gt;, validFrom &lt;chr&gt;, validTo &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   version &lt;chr&gt;, description.de &lt;chr&gt;, description.en &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   description.fr &lt;chr&gt;, description.it &lt;chr&gt;, description.rm &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   publisherName.de &lt;chr&gt;, publisherName.en &lt;chr&gt;, publisherName.fr &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   publisherName.it &lt;chr&gt;, publisherName.rm &lt;lgl&gt;, title.de &lt;chr&gt;, …</span></span></code></pre></div>
-<p>As showed in the <code>conceptType</code> column, some concepts have the type “CodeList”. You can get the codelist (i.e. the “content”) of a concept using <code><a href="reference/i14y_get_codelist.html">i14y_get_codelist()</a></code>, with the value from the <code>id</code> column.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_get_codelist.html">i14y_get_codelist</a></span><span class="op">(</span></span>
-<span>  id <span class="op">=</span> <span class="st">"08d94604-e058-62a2-aa25-53f84b974201"</span> <span class="co"># for DV_NOGA_DIVISION</span></span>
+<span>  id <span class="op">=</span> <span class="st">"08d94604-e058-62a2-aa25-53f84b974201"</span> <span class="co"># DV_NOGA_DIVISION</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 88 × 48</span></span>
+<span><span class="co">#&gt; # A tibble: 88 × 12</span></span>
 <span><span class="co">#&gt;    Code  ParentCode Name_de       Name_fr Name_it Name_rm Name_en Description_de</span></span>
 <span><span class="co">#&gt;    &lt;chr&gt; &lt;lgl&gt;      &lt;chr&gt;         &lt;chr&gt;   &lt;chr&gt;   &lt;lgl&gt;   &lt;chr&gt;   &lt;lgl&gt;         </span></span>
 <span><span class="co">#&gt;  1 01    NA         Landwirtscha… Cultur… Produz… NA      Crop a… NA            </span></span>
@@ -141,237 +120,21 @@
 <span><span class="co">#&gt;  9 10    NA         Herstellung … Indust… Indust… NA      Manufa… NA            </span></span>
 <span><span class="co">#&gt; 10 11    NA         Getränkehers… Fabric… Produz… NA      Manufa… NA            </span></span>
 <span><span class="co">#&gt; # ℹ 78 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 40 more variables: Description_fr &lt;lgl&gt;, Description_it &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   Description_rm &lt;lgl&gt;, Description_en &lt;lgl&gt;, Annotation_ABBREV_Type &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   Annotation_ABBREV_Title &lt;lgl&gt;, Annotation_ABBREV_URI &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   Annotation_ABBREV_Identifier &lt;lgl&gt;, Annotation_ABBREV_Text_de &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   Annotation_ABBREV_Text_fr &lt;chr&gt;, Annotation_ABBREV_Text_it &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   Annotation_ABBREV_Text_rm &lt;lgl&gt;, Annotation_ABBREV_Text_en &lt;chr&gt;, …</span></span></code></pre></div>
-<p>You can also get all concept metadata using <code>i14_get_concept()</code>. Note that the object returned is a list (not a data.frame).</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">concept_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_concept.html">i14y_get_concept</a></span><span class="op">(</span></span>
-<span>  id <span class="op">=</span> <span class="st">"08d94604-e058-62a2-aa25-53f84b974201"</span></span>
+<span><span class="co">#&gt; # ℹ 4 more variables: Description_fr &lt;lgl&gt;, Description_it &lt;lgl&gt;,</span></span>
+<span><span class="co">#&gt; #   Description_rm &lt;lgl&gt;, Description_en &lt;lgl&gt;</span></span></code></pre></div>
+<p>Fetch a dataset’s metadata and its SHACL/RDF structure:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dataset</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_dataset.html">i14y_get_dataset</a></span><span class="op">(</span>id <span class="op">=</span> <span class="st">"b902add5-9538-47ed-b663-f9fbfac92381"</span><span class="op">)</span></span>
+<span><span class="va">dataset</span><span class="op">$</span><span class="va">title</span><span class="op">$</span><span class="va">en</span></span>
+<span><span class="co">#&gt; NULL</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="reference/i14y_get_dataset_structure.html">i14y_get_dataset_structure</a></span><span class="op">(</span></span>
+<span>    id <span class="op">=</span> <span class="st">"b902add5-9538-47ed-b663-f9fbfac92381"</span>,</span>
+<span>    format <span class="op">=</span> <span class="st">"JsonLd"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  max.level <span class="op">=</span> <span class="fl">1</span></span>
 <span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">concept_list</span><span class="op">$</span><span class="va">description</span><span class="op">$</span><span class="va">en</span></span>
-<span><span class="co">#&gt; [1] "Second level of the General Classification of Economic Activities (NOGA) composed of headings identified by a two-digit numerical code. This second level is determined by the International Standard Industrial Classification of All Economic Activities (ISIC Rev.4)."</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="a-concrete-example">A concrete example<a class="anchor" aria-label="anchor" href="#a-concrete-example"></a>
-</h3>
-<p>When using an official Swiss dataset, you can use I14Y to get translations or additional information for a given category. For example, let’s get the monthly income by gender and profession in 2022 using the BFS R package.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://felixluginbuhl.com/BFS/" class="external-link">BFS</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">income_by_job_and_gender_meta</span> <span class="op">&lt;-</span> <span class="fu">BFS</span><span class="fu">::</span><span class="fu"><a href="https://felixluginbuhl.com/BFS/reference/bfs_get_metadata.html" class="external-link">bfs_get_metadata</a></span><span class="op">(</span></span>
-<span>  number_bfs <span class="op">=</span> <span class="st">"px-x-0304010000_201"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">income_by_job_and_gender</span> <span class="op">&lt;-</span> <span class="fu">BFS</span><span class="fu">::</span><span class="fu"><a href="https://felixluginbuhl.com/BFS/reference/bfs_get_data.html" class="external-link">bfs_get_data</a></span><span class="op">(</span></span>
-<span>  number_bfs <span class="op">=</span> <span class="st">"px-x-0304010000_201"</span>, </span>
-<span>  language <span class="op">=</span> <span class="st">"de"</span>,</span>
-<span>  query <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>    Jahr <span class="op">=</span> <span class="st">"2022"</span>, </span>
-<span>    Geschlecht <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"2"</span><span class="op">)</span>,</span>
-<span>    Wirtschaftsabteilung <span class="op">=</span> <span class="va">income_by_job_and_gender_meta</span><span class="op">$</span><span class="va">values</span><span class="op">[[</span><span class="fl">3</span><span class="op">]</span><span class="op">]</span>,</span>
-<span>    <span class="st">'Zentralwert und andere Perzentile'</span> <span class="op">=</span> <span class="st">"1"</span></span>
-<span>  <span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">income_by_job_and_gender</span></span>
-<span><span class="co">#&gt; # A tibble: 6,560 × 7</span></span>
-<span><span class="co">#&gt;    Jahr  Grossregion Wirtschaftsabteilung       `Berufliche Stellung` Geschlecht</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;                      &lt;chr&gt;                 &lt;chr&gt;     </span></span>
-<span><span class="co">#&gt;  1 2022  Schweiz     Wirtschaftsabteilung - To… Berufliche Stellung … Frauen    </span></span>
-<span><span class="co">#&gt;  2 2022  Schweiz     Wirtschaftsabteilung - To… Berufliche Stellung … Männer    </span></span>
-<span><span class="co">#&gt;  3 2022  Schweiz     Wirtschaftsabteilung - To… Oberes und mittleres… Frauen    </span></span>
-<span><span class="co">#&gt;  4 2022  Schweiz     Wirtschaftsabteilung - To… Oberes und mittleres… Männer    </span></span>
-<span><span class="co">#&gt;  5 2022  Schweiz     Wirtschaftsabteilung - To… Unteres Kader         Frauen    </span></span>
-<span><span class="co">#&gt;  6 2022  Schweiz     Wirtschaftsabteilung - To… Unteres Kader         Männer    </span></span>
-<span><span class="co">#&gt;  7 2022  Schweiz     Wirtschaftsabteilung - To… Verantwortlich für d… Frauen    </span></span>
-<span><span class="co">#&gt;  8 2022  Schweiz     Wirtschaftsabteilung - To… Verantwortlich für d… Männer    </span></span>
-<span><span class="co">#&gt;  9 2022  Schweiz     Wirtschaftsabteilung - To… Ohne Kaderfunktion    Frauen    </span></span>
-<span><span class="co">#&gt; 10 2022  Schweiz     Wirtschaftsabteilung - To… Ohne Kaderfunktion    Männer    </span></span>
-<span><span class="co">#&gt; # ℹ 6,550 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 2 more variables: `Zentralwert und andere Perzentile` &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   `Monatlicher Bruttolohn` &lt;dbl&gt;</span></span></code></pre></div>
-<p>Using I14Y, you can get the English, French or Italian translation of the German NOGA division categories (with a bit of extra data transformations):</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://stringr.tidyverse.org" class="external-link">stringr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org" class="external-link">readr</a></span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">noga_division</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_codelist.html">i14y_get_codelist</a></span><span class="op">(</span></span>
-<span>  id <span class="op">=</span> <span class="st">"08d94604-e058-62a2-aa25-53f84b974201"</span> <span class="co"># for DV_NOGA_DIVISION</span></span>
-<span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">Code</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">income_by_job_and_gender</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_detect.html" class="external-link">str_detect</a></span><span class="op">(</span><span class="va">Wirtschaftsabteilung</span>, <span class="st">"Sektor"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># remove sectors</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>Code <span class="op">=</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/parse_number.html" class="external-link">parse_number</a></span><span class="op">(</span><span class="va">Wirtschaftsabteilung</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="co"># extract code</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">noga_division</span>, by <span class="op">=</span> <span class="st">"Code"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="va">Wirtschaftsabteilung</span>, <span class="va">Name_en</span>, <span class="va">Name_fr</span>, <span class="va">Name_it</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 6,400 × 4</span></span>
-<span><span class="co">#&gt;    Wirtschaftsabteilung         Name_en Name_fr Name_it</span></span>
-<span><span class="co">#&gt;    &lt;chr&gt;                        &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  </span></span>
-<span><span class="co">#&gt;  1 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  2 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  3 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  4 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  5 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  6 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  7 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  8 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt;  9 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; 10 Wirtschaftsabteilung - Total &lt;NA&gt;    &lt;NA&gt;    &lt;NA&gt;   </span></span>
-<span><span class="co">#&gt; # ℹ 6,390 more rows</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="search-and-get-datasets">Search and get datasets<a class="anchor" aria-label="anchor" href="#search-and-get-datasets"></a>
-</h3>
-<p>You can search in the public catalog for datasets, data services or public services with <code><a href="reference/i14y_search_catalog.html">i14y_search_catalog()</a></code>:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_catalog.html">i14y_search_catalog</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 2,806 × 38</span></span>
-<span><span class="co">#&gt;    businessEvents conceptValueType id    identifiers lifeEvents publicationLevel</span></span>
-<span><span class="co">#&gt;    &lt;list&gt;         &lt;chr&gt;            &lt;chr&gt; &lt;list&gt;      &lt;list&gt;     &lt;chr&gt;           </span></span>
-<span><span class="co">#&gt;  1 &lt;df [0 × 0]&gt;   &lt;NA&gt;             0091… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt;  2 &lt;df [0 × 0]&gt;   &lt;NA&gt;             00b3… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt;  3 &lt;df [0 × 0]&gt;   &lt;NA&gt;             02b4… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt;  4 &lt;df [0 × 0]&gt;   &lt;NA&gt;             02e3… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt;  5 &lt;df [0 × 0]&gt;   &lt;NA&gt;             0466… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt;  6 &lt;df [0 × 0]&gt;   &lt;NA&gt;             0490… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt;  7 &lt;df [0 × 0]&gt;   &lt;NA&gt;             04f0… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt;  8 &lt;df [0 × 0]&gt;   &lt;NA&gt;             05c7… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt;  9 &lt;df [0 × 0]&gt;   &lt;NA&gt;             0623… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt; 10 &lt;df [0 × 0]&gt;   &lt;NA&gt;             0699… &lt;chr [1]&gt;   &lt;df&gt;       Public          </span></span>
-<span><span class="co">#&gt; # ℹ 2,796 more rows</span></span>
-<span><span class="co">#&gt; # ℹ 32 more variables: publicationLevelProposal &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   registrationStatus &lt;chr&gt;, registrationStatusProposal &lt;chr&gt;, status &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   structure &lt;chr&gt;, themes &lt;list&gt;, type &lt;chr&gt;, validFrom &lt;chr&gt;, validTo &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   version &lt;chr&gt;, accessRights.code &lt;chr&gt;, accessRights.uri &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   accessRights.name.de &lt;chr&gt;, accessRights.name.en &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   accessRights.name.fr &lt;chr&gt;, accessRights.name.it &lt;chr&gt;, …</span></span></code></pre></div>
-<p>Note that the “type” column returned by <code><a href="reference/i14y_search_catalog.html">i14y_search_catalog()</a></code> shows if the content is a “Dataset”, a “DataService” or a “PublicService”.</p>
-<p>You can get the description from the metadata of a given “Dataset” with <code><a href="reference/i14y_get_dataset.html">i14y_get_dataset()</a></code>.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">dataset_metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_dataset.html">i14y_get_dataset</a></span><span class="op">(</span></span>
-<span>  id <span class="op">=</span> <span class="st">"02e34f85-14df-45b5-a38b-2f063c999481"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Add the language</span></span>
-<span><span class="va">dataset_metadata</span><span class="op">$</span><span class="va">description</span><span class="op">$</span><span class="va">en</span></span>
-<span><span class="co">#&gt; [1] "The Swiss prosecution authorities and the Federal intelligence service (FIS) may order post and telecommunications surveillance measures for the purpose of investigating serious criminal offences based on the Swiss Criminal Procedure Code and the Federal Intelligence Service Act. The PTSS is obliged to produce statistics on surveillance measures based on  Art. 16 para. 1 let. k of the Federal Act on Post and Telecommunications Surveillance (SPTA).\r\n\r\nAlthough the number of monitoring measures has fallen this year, it is still slightly above the average of the last five years. While real-time monitoring is within this average, retrospective monitoring is slightly higher. However, emergency searches and tracing of persons show a strong increase compared to the above-mentioned average, while antenna searches are slightly lower.\r\n\r\nThe Articles 269bis and 269ter of the Swiss Criminal Procedure Code allow the use of special technical devices (IMSI catchers) and computer software (govware) for telecommunications surveillance. \r\n\r\nIn 2023, 9 operations used this special computer software (7 in the previous year). The number of operations using special technical devices (IMSI-Catcher) amounts to 160 compared to 120 in the previous year. \r\n\r\nNote: The numbers presented by FIS and those by the PTSS are not comparable due to a different counting method.\r\n"</span></span></code></pre></div>
-<p>Some datasets can be access directly using the I14Y API. But other datasets are hosted only on partner websites. You can get the URL downloads and formats of the dataset using in the distributions part:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># see "downloadUrl" and "format" columns</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">dataset_metadata</span><span class="op">$</span><span class="va">distributions</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="co">#&gt; 'data.frame':    18 obs. of  33 variables:</span></span>
-<span><span class="co">#&gt;  $ accessServices    :List of 18</span></span>
-<span><span class="co">#&gt;  $ byteSize          : int  0 0 0 0 0 0 0 0 0 0 ...</span></span>
-<span><span class="co">#&gt;  $ conformsTo        :List of 18</span></span>
-<span><span class="co">#&gt;  $ coverage          :List of 18</span></span>
-<span><span class="co">#&gt;  $ documentation     :List of 18</span></span>
-<span><span class="co">#&gt;  $ id                : chr  "051ce80d-5cc5-4bf4-874b-9626d55ae5a4" "123e09a1-2198-44af-aa2a-c4bf1cc1fd94" "16bc7686-a1c6-4cd9-8583-704f7922e647" "2ca8412c-3627-449f-b7fb-239889ade1a0" ...</span></span>
-<span><span class="co">#&gt;  $ identifier        : chr  "Detaillierte_Statistik_UEPF_detaillierte_statistik_2023_-_auskünfte" "Detaillierte_Statistik_UEPF_detaillierte_statistik_2011" "Detaillierte_Statistik_UEPF_detaillierte_statistik_2015" "Detaillierte_Statistik_UEPF_detaillierte_statistik_2020_-_auskünfte" ...</span></span>
-<span><span class="co">#&gt;  $ images            :List of 18</span></span>
-<span><span class="co">#&gt;  $ issued            : chr  "2024-04-25T02:00:00+02:00" "2012-03-06T01:00:00+01:00" "2016-02-25T01:00:00+01:00" "2021-03-23T01:00:00+01:00" ...</span></span>
-<span><span class="co">#&gt;  $ languages         :List of 18</span></span>
-<span><span class="co">#&gt;  $ modified          : chr  "2024-05-08T10:40:25.929+02:00" "2020-05-07T13:49:33.014+02:00" "2020-05-07T13:49:33.014+02:00" "2021-04-07T15:56:03.405+02:00" ...</span></span>
-<span><span class="co">#&gt;  $ temporalResolution: chr  "" "" "" NA ...</span></span>
-<span><span class="co">#&gt;  $ accessUrl.uri     : chr  "https://www.li.admin.ch/sites/default/files/2024-04/auskunfte-2023.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2011.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2015.xlsx" "https://www.li.admin.ch/sites/default/files/2021-03/auskuenfte_2020.xlsx" ...</span></span>
-<span><span class="co">#&gt;  $ description.de    : chr  "Die Schweizer Strafverfolgungsbehörden und der Nachrichtendienst des Bundes (NDB) können zur Aufklärung von sch"| __truncated__ "Eine Echtzeitüberwachung ist die simultane, leicht verzögerte oder periodische Übertragung der Post- oder Fernm"| __truncated__ "Eine Echtzeitüberwachung ist die simultane, leicht verzögerte oder periodische Übertragung der Post- oder Fernm"| __truncated__ "Echtzeitüberwachung \r\nEine Echtzeitüberwachung ist die simultane, leicht verzögerte oder periodische Übertrag"| __truncated__ ...</span></span>
-<span><span class="co">#&gt;  $ description.en    : chr  "The Swiss prosecution authorities and the Federal intelligence service (FIS) may order post and telecommunicati"| __truncated__ NA NA NA ...</span></span>
-<span><span class="co">#&gt;  $ description.fr    : chr  "Les autorités suisses de poursuite pénale et le Service de renseignement de la Confédération (SRC) peuvent, en "| __truncated__ "Une surveillance en temps réel est l’interception en temps réel et la transmission simultanée, légèrement diffé"| __truncated__ "Une surveillance en temps réel est l’interception en temps réel et la transmission simultanée, légèrement diffé"| __truncated__ "Surveillance en temps réel \r\nUne surveillance en temps réel est l’interception en temps réel et la transmissi"| __truncated__ ...</span></span>
-<span><span class="co">#&gt;  $ description.it    : chr  "Per indagare su reati gravi, le autorità di perseguimento penale svizzere e il Servizio delle attività informat"| __truncated__ "Una sorveglianza in tempo reale consiste nella trasmissione simultanea, leggermente ritardata o periodica di da"| __truncated__ "Una sorveglianza in tempo reale consiste nella trasmissione simultanea, leggermente ritardata o periodica di da"| __truncated__ "Sorveglianza in tempo reale \r\nUna sorveglianza in tempo reale consiste nella trasmissione simultanea, leggerm"| __truncated__ ...</span></span>
-<span><span class="co">#&gt;  $ downloadUrl.uri   : chr  "https://www.li.admin.ch/sites/default/files/2024-04/auskunfte-2023.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2011.xlsx" "https://www.li.admin.ch/sites/default/files/2019-05/Detaillierte_Statistik_des_Dienstes_2015.xlsx" "https://www.li.admin.ch/sites/default/files/2021-03/auskuenfte_2020.xlsx" ...</span></span>
-<span><span class="co">#&gt;  $ format.code       : chr  "XLS" "XLS" "XLS" "XLS" ...</span></span>
-<span><span class="co">#&gt;  $ format.name.de    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...</span></span>
-<span><span class="co">#&gt;  $ format.name.en    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...</span></span>
-<span><span class="co">#&gt;  $ format.name.fr    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...</span></span>
-<span><span class="co">#&gt;  $ format.name.it    : chr  "Excel XLS" "Excel XLS" "Excel XLS" "Excel XLS" ...</span></span>
-<span><span class="co">#&gt;  $ license.code      : chr  "terms_open" "terms_open" "terms_open" "terms_open" ...</span></span>
-<span><span class="co">#&gt;  $ license.uri       : chr  "http://dcat-ap.ch/vocabulary/licenses/terms_open" "http://dcat-ap.ch/vocabulary/licenses/terms_open" "http://dcat-ap.ch/vocabulary/licenses/terms_open" "http://dcat-ap.ch/vocabulary/licenses/terms_open" ...</span></span>
-<span><span class="co">#&gt;  $ license.name.de   : chr  "Opendata OPEN: Freie Nutzung." "Opendata OPEN: Freie Nutzung." "Opendata OPEN: Freie Nutzung." "Opendata OPEN: Freie Nutzung." ...</span></span>
-<span><span class="co">#&gt;  $ license.name.en   : chr  "Opendata OPEN: Open use." "Opendata OPEN: Open use." "Opendata OPEN: Open use." "Opendata OPEN: Open use." ...</span></span>
-<span><span class="co">#&gt;  $ license.name.fr   : chr  "Opendata OPEN: Utilisation libre." "Opendata OPEN: Utilisation libre." "Opendata OPEN: Utilisation libre." "Opendata OPEN: Utilisation libre." ...</span></span>
-<span><span class="co">#&gt;  $ license.name.it   : chr  "Opendata OPEN: Libero utilizzo." "Opendata OPEN: Libero utilizzo." "Opendata OPEN: Libero utilizzo." "Opendata OPEN: Libero utilizzo." ...</span></span>
-<span><span class="co">#&gt;  $ title.de          : chr  "Detaillierte Statistik 2023 - Auskünfte" "Detaillierte Statistik 2011" "Detaillierte Statistik 2015" "Detaillierte Statistik 2020 - Auskünfte" ...</span></span>
-<span><span class="co">#&gt;  $ title.fr          : chr  "Statistique détaillée 2023 - Renseignements" "Statistique détaillée 2011" "Statistique détaillée 2015" NA ...</span></span>
-<span><span class="co">#&gt;  $ title.it          : chr  "Statistica dettagliata 2023 - Informazioni" "Statistica dettagliata 2011" "Statistica dettagliata 2015" NA ...</span></span>
-<span><span class="co">#&gt;  $ title.en          : chr  NA NA NA NA ...</span></span></code></pre></div>
-<p>Note: the previous I14Y API exposed multi-level “Nomenclature” endpoints (<code>i14y_get_nomenclature_level()</code>, <code>i14y_get_nomenclature_level_multiple()</code>, <code>i14y_search_nomenclature()</code>). These have been removed upstream. In the new I14Y data model, each level of a former nomenclature is published as a separate codelist concept (for example NOGA is split into <code>NOGA_SECTION</code>, <code>NOGA_DIVISION</code>, <code>NOGA_GROUP</code>, <code>NOGA_CLASS</code>). Use <code><a href="reference/i14y_search_concept.html">i14y_search_concept()</a></code> to find the relevant concept and then <code><a href="reference/i14y_get_codelist.html">i14y_get_codelist()</a></code> to download the codes for that level.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_codelist.html">i14y_search_codelist</a></span><span class="op">(</span></span>
-<span>  id <span class="op">=</span> <span class="st">"08d94604-e058-62a2-aa25-53f84b974201"</span>, <span class="co"># NOGA_DIVISION</span></span>
-<span>  query <span class="op">=</span> <span class="st">"agriculture"</span>,</span>
-<span>  language <span class="op">=</span> <span class="st">"fr"</span></span>
-<span><span class="op">)</span></span>
-<span><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           annotations</span></span>
-<span><span class="co">#&gt; 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      0a212c98-9ed0-4357-a506-106cf447debe, 6a9889c9-c662-4b21-adff-5c7eb4dbae90, 411ed36c-8e3f-4231-8fb5-55d70e225359, 411ed36c-8e3f-4231-8fb5-55d70e225359, , , ABBREV, INCLUDES, Forstw. u. Holzeinschlag, Diese Abteilung umfasst die Erzeugung von Rundholz sowie die Gewinnung und Sammlung von wachsenden Erzeugnissen des Waldes. Hinzu kommen geringfügig bearbeitete Erzeugnisse wie Brennholz, Holzkohle oder Industrieholz (z. B. Grubenholz, Papierholz usw.). Diese Tätigkeiten können sowohl in natürlichen als auch in angepflanzten Wäldern ausgeführt werden., Forestry and logging, This division includes the production of roundwood as well as the extraction and gathering of wild growing non-wood forest products. Besides the production of timber, forestry activities result in products that undergo little processing, such as firewood, charcoal and roundwood used in an unprocessed form (e.g. pit-props, pulpwood, etc.). These activities can be carried out in natural or planted forests., Sylviculture et exploitation forestière, Cette division comprend la production de bois rond, ainsi que l'extraction et la cueillette de produits forestiers autres que du bois et poussant à l'état sauvage. À côté de la production de grumes, l'exploitation forestière conduit à des produits peu transformés comme le bois de chauffage, le charbon de bois ou le bois rond utilisé sous une forme brute (bois de mine, bois de trituration, etc.). Ces activités peuvent être effectuées dans des forêts naturelles ou dans des plantations., Silvicolt. e utilizzo di aree forestali, Questa divisione include la produzione di tronchi (tondame) per le industrie del settore così come l'estrazione e la raccolta di altri materiali dalle foreste e dai boschi incolti. Oltre alla produzione di tronchi (tondame) le attività forestali danno prodotti che vengono sottoposti ad un minimo di lavorazione, quali la legna da ardere, il carbone e il legname da industria (per esempio, puntelli per miniere, pasta di cellulosa, ecc.). Queste attività possono essere effettuate in foreste naturali o create dall'uomo.\nDalla divisione è escluso ogni ulteriore trattamento del legno a cominciare dal taglio e dalla piallatura (cfr. Divisione 16).</span></span>
-<span><span class="co">#&gt; 2 d16474e6-3bcf-447a-9464-dd10530b40e1, da8d225a-153d-4bbd-89c3-8b3b0d0a94b8, 056ec921-6947-447b-b836-6f5509f27be2, 056ec921-6947-447b-b836-6f5509f27be2, , , ABBREV, INCLUDES, Landw. u. Jagd, Diese Abteilung umfasst die beiden Tätigkeitsbereiche Gewinnung pflanzlicher Erzeugnisse und Gewinnung tierischer Erzeugnisse. Sie umfasst ferner die ökologische Landwirtschaft sowie den Anbau gentechnisch veränderter Nutzpflanzen und die Haltung gentechnisch veränderter Nutztiere. Diese Abteilung umfasst Freiland- wie auch Gewächshauskulturen.\n\nFerner in dieser Abteilung eingeschlossen sind die Erbringung von mit der Landwirtschaft und der gewerblichen Jagd verbundenen Dienstleistungen sowie die Fallenstellerei und damit verbundene Tätigkeiten.\n\nGruppe 015 (Gemischte Landwirtschaft) bildet eine Ausnahme von den Grundregeln zur Bestimmung der Haupttätigkeit. Man geht hier davon aus, dass in zahlreichen landwirtschaftlichen Betrieben ein Gleichgewicht zwischen pflanzlicher und tierischer Erzeugung besteht und es willkürlich wäre, sie in die eine oder die andere Kategorie einzuordnen., Crop and animal produc., hunting, This division includes two basic activities, namely the production of crop products and production of animal products, covering also the forms of organic agriculture, the growing of genetically modified crops and the raising of genetically modified animals. This division includes growing of crops in open fields as well in greenhouses.\nThis division also includes service activities incidental to agriculture, as well as hunting, trapping and related activities.\nGroup 015 (Mixed farming) breaks with the usual principles for identifying main activity. It accepts that many agricultural holdings have reasonably balanced crop and animal production, and that it would be arbitrary to classify them in one category or the other., Cult. et p. anim., chasse, Cette division comprend deux activités de base, à savoir la production de produits végétaux et la production de produits animaux, ainsi que l'agriculture biologique, la culture de plantes génétiquement modifiées et l'élevage d'animaux génétiquement modifiés. Cette division comprend la culture de plein champ et la culture sous abris.\n\nCette division comprend également les services annexes à l'agriculture, à la chasse, au piégeage et aux activités connexes.\n\nLe groupe 015 (Culture et élevage associés) rompt avec les principes usuels pour identifier l'activité principale. Il tient compte du fait que de nombreuses exploitations agricoles ont une production végétale et animale assez équilibrée et qu'il serait arbitraire de les classer dans l'une ou l'autre catégorie., Prod. vegetali  e animali, caccia, Questa divisione include due attività di base, la produzione di prodotti derivanti da coltivazioni agricole e la produzione di prodotti animali; includendo anche le forme di agricoltura biologica, coltivazione di prodotti geneticamente modificati e l'allevamento di animali geneticamente modificati. Questa divisione include la coltivazione di colture in piena aria ed in serre.\n\nInoltre, sono incluse le attività di servizio accessorie all'agricoltura, alla caccia e alle attività a queste relative.\n\nIl gruppo 015 (Coltivazioni agricole associate all'allevamento di animali: attività mista) costituisce una eccezione ai principi generali adottati per l'identificazione dell'attività principale. Si ammette che un'azienda agricola possa avere una ben bilanciata produzione sia agricola che animale. In questo caso sarebbe arbitrario classificare l'azienda in una categoria o nell'altra.</span></span>
-<span><span class="co">#&gt;   code                            conceptId</span></span>
-<span><span class="co">#&gt; 1   02 08d94604-e058-62a2-aa25-53f84b974201</span></span>
-<span><span class="co">#&gt; 2   01 08d94604-e058-62a2-aa25-53f84b974201</span></span>
-<span><span class="co">#&gt;                                     id</span></span>
-<span><span class="co">#&gt; 1 411ed36c-8e3f-4231-8fb5-55d70e225359</span></span>
-<span><span class="co">#&gt; 2 056ec921-6947-447b-b836-6f5509f27be2</span></span>
-<span><span class="co">#&gt;                                                 name.de</span></span>
-<span><span class="co">#&gt; 1                     Forstwirtschaft und Holzeinschlag</span></span>
-<span><span class="co">#&gt; 2 Landwirtschaft, Jagd und damit verbundene Tätigkeiten</span></span>
-<span><span class="co">#&gt;                                                              name.en</span></span>
-<span><span class="co">#&gt; 1                                               Forestry and logging</span></span>
-<span><span class="co">#&gt; 2 Crop and animal production, hunting and related service activities</span></span>
-<span><span class="co">#&gt;                                                     name.fr</span></span>
-<span><span class="co">#&gt; 1                   Sylviculture et exploitation forestière</span></span>
-<span><span class="co">#&gt; 2 Culture et production animale, chasse et services annexes</span></span>
-<span><span class="co">#&gt;                                                    name.it</span></span>
-<span><span class="co">#&gt; 1                Silvicoltura e utilizzo di aree forestali</span></span>
-<span><span class="co">#&gt; 2 Produzioni vegetali e animali, caccia e servizi connessi</span></span></code></pre></div>
-<p>Note that other official Swiss datasets from the Swiss Federal Statistical Office (BFS) can be accessed using the <a href="https://felixluginbuhl.com/BFS/" class="external-link">BFS</a> R package.</p>
-</div>
-<div class="section level3">
-<h3 id="data-structure">Data structure<a class="anchor" aria-label="anchor" href="#data-structure"></a>
-</h3>
-<p>You can search for data structure of a dataset. Let’s search for example for the SpiGes project:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/i14y_search_catalog.html">i14y_search_catalog</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"SpiGes_Administratives"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; # A tibble: 1 × 38</span></span>
-<span><span class="co">#&gt;   businessEvents conceptValueType id     identifiers lifeEvents publicationLevel</span></span>
-<span><span class="co">#&gt;   &lt;list&gt;         &lt;lgl&gt;            &lt;chr&gt;  &lt;list&gt;      &lt;list&gt;     &lt;chr&gt;           </span></span>
-<span><span class="co">#&gt; 1 &lt;list [0]&gt;     NA               b902a… &lt;chr [1]&gt;   &lt;list [0]&gt; Public          </span></span>
-<span><span class="co">#&gt; # ℹ 32 more variables: publicationLevelProposal &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   registrationStatus &lt;chr&gt;, registrationStatusProposal &lt;lgl&gt;, status &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   structure &lt;chr&gt;, themes &lt;list&gt;, type &lt;chr&gt;, validFrom &lt;lgl&gt;, validTo &lt;lgl&gt;,</span></span>
-<span><span class="co">#&gt; #   version &lt;chr&gt;, accessRights.code &lt;chr&gt;, accessRights.uri &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   accessRights.name.de &lt;chr&gt;, accessRights.name.en &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   accessRights.name.fr &lt;chr&gt;, accessRights.name.it &lt;chr&gt;,</span></span>
-<span><span class="co">#&gt; #   accessRights.name.rm &lt;lgl&gt;, description.de &lt;chr&gt;, description.en &lt;chr&gt;, …</span></span></code></pre></div>
-<p>You can check first the dataset metadata (note that the API now uses dataset UUIDs rather than string identifiers):</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">spiges</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_dataset.html">i14y_get_dataset</a></span><span class="op">(</span></span>
-<span>  id <span class="op">=</span> <span class="st">"b902add5-9538-47ed-b663-f9fbfac92381"</span> <span class="co"># SpiGes_Administratives</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">spiges</span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "accessRights"          "confidentialityPerson" "conformsTo"           </span></span>
-<span><span class="co">#&gt;  [4] "contactPoints"         "description"           "distributions"        </span></span>
-<span><span class="co">#&gt;  [7] "documentation"         "frequency"             "geoIvIds"             </span></span>
-<span><span class="co">#&gt; [10] "id"                    "identifiers"           "images"               </span></span>
-<span><span class="co">#&gt; [13] "isReferencedBy"        "issued"                "keywords"             </span></span>
-<span><span class="co">#&gt; [16] "landingPages"          "languages"             "modified"             </span></span>
-<span><span class="co">#&gt; [19] "publicationLevel"      "publisher"             "qualifiedAttributions"</span></span>
-<span><span class="co">#&gt; [22] "qualifiedRelations"    "registrationStatus"    "relations"            </span></span>
-<span><span class="co">#&gt; [25] "system"                "spatial"               "temporalCoverage"     </span></span>
-<span><span class="co">#&gt; [28] "themes"                "title"                 "version"</span></span></code></pre></div>
-<p>You can get its data structure with <code><a href="reference/i14y_get_dataset_structure.html">i14y_get_dataset_structure()</a></code>. The new public API returns the structure as a SHACL/RDF graph in JSON-LD, Turtle or RDF/XML — pick a format with the <code>format</code> argument:</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data_structure</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/i14y_get_dataset_structure.html">i14y_get_dataset_structure</a></span><span class="op">(</span></span>
-<span>  id <span class="op">=</span> <span class="st">"b902add5-9538-47ed-b663-f9fbfac92381"</span>, <span class="co"># SpiGes_Administratives</span></span>
-<span>  format <span class="op">=</span> <span class="st">"JsonLd"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">data_structure</span>, max.level <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 'data.frame':    252 obs. of  22 variables:</span></span>
 <span><span class="co">#&gt;  $ @id                                      : chr  "https://register.ld.admin.ch/i14y/dataset/SpiGes_Administratives/structure/UnternehmenType/version" "https://register.ld.admin.ch/i14y/dataset/SpiGes_Administratives/structure/UnternehmenType/ent_id" "https://register.ld.admin.ch/i14y/dataset/SpiGes_Administratives/structure/UnternehmenType/Standort" "https://register.ld.admin.ch/i14y/dataset/SpiGes_Administratives/structure/StandortType" ...</span></span>
 <span><span class="co">#&gt;  $ @type                                    :List of 252</span></span>
@@ -395,8 +158,107 @@
 <span><span class="co">#&gt;  $ http://www.w3.org/ns/shacl#fractionDigits:List of 252</span></span>
 <span><span class="co">#&gt;  $ http://www.w3.org/ns/shacl#totalDigits   :List of 252</span></span>
 <span><span class="co">#&gt;  $ http://www.w3.org/ns/shacl#pattern       :List of 252</span></span></code></pre></div>
-<p>Note that if you have a SpiGes XML file, you can extract the data using the <strong><a href="https://github.com/SwissStatsR/SpiGesXML" class="external-link">SpiGesXML</a></strong> R package.</p>
 </div>
+<div class="section level2">
+<h2 id="vignettes">Vignettes<a class="anchor" aria-label="anchor" href="#vignettes"></a>
+</h2>
+<p>Three vignettes give an end-to-end view of what the package can do:</p>
+<ul>
+<li>
+<strong><a href="https://lgnbhl.github.io/I14Y/articles/getting-started.html" class="external-link">Getting started with I14Y</a></strong> — the three-step <em>search → inspect → download</em> workflow, with one example per resource type.</li>
+<li>
+<strong><a href="https://lgnbhl.github.io/I14Y/articles/discovering-the-catalog.html" class="external-link">Discovering the I14Y catalog</a></strong> — faceted search vs. list endpoints, getting dataservices / publicservices / mapping tables, browsing catalogs and exporting them in DCAT.</li>
+<li>
+<strong><a href="https://lgnbhl.github.io/I14Y/articles/codelists-with-bfs.html" class="external-link">Enrich BFS data with I14Y codelists</a></strong> — the canonical use case: find a codelist, download it, and join it onto a <a href="https://felixluginbuhl.com/BFS/" class="external-link">BFS</a> dataset to get multilingual labels.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="function-reference">Function reference<a class="anchor" aria-label="anchor" href="#function-reference"></a>
+</h2>
+<table class="table">
+<colgroup>
+<col width="25%">
+<col width="25%">
+<col width="25%">
+<col width="25%">
+</colgroup>
+<thead><tr>
+<th>Resource</th>
+<th>Search / list</th>
+<th>Get one</th>
+<th>Export</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><em>Cross-resource</em></td>
+<td><code><a href="reference/i14y_search.html">i14y_search()</a></code></td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Concept</td>
+<td>
+<code><a href="reference/i14y_search_concept.html">i14y_search_concept()</a></code>, <code><a href="reference/i14y_list_concepts.html">i14y_list_concepts()</a></code>
+</td>
+<td>
+<code><a href="reference/i14y_get_concept.html">i14y_get_concept()</a></code>, <code><a href="reference/i14y_get_codelist.html">i14y_get_codelist()</a></code>
+</td>
+<td>
+<code><a href="reference/i14y_get_concept_export.html">i14y_get_concept_export()</a></code>, <code><a href="reference/i14y_export_codelist_search.html">i14y_export_codelist_search()</a></code>, <code><a href="reference/i14y_search_codelist.html">i14y_search_codelist()</a></code>
+</td>
+</tr>
+<tr>
+<td>Dataset</td>
+<td>
+<code><a href="reference/i14y_search_catalog.html">i14y_search_catalog()</a></code>, <code><a href="reference/i14y_list_datasets.html">i14y_list_datasets()</a></code>
+</td>
+<td><code><a href="reference/i14y_get_dataset.html">i14y_get_dataset()</a></code></td>
+<td><code><a href="reference/i14y_get_dataset_structure.html">i14y_get_dataset_structure()</a></code></td>
+</tr>
+<tr>
+<td>DataService</td>
+<td>
+<code><a href="reference/i14y_search_catalog.html">i14y_search_catalog()</a></code>, <code><a href="reference/i14y_list_dataservices.html">i14y_list_dataservices()</a></code>
+</td>
+<td><code><a href="reference/i14y_get_dataservice.html">i14y_get_dataservice()</a></code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>PublicService</td>
+<td>
+<code><a href="reference/i14y_search_catalog.html">i14y_search_catalog()</a></code>, <code><a href="reference/i14y_list_publicservices.html">i14y_list_publicservices()</a></code>
+</td>
+<td><code><a href="reference/i14y_get_publicservice.html">i14y_get_publicservice()</a></code></td>
+<td>—</td>
+</tr>
+<tr>
+<td>MappingTable</td>
+<td><code><a href="reference/i14y_list_mappingtables.html">i14y_list_mappingtables()</a></code></td>
+<td><code><a href="reference/i14y_get_mappingtable.html">i14y_get_mappingtable()</a></code></td>
+<td><code><a href="reference/i14y_get_mappingtable_relations.html">i14y_get_mappingtable_relations()</a></code></td>
+</tr>
+<tr>
+<td>Catalog</td>
+<td><code><a href="reference/i14y_list_catalogs.html">i14y_list_catalogs()</a></code></td>
+<td>
+<code><a href="reference/i14y_get_catalog.html">i14y_get_catalog()</a></code>, <code><a href="reference/i14y_get_catalog_records.html">i14y_get_catalog_records()</a></code>, <code><a href="reference/i14y_get_catalog_record.html">i14y_get_catalog_record()</a></code>
+</td>
+<td><code><a href="reference/i14y_get_catalog_dcat.html">i14y_get_catalog_dcat()</a></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section level2">
+<h2 id="a-note-on-argument-names">A note on argument names<a class="anchor" aria-label="anchor" href="#a-note-on-argument-names"></a>
+</h2>
+<p>Function arguments use <strong>camelCase</strong> (<code>pageSize</code>, <code>publicationLevel</code>, <code>registrationStatuses</code>, <code>withAnnotations</code>, …) rather than the more idiomatic R <strong>snake_case</strong>. This is deliberate: argument names match the underlying OpenAPI parameters one-for-one, so anything you read in the <a href="https://www.i14y.admin.ch/api/index.html" class="external-link">I14Y API documentation</a> can be passed straight through to the corresponding R function.</p>
+</div>
+<div class="section level2">
+<h2 id="configuring-the-base-url">Configuring the base URL<a class="anchor" aria-label="anchor" href="#configuring-the-base-url"></a>
+</h2>
+<p>By default the package targets <a href="https://api.i14y.admin.ch/api/public/v1" class="external-link uri">https://api.i14y.admin.ch/api/public/v1</a>. Override this with the <code>I14Y_BASE_URL</code> environment variable to point at a different deployment (test environment, local mock):</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>I14Y_BASE_URL <span class="op">=</span> <span class="st">"https://api-test.i14y.admin.ch/api/public/v1"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
