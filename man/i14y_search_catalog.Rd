@@ -18,46 +18,37 @@ i14y_search_catalog(
 )
 }
 \arguments{
-\item{query}{string. The search query}
+\item{query}{string. The search query.}
 
-\item{language}{string. The language to use for the search}
+\item{language}{string. The language to use for the search.}
 
-\item{accessRights}{vector of strings. Only results with one of the
-specified access rights (PUBLIC, NON_PUBLIC, RESTRICTED) are returned}
+\item{accessRights}{character vector. Filter by access rights.}
 
-\item{formats}{vector of strings. Only results with at least one distribution
-providing one of the specified formats are returned}
+\item{formats}{character vector. Filter by distribution formats.}
 
-\item{publishers}{vector of strings. Only results with one of the specified
-publishers are returned}
+\item{publishers}{character vector. Filter by publisher identifiers.}
 
-\item{statuses}{vector of strings. Only results with one of the specified
-registration statuses are returned}
+\item{statuses}{character vector. Filter by registration status. Forwarded
+to the `registrationStatuses` parameter of [i14y_search()].}
 
-\item{themes}{vector of strings. Only results corresponding to one of the
-specified themes are returned}
+\item{themes}{character vector. Filter by theme codes.}
 
-\item{types}{vector of strings. Only results with one of the specified types
-(Dataset, DataService, PublicService) are returned}
+\item{types}{character vector. Restrict to a subset of catalog types. One or
+more of "Dataset", "DataService", "PublicService". Defaults to all three.}
 
-\item{page}{integer. The number of the result page to return}
+\item{page}{integer. The number of the result page to return.}
 
-\item{pageSize}{integer. The size of each result page}
+\item{pageSize}{integer. The size of each result page.}
 }
 \value{
-a tibble
+A tibble of catalog search results. `NULL` when offline.
 }
 \description{
-Search the catalog for datasets, data services and public services.
-}
-\note{
-This function calls the internal I14Y `input-backend` host
-  (`input-backend.i14y.c.bfs.admin.ch/api/Catalog/search`) because the
-  public API at `api.i14y.admin.ch` does not yet expose an equivalent
-  faceted catalog search endpoint. That host is undocumented and may change
-  without notice, so this function may break between releases. It will be
-  migrated once a public equivalent is available.
+Thin wrapper around [i14y_search()] that restricts the result to
+the catalog resource types ("Dataset", "DataService", "PublicService").
 }
 \examples{
+\donttest{
 i14y_search_catalog(query = "noga")
+}
 }

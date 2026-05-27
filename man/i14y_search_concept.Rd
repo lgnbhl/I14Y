@@ -24,28 +24,25 @@ i14y_search_concept(
 
 \item{pageSize}{integer. The size of each result page.}
 
-\item{publishers}{vector of strings. Filter with Publishers identifiers.}
+\item{publishers}{character vector. Filter by publisher identifiers.}
 
-\item{themes}{vector of strings. Filter with theme codes.}
+\item{themes}{character vector. Filter by theme codes.}
 
-\item{conceptValueTypes}{character vector. One or more concept value types to filter by.}
+\item{conceptValueTypes}{character vector. One or more concept value types
+to filter by ("CodeList", "Date", "Numeric", "String").}
 
-\item{registrationStatuses}{character vector. One or more registration statuses to filter by.}
+\item{registrationStatuses}{character vector. One or more registration
+statuses to filter by.}
 }
 \value{
-a tibble
+A tibble of concept search results. `NULL` when offline.
 }
 \description{
-Search for a Concept Summary
-}
-\note{
-This function calls the internal I14Y `input-backend` host
-  (`input-backend.i14y.c.bfs.admin.ch/api/Catalog/search`) because the
-  public API at `api.i14y.admin.ch` does not yet expose an equivalent
-  faceted concept search endpoint. That host is undocumented and may change
-  without notice, so this function may break between releases. It will be
-  migrated once a public equivalent is available.
+Thin wrapper around [i14y_search()] that restricts the result to
+the "Concept" resource type.
 }
 \examples{
+\donttest{
 i14y_search_concept(query = "noga", language = "en")
+}
 }
