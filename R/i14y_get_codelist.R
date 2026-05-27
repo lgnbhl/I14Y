@@ -1,51 +1,49 @@
 #' Export a codelist
 #'
-#' The function uses the I14Y Console API:
-#' <https://apiconsole.i14y.admin.ch/public/v1/index.html>.
+#' Calls the I14Y public API endpoint
+#' \verb{/concepts/\{conceptId\}/codelist-entries/exports/\{dataFormat\}}.
 #'
 #' @param id string. The Id of the response data.
 #' @param format string. The format of the export ("csv" or "json").
+#' @param withAnnotations logical. If `TRUE`, annotations are included in the
+#'   export. Default `FALSE`.
 #'
-#' @return a tibble
+#' @return A tibble for `format = "csv"`. For `format = "json"`, a list when
+#'   `withAnnotations = TRUE` (preserves the nested structure) or a tibble
+#'   otherwise. `NULL` when offline.
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' i14y_get_codelist(
 #'   id = "08d94604-e058-62a2-aa25-53f84b974201" # for DV_NOGA_DIVISION
 #' )
+#' }
 i14y_get_codelist <- function(
   id = NULL,
-  format = "csv"
+  format = "csv",
+  withAnnotations = FALSE
 ) {
-  check_not_null(id)
-  check_not_null(format)
   check_string(id)
   check_string(format)
+  check_logical(withAnnotations)
   format <- arg_match(format, c("csv", "json"))
-  if (!curl::has_internet()) {
-    message("No internet connection")
-    return(NULL)
-  }
+  # Swagger enum is PascalCase: Json | Csv
+  api_format <- c(csv = "Csv", json = "Json")[[format]]
+  if (!check_internet()) return(NULL)
 
-  req <- httr2::request("https://api.i14y.admin.ch/")
-  req <- httr2::req_user_agent(
-    req,
-    "I14Y R package (https://github.com/lgnbhl/I14Y)"
+  req <- i14y_request(
+    paste0("/concepts/", id, "/codelist-entries/exports/", api_format),
+    query = list(withAnnotations = withAnnotations)
   )
-  req <- httr2::req_url_path_append(
-    req,
-    paste0("/api/public/v1/concepts/", id, "/codelist-entries/exports/", format)
-  )
-  req <- httr2::req_retry(req, max_tries = 2)
-  req <- httr2::req_perform(req)
+
   if (format == "csv") {
-    resp <- httr2::resp_body_string(req)
-    tbl <- readr::read_csv(resp, show_col_types = FALSE)
-    return(tbl)
+    resp <- i14y_perform_raw(req)
+    return(readr::read_csv(resp, show_col_types = FALSE))
   }
-  if (format == "json") {
-    resp <- httr2::resp_body_json(req, simplifyVector = TRUE, flatten = TRUE)
-    tbl <- tibble::as_tibble(resp)
-    return(tbl)
+  body <- i14y_perform_json(req, unwrap_data = FALSE)
+  if (withAnnotations) {
+    return(body)
   }
+  as_tibble_safe(body)
 }

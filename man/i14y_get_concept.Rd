@@ -4,21 +4,26 @@
 \alias{i14y_get_concept}
 \title{Get a concept by ID}
 \usage{
-i14y_get_concept(id = NULL)
+i14y_get_concept(id = NULL, includeCodeListEntries = FALSE)
 }
 \arguments{
 \item{id}{string. The UUID of the concept.}
+
+\item{includeCodeListEntries}{logical. If `TRUE`, the response includes the
+codelist entries for code-list concepts. Default `FALSE`.}
 }
 \value{
-a list
+A list with the concept metadata. `NULL` when offline.
 }
 \description{
 Calls the I14Y public API endpoint \verb{/concepts/\{conceptId\}} and returns
 the concept metadata. Multilingual fields (`name`, `description`, ...) are
-returned with one entry per language (de, en, fr, it).
+returned with one entry per language (de, en, fr, it, rm).
 }
 \examples{
+\donttest{
 i14y_get_concept(
- id = "08d94604-e058-62a2-aa25-53f84b974201" # DV_NOGA_DIVISION
+  id = "08d94604-e058-62a2-aa25-53f84b974201" # DV_NOGA_DIVISION
 )
+}
 }

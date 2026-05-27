@@ -14,16 +14,20 @@ i14y_get_dataset_structure(id = NULL, format = "JsonLd")
 }
 \value{
 For `format = "JsonLd"`, the parsed JSON-LD graph as a list. For
-  other formats, the raw response body as a character string.
+  other formats, the raw response body as a character string. `NULL` when
+  offline.
 }
 \description{
 Calls the I14Y public API endpoint
-\verb{/datasets/\{datasetId\}/structures/exports/\{dataFormat\}}. The endpoint returns
-a SHACL/RDF graph in one of the supported linked-data formats. Note that many
-datasets do not have a published structure and will return an empty result.
+\verb{/datasets/\{datasetId\}/structures/exports/\{dataFormat\}}. The endpoint
+returns a SHACL/RDF graph in one of the supported linked-data formats. Note
+that many datasets do not have a published structure and will return an
+empty result.
 }
 \examples{
+\donttest{
 i14y_get_dataset_structure(
   id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 )
+}
 }

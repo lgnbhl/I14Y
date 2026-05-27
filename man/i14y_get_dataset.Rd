@@ -10,7 +10,7 @@ i14y_get_dataset(id = NULL)
 \item{id}{string. The UUID of the dataset.}
 }
 \value{
-a list
+A list with the dataset metadata. `NULL` when offline.
 }
 \description{
 Calls the I14Y public API endpoint \verb{/datasets/\{datasetId\}} and returns
@@ -18,7 +18,9 @@ the dataset metadata: publication level, registration status, distributions,
 contact points, themes, etc.
 }
 \examples{
+\donttest{
 i14y_get_dataset(
   id = "b902add5-9538-47ed-b663-f9fbfac92381" # SpiGes_Administratives
 )
+}
 }
