@@ -16,6 +16,8 @@ navbar:
     href: index.html
   - text: Reference
     href: reference/index.html
+  - text: Articles
+    href: articles/index.html
   - text: News
     href: news/index.html
   right:
@@ -27,3 +29,61 @@ navbar:
      href: https://github.com/lgnbhl/I14Y
    - icon: fa-home
      href: http://felixluginbuhl.com
+
+articles:
+- title: Articles
+  navbar: ~
+  contents:
+  - getting-started
+  - discovering-the-catalog
+  - codelists-with-bfs
+
+reference:
+- title: Search
+  desc: Search across the I14Y catalog.
+  contents:
+  - i14y_search
+  - i14y_search_catalog
+  - i14y_search_codelist
+  - i14y_search_concept
+  - i14y_export_codelist_search
+- title: Catalogs
+  desc: List and retrieve catalogs and catalog records.
+  contents:
+  - i14y_list_catalogs
+  - i14y_get_catalog
+  - i14y_get_catalog_dcat
+  - i14y_get_catalog_record
+  - i14y_get_catalog_records
+- title: Datasets
+  desc: List and retrieve datasets and their structures.
+  contents:
+  - i14y_list_datasets
+  - i14y_get_dataset
+  - i14y_get_dataset_structure
+- title: Concepts
+  desc: List and retrieve concepts.
+  contents:
+  - i14y_list_concepts
+  - i14y_get_concept
+  - i14y_get_concept_export
+- title: Codelists
+  desc: Retrieve codelists.
+  contents:
+  - i14y_get_codelist
+- title: Mapping tables
+  desc: List and retrieve mapping tables and their relations.
+  contents:
+  - i14y_list_mappingtables
+  - i14y_get_mappingtable
+  - i14y_get_mappingtable_relations
+- title: Data services
+  desc: List and retrieve data services.
+  contents:
+  - i14y_list_dataservices
+  - i14y_get_dataservice
+- title: Public services
+  desc: List and retrieve public services.
+  contents:
+  - i14y_list_publicservices
+  - i14y_get_publicservice

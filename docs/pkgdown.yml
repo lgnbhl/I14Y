@@ -1,8 +1,11 @@
-pandoc: 3.6.3
-pkgdown: 2.1.2
+pandoc: 3.9.0.2
+pkgdown: 2.2.0
 pkgdown_sha: ~
-articles: {}
-last_built: 2025-10-28T09:14Z
+articles:
+  codelists-with-bfs: codelists-with-bfs.html
+  discovering-the-catalog: discovering-the-catalog.html
+  getting-started: getting-started.html
+last_built: 2026-05-27T20:33Z
 urls:
   reference: https://felixluginbuhl.com/I14Y/reference
   article: https://felixluginbuhl.com/I14Y/articles

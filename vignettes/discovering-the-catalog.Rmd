@@ -1,0 +1,234 @@
+---
+title: "Discovering the I14Y catalog"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Discovering the I14Y catalog}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = curl::has_internet()
+)
+```
+
+I14Y exposes two complementary ways to discover resources:
+
+- `i14y_search()` — full-text search with **facets** (publisher, theme,
+  registration status, ...), returns a flat tibble of resource summaries.
+- `i14y_list_*()` — flat **list endpoints**, one per resource type, with
+  identifier-style filters (`publisherIdentifier`, `version`, ...).
+
+This vignette walks through both, then shows how to export catalog
+metadata in DCAT for downstream tools.
+
+```{r setup}
+library(I14Y)
+library(dplyr)
+```
+
+## Faceted search across all resource types
+
+`i14y_search()` covers everything: datasets, data services, public
+services, concepts, mapping tables.
+
+```{r}
+i14y_search(query = "education", language = "en") |>
+  glimpse()
+```
+
+Filter by resource type:
+
+```{r}
+i14y_search(
+  language = "en",
+  types = c("DataService")
+) |>
+  glimpse()
+```
+
+Filter by publisher and theme — the values come from the I14Y vocabularies
+(visible in any search result's `publisher.identifier` / `themes` fields).
+For example, the Federal Statistical Office has publisher identifier `CH1`,
+and the theme code `115` is "Economy":
+
+```{r}
+i14y_search(
+  language = "en",
+  publishers = "CH1",
+  themes = "115",
+  pageSize = 10
+) |>
+  glimpse()
+```
+
+Restrict to datasets that actually have a published structure:
+
+```{r}
+i14y_search(
+  types = "Dataset",
+  structure = "WithStructure",
+  pageSize = 10
+) |>
+  glimpse()
+```
+
+## List endpoints, one per resource type
+
+When you know the resource type and want to filter by identifier metadata
+instead of full-text, use the list endpoints.
+
+### Datasets
+
+```{r}
+i14y_list_datasets(page = 1, pageSize = 10) |>
+  glimpse()
+```
+
+### Data services
+
+```{r}
+i14y_list_dataservices(page = 1, pageSize = 10) |>
+  glimpse()
+```
+
+### Public services
+
+```{r}
+i14y_list_publicservices(page = 1, pageSize = 10) |>
+  glimpse()
+```
+
+### Mapping tables
+
+```{r}
+i14y_list_mappingtables(page = 1, pageSize = 10) |>
+  glimpse()
+```
+
+### Concepts
+
+```{r}
+i14y_list_concepts(page = 1, pageSize = 10) |>
+  glimpse()
+```
+
+All of them accept the same facet-style filters: `publisherIdentifier`,
+`publicationLevel` (`"Internal"` or `"Public"`), and `registrationStatus`
+(one of `Incomplete`, `Candidate`, `Recorded`, `Qualified`, `Standard`,
+`PreferredStandard`, `Superseded`, `Retired`). Dataset-shaped resources
+additionally accept `accessRights`, and mapping tables accept
+`codeSystemUri` and `version`.
+
+## Getting a single resource
+
+Each list endpoint has a matching get function:
+
+```{r}
+dataset <- i14y_get_dataset(id = "b902add5-9538-47ed-b663-f9fbfac92381")
+dataset$title$en
+dataset$registrationStatus
+```
+
+Each resource type has its own get function:
+
+```{r}
+ds_id <- i14y_list_dataservices()$id[1]
+dataservice <- i14y_get_dataservice(id = ds_id)
+dataservice$title$en
+
+ps_id <- i14y_list_publicservices()$id[1]
+publicservice <- i14y_get_publicservice(id = ps_id)
+publicservice$title$en
+```
+
+Mapping tables expose their full metadata (source/target codelists,
+publisher, version, ...) via `i14y_get_mappingtable()`:
+
+```{r}
+mt_id <- i14y_list_mappingtables()$id[1]
+mt <- i14y_get_mappingtable(id = mt_id)
+mt$name$en
+mt$source$uri
+mt$target$uri
+```
+
+The actual code-to-code relations of a mapping table (source/target/relation-type
+triples) are exported with `i14y_get_mappingtable_relations()`. The default
+`format = "Json"` returns a tidy data.frame; `format = "Csv"` returns the raw
+CSV as a character string.
+
+```{r}
+relations <- i14y_get_mappingtable_relations(id = mt_id)
+head(relations)
+```
+
+## Catalogs and DCAT export
+
+Resources on I14Y belong to one or more **catalogs** (typically one per
+federal office or cantonal organization). List them with:
+
+```{r}
+catalogs <- i14y_list_catalogs()
+head(catalogs[, c("id", "title.en")], 5)
+```
+
+For a single catalog, you can fetch its metadata or download the whole
+catalog as a DCAT/RDF or DCAT/TTL document:
+
+```{r}
+catalog_id <- catalogs$id[1]
+
+catalog <- i14y_get_catalog(id = catalog_id)
+catalog$title$en
+
+dcat_ttl <- i14y_get_catalog_dcat(id = catalog_id, format = "TTL")
+cat(substr(dcat_ttl, 1, 500))
+```
+
+The TTL/RDF export is the canonical format for harvesting I14Y into other
+metadata systems (CKAN, opendata.swiss, custom triple-stores).
+
+Each catalog also exposes the individual **records** (one per resource
+listed in the catalog) via `i14y_get_catalog_records()`. Not every catalog
+has records — many federal catalogs are currently empty — so pick one that
+does, for example the NL Opendata.swiss catalog:
+
+```{r}
+records_catalog_id <- catalogs$id[catalogs$title.en == "NL Opendata.swiss"][1]
+records <- i14y_get_catalog_records(id = records_catalog_id)
+str(records, max.level = 1)
+```
+
+Each record points at an underlying resource (dataset, data service, ...)
+through `primaryTopic.resourceId` and `primaryTopic.resourceType`, which you
+can then fetch with the matching `i14y_get_*()` function:
+
+```{r}
+records[, c("id", "primaryTopic.resourceId", "primaryTopic.resourceType")] |>
+  head(3)
+```
+
+The single-record endpoint `i14y_get_catalog_record(id, recordId)` exists
+but currently requires authentication on the public API (HTTP 401 for
+anonymous callers), so we don't show a live call here.
+
+## Putting it together: finding all preferred-standard NOGA-related concepts
+
+```{r}
+i14y_search(
+  query = "NOGA",
+  language = "en",
+  types = "Concept",
+  conceptValueTypes = "CodeList",
+  registrationStatuses = "PreferredStandard",
+  pageSize = 10
+)
+```
+
+From here, the steps of the
+[`vignette("codelists-with-bfs")`](codelists-with-bfs.html) workflow apply:
+take any `id`, call `i14y_get_codelist()`, and join.

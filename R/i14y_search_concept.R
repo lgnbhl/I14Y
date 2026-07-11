@@ -1,19 +1,26 @@
 #' Search for a Concept Summary
 #'
+#' Thin wrapper around [i14y_search()] that restricts the result to
+#' the "Concept" resource type.
+#'
 #' @param query string. Search query.
 #' @param language string. The language of the response data.
 #' @param page integer. The number of the result page to return.
 #' @param pageSize integer. The size of each result page.
-#' @param publishers vector of strings. Filter with Publishers identifiers.
-#' @param themes vector of strings. Filter with theme codes.
-#' @param conceptValueTypes character vector. One or more concept value types to filter by.
-#' @param registrationStatuses character vector. One or more registration statuses to filter by.
+#' @param publishers character vector. Filter by publisher identifiers.
+#' @param themes character vector. Filter by theme codes.
+#' @param conceptValueTypes character vector. One or more concept value types
+#'   to filter by ("CodeList", "Date", "Numeric", "String").
+#' @param registrationStatuses character vector. One or more registration
+#'   statuses to filter by.
 #'
-#' @return a tibble
+#' @return A tibble of concept search results. `NULL` when offline.
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' i14y_search_concept(query = "noga", language = "en")
+#' }
 i14y_search_concept <- function(
   query = NULL,
   language = "de",
@@ -24,61 +31,20 @@ i14y_search_concept <- function(
   conceptValueTypes = NULL,
   registrationStatuses = NULL
 ) {
-  check_not_null(language)
-  check_not_null(page)
-  check_not_null(pageSize)
+  # Defaults `page = 1, pageSize = 1000` are preserved from the pre-0.2.0
+  # signature (which targeted the now-removed `input-backend` host) so that
+  # existing 0.1.x call sites keep returning the same result-set size.
   check_integer(page)
   check_integer(pageSize)
-  language <- rlang::arg_match(language, c("de", "fr", "en", "it"))
-  if (!curl::has_internet()) {
-    message("No internet connection")
-    return(NULL)
-  }
-
-  if (!is.null(conceptValueTypes)) {
-    valid_concept_value_types <- c("CodeList", "Date", "Numeric", "String")
-    conceptValueTypes <- rlang::arg_match(
-      conceptValueTypes,
-      valid_concept_value_types
-    )
-  }
-
-  if (!is.null(registrationStatuses)) {
-    valid_registration_statuses <- c(
-      "Superseded",
-      "PreferredStandard",
-      "Incomplete",
-      "Candidate",
-      "Qualified",
-      "Recorded",
-      "Standard"
-    )
-    registrationStatuses <- rlang::arg_match(
-      registrationStatuses,
-      valid_registration_statuses
-    )
-  }
-
-  req <- httr2::request("https://input-backend.i14y.c.bfs.admin.ch/api/Catalog/search")
-  req <- httr2::req_user_agent(
-    req,
-    "I14Y R package (https://github.com/lgnbhl/I14Y)"
-  )
-  req <- httr2::req_url_query(
-    req,
-    language = language,
-    page = page,
-    pageSize = pageSize,
+  i14y_search(
     query = query,
+    language = language,
+    types = "Concept",
     publishers = publishers,
     themes = themes,
-    types = "Concept",
     conceptValueTypes = conceptValueTypes,
-    registrationStatuses = registrationStatuses
+    registrationStatuses = registrationStatuses,
+    page = page,
+    pageSize = pageSize
   )
-  req <- httr2::req_retry(req, max_tries = 2)
-  req <- httr2::req_perform(req)
-  resp <- httr2::resp_body_json(req, simplifyVector = TRUE, flatten = TRUE)
-  tbl <- tibble::as_tibble(resp)
-  return(tbl)
 }

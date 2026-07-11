@@ -4,22 +4,29 @@
 \alias{i14y_get_codelist}
 \title{Export a codelist}
 \usage{
-i14y_get_codelist(id = NULL, format = "csv")
+i14y_get_codelist(id = NULL, format = "csv", withAnnotations = FALSE)
 }
 \arguments{
 \item{id}{string. The Id of the response data.}
 
 \item{format}{string. The format of the export ("csv" or "json").}
+
+\item{withAnnotations}{logical. If `TRUE`, annotations are included in the
+export. Default `FALSE`.}
 }
 \value{
-a tibble
+A tibble for `format = "csv"`. For `format = "json"`, a list when
+  `withAnnotations = TRUE` (preserves the nested structure) or a tibble
+  otherwise. `NULL` when offline.
 }
 \description{
-The function uses the I14Y Console API:
-<https://apiconsole.i14y.admin.ch/public/v1/index.html>.
+Calls the I14Y public API endpoint
+\verb{/concepts/\{conceptId\}/codelist-entries/exports/\{dataFormat\}}.
 }
 \examples{
+\donttest{
 i14y_get_codelist(
   id = "08d94604-e058-62a2-aa25-53f84b974201" # for DV_NOGA_DIVISION
 )
+}
 }

@@ -1,39 +1,33 @@
-#' Get Concept view entity by ID
+#' Get a concept by ID
 #'
-#' @param id string. The Id of the response data.
-#' @param language string. The language of the response data.
+#' Calls the I14Y public API endpoint \verb{/concepts/\{conceptId\}} and returns
+#' the concept metadata. Multilingual fields (`name`, `description`, ...) are
+#' returned with one entry per language (de, en, fr, it, rm).
 #'
-#' @return a list
+#' @param id string. The UUID of the concept.
+#' @param includeCodeListEntries logical. If `TRUE`, the response includes the
+#'   codelist entries for code-list concepts. Default `FALSE`.
+#'
+#' @return A list with the concept metadata. `NULL` when offline.
 #' @export
 #'
 #' @examples
+#' \donttest{
 #' i14y_get_concept(
-#'  id = "08d94604-e058-62a2-aa25-53f84b974201", # DV_NOGA_DIVISION
-#'  language = "en"
+#'   id = "08d94604-e058-62a2-aa25-53f84b974201" # DV_NOGA_DIVISION
 #' )
+#' }
 i14y_get_concept <- function(
   id = NULL,
-  language = "de"
+  includeCodeListEntries = FALSE
 ) {
-  check_not_null(id)
-  check_not_null(language)
   check_string(id)
-  check_string(language)
-  language <- arg_match(language, c("de", "fr", "en", "it"))
-  if (!curl::has_internet()) {
-    message("No internet connection")
-    return(NULL)
-  }
+  check_logical(includeCodeListEntries)
+  if (!check_internet()) return(NULL)
 
-  req <- httr2::request("https://input-backend.i14y.c.bfs.admin.ch")
-  req <- httr2::req_user_agent(
-    req,
-    "I14Y R package (https://github.com/lgnbhl/I14Y)"
+  req <- i14y_request(
+    paste0("/concepts/", id),
+    query = list(includeCodeListEntries = includeCodeListEntries)
   )
-  req <- httr2::req_url_path_append(req, paste0("/api/conceptView/", id))
-  req <- httr2::req_url_query(req, language = language)
-  req <- httr2::req_retry(req, max_tries = 2)
-  req <- httr2::req_perform(req)
-  resp <- httr2::resp_body_json(req, simplifyVector = TRUE, flatten = TRUE)
-  return(resp)
+  i14y_perform_json(req)
 }
