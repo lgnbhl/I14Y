@@ -1,12 +1,12 @@
 # Export a codelist
 
-The function uses the I14Y Console API:
-\<https://apiconsole.i14y.admin.ch/public/v1/index.html\>.
+Calls the I14Y public API endpoint
+`/concepts/{conceptId}/codelist-entries/exports/{dataFormat}`.
 
 ## Usage
 
 ``` r
-i14y_get_codelist(id = NULL, format = "csv")
+i14y_get_codelist(id = NULL, format = "csv", withAnnotations = FALSE)
 ```
 
 ## Arguments
@@ -19,17 +19,25 @@ i14y_get_codelist(id = NULL, format = "csv")
 
   string. The format of the export ("csv" or "json").
 
+- withAnnotations:
+
+  logical. If \`TRUE\`, annotations are included in the export. Default
+  \`FALSE\`.
+
 ## Value
 
-a tibble
+A tibble for \`format = "csv"\`. For \`format = "json"\`, a list when
+\`withAnnotations = TRUE\` (preserves the nested structure) or a tibble
+otherwise. \`NULL\` when offline.
 
 ## Examples
 
 ``` r
+# \donttest{
 i14y_get_codelist(
   id = "08d94604-e058-62a2-aa25-53f84b974201" # for DV_NOGA_DIVISION
 )
-#> # A tibble: 88 × 48
+#> # A tibble: 88 × 12
 #>    Code  ParentCode Name_de       Name_fr Name_it Name_rm Name_en Description_de
 #>    <chr> <lgl>      <chr>         <chr>   <chr>   <lgl>   <chr>   <lgl>         
 #>  1 01    NA         Landwirtscha… Cultur… Produz… NA      Crop a… NA            
@@ -43,10 +51,7 @@ i14y_get_codelist(
 #>  9 10    NA         Herstellung … Indust… Indust… NA      Manufa… NA            
 #> 10 11    NA         Getränkehers… Fabric… Produz… NA      Manufa… NA            
 #> # ℹ 78 more rows
-#> # ℹ 40 more variables: Description_fr <lgl>, Description_it <lgl>,
-#> #   Description_rm <lgl>, Description_en <lgl>, Annotation_ABBREV_Type <chr>,
-#> #   Annotation_ABBREV_Title <lgl>, Annotation_ABBREV_URI <lgl>,
-#> #   Annotation_ABBREV_Identifier <lgl>, Annotation_ABBREV_Text_de <chr>,
-#> #   Annotation_ABBREV_Text_fr <chr>, Annotation_ABBREV_Text_it <chr>,
-#> #   Annotation_ABBREV_Text_rm <lgl>, Annotation_ABBREV_Text_en <chr>, …
+#> # ℹ 4 more variables: Description_fr <lgl>, Description_it <lgl>,
+#> #   Description_rm <lgl>, Description_en <lgl>
+# }
 ```

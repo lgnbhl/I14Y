@@ -1,45 +1,42 @@
-# Get Concept view entity by ID
+# Get a concept by ID
 
-Get Concept view entity by ID
+Calls the I14Y public API endpoint `/concepts/{conceptId}` and returns
+the concept metadata. Multilingual fields (\`name\`, \`description\`,
+...) are returned with one entry per language (de, en, fr, it, rm).
 
 ## Usage
 
 ``` r
-i14y_get_concept(id = NULL, language = "de")
+i14y_get_concept(id = NULL, includeCodeListEntries = FALSE)
 ```
 
 ## Arguments
 
 - id:
 
-  string. The Id of the response data.
+  string. The UUID of the concept.
 
-- language:
+- includeCodeListEntries:
 
-  string. The language of the response data.
+  logical. If \`TRUE\`, the response includes the codelist entries for
+  code-list concepts. Default \`FALSE\`.
 
 ## Value
 
-a list
+A list with the concept metadata. \`NULL\` when offline.
 
 ## Examples
 
 ``` r
+# \donttest{
 i14y_get_concept(
- id = "08d94604-e058-62a2-aa25-53f84b974201", # DV_NOGA_DIVISION
- language = "en"
+  id = "08d94604-e058-62a2-aa25-53f84b974201" # DV_NOGA_DIVISION
 )
-#> $codelistEntryValueMaxLength
+#> $codeListEntryValueMaxLength
 #> [1] 2
 #> 
 #> $codeListEntryValueType
 #> [1] "String"
-#> 
-#> $codeListEntryDefaultSortProperty
-#> NULL
-#> 
-#> $codeListId
-#> NULL
 #> 
 #> $conceptType
 #> [1] "CodeList"
@@ -60,15 +57,9 @@ i14y_get_concept(
 #> $description$it
 #> [1] "Secondo livello della Nomenclatura generale delle attività economiche (NOGA) composto da rubriche identificate da un codice numerico a due cifre. Questo secondo livello è determinato dalla Classificazione Internazionale Standard Industriale di tutte le attività economiche (ISIC Rev.4)."
 #> 
-#> $description$rm
-#> NULL
-#> 
 #> 
 #> $id
 #> [1] "08d94604-e058-62a2-aa25-53f84b974201"
-#> 
-#> $identifier
-#> [1] "NOGA_DIVISION"
 #> 
 #> $identifiers
 #> [1] "NOGA_DIVISION"
@@ -78,21 +69,6 @@ i14y_get_concept(
 #> 
 #> $keywords
 #> list()
-#> 
-#> $maxLength
-#> NULL
-#> 
-#> $maxValue
-#> NULL
-#> 
-#> $measurementUnit
-#> NULL
-#> 
-#> $minLength
-#> NULL
-#> 
-#> $minValue
-#> NULL
 #> 
 #> $name
 #> $name$de
@@ -107,15 +83,15 @@ i14y_get_concept(
 #> $name$it
 #> [1] "NOGA Divisione"
 #> 
-#> $name$rm
-#> NULL
 #> 
+#> $replaces
+#> list()
 #> 
-#> $nbDecimal
-#> NULL
+#> $isReplacedBy
+#> list()
 #> 
-#> $pattern
-#> NULL
+#> $publicationLevel
+#> [1] "Public"
 #> 
 #> $publisher
 #> $publisher$classification
@@ -135,16 +111,7 @@ i14y_get_concept(
 #> $publisher$classification$name$it
 #> [1] "Unità amministrativa della Confederazione"
 #> 
-#> $publisher$classification$name$rm
-#> NULL
 #> 
-#> 
-#> $publisher$classification$uri
-#> NULL
-#> 
-#> 
-#> $publisher$contactPoint
-#> NULL
 #> 
 #> $publisher$description
 #> $publisher$description$de
@@ -160,7 +127,7 @@ i14y_get_concept(
 #> [1] "L’UST è il centro di competenza nazionale per la statistica pubblica della Svizzera. Produce e pubblica informazioni statistiche sullo stato e sull'evoluzione della popolazione, dell'economia, della società, della formazione, della ricerca, del territorio e dell'ambiente. Queste informazioni servono alla formazione dell'opinione pubblica nonché alla pianificazione e alla gestione in ambiti politici di centrale importanza. Forniscono un importante contributo per uno Stato moderno e democratico."
 #> 
 #> $publisher$description$rm
-#> NULL
+#> [1] ""
 #> 
 #> 
 #> $publisher$homePage
@@ -171,6 +138,9 @@ i14y_get_concept(
 #> 
 #> $publisher$identifier
 #> [1] "CH1"
+#> 
+#> $publisher$images
+#> list()
 #> 
 #> $publisher$name
 #> $publisher$name$de
@@ -186,7 +156,7 @@ i14y_get_concept(
 #> [1] "Ufficio federale di statistica (UFS)"
 #> 
 #> $publisher$name$rm
-#> NULL
+#> [1] ""
 #> 
 #> 
 #> $publisher$prefLabel
@@ -203,26 +173,23 @@ i14y_get_concept(
 #> [1] "UFS"
 #> 
 #> $publisher$prefLabel$rm
-#> NULL
+#> [1] ""
 #> 
 #> 
 #> $publisher$system
 #> $publisher$system$createdAt
 #> [1] "0001-01-01T00:00:00+00:00"
 #> 
-#> $publisher$system$creationType
-#> NULL
-#> 
 #> $publisher$system$modifiedAt
-#> [1] "2025-12-03T15:03:48.012554+00:00"
+#> [1] "2026-07-10T07:18:44.32979+00:00"
 #> 
 #> 
 #> $publisher$spatial
 #> [1] "CH"
 #> 
 #> $publisher$spatialCH
-#>   code uri name.de     name.en name.fr  name.it name.rm
-#> 1 8100  NA Schweiz Switzerland  Suisse Svizzera  Svizra
+#>   code name.de     name.en name.fr  name.it name.rm
+#> 1 8100 Schweiz Switzerland  Suisse Svizzera  Svizra
 #> 
 #> $publisher$subAgents
 #> list()
@@ -231,21 +198,12 @@ i14y_get_concept(
 #> [1] "CHE131608474"
 #> 
 #> 
-#> $responsibleDeputy
-#> NULL
-#> 
-#> $responsiblePerson
-#> NULL
+#> $registrationStatus
+#> [1] "PreferredStandard"
 #> 
 #> $system
 #> $system$createdAt
 #> [1] "2025-05-07T16:29:13.001306+00:00"
-#> 
-#> $system$creationType
-#> NULL
-#> 
-#> $system$modifiedAt
-#> NULL
 #> 
 #> 
 #> $themes
@@ -254,10 +212,8 @@ i14y_get_concept(
 #> $validFrom
 #> [1] "2007-12-31T23:00:00+00:00"
 #> 
-#> $validTo
-#> NULL
-#> 
 #> $version
 #> [1] "3.0.0"
 #> 
+# }
 ```
