@@ -94,7 +94,7 @@ i14y_export_codelist_search <- function(
   )
 
   if (format == "csv") {
-    return(readr::read_csv(i14y_perform_raw(req), show_col_types = FALSE))
+    return(readr::read_csv(I(i14y_perform_raw(req)), show_col_types = FALSE))
   }
   i14y_perform_json(req, unwrap_data = FALSE)
 }

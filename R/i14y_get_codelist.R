@@ -39,7 +39,7 @@ i14y_get_codelist <- function(
 
   if (format == "csv") {
     resp <- i14y_perform_raw(req)
-    return(readr::read_csv(resp, show_col_types = FALSE))
+    return(readr::read_csv(I(resp), show_col_types = FALSE))
   }
   body <- i14y_perform_json(req, unwrap_data = FALSE)
   if (withAnnotations) {
