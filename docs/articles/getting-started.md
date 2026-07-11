@@ -42,7 +42,7 @@ Search the whole catalog in English for the keyword “noga”:
 ``` r
 
 i14y_search(query = "noga", language = "en")
-#> # A tibble: 15 × 65
+#> # A tibble: 15 × 69
 #>    businessEvents formats      id         identifier lifeEvents publicationLevel
 #>    <list>         <list>       <chr>      <chr>      <list>     <chr>           
 #>  1 <list [0]>     <df [1 × 6]> 4f71b53b-… HCL_NOGA   <list [0]> Public          
@@ -57,16 +57,16 @@ i14y_search(query = "noga", language = "en")
 #> 10 <list [0]>     <df [0 × 0]> 08d94604-… NOGA_OFS50 <list [0]> Public          
 #> 11 <list [0]>     <df [0 × 0]> 08dd28d2-… nogaCode   <list [0]> Public          
 #> 12 <list [0]>     <df [0 × 0]> 08d9f6dd-… NOGA_ESTA… <list [0]> Public          
-#> 13 <list [0]>     <df [0 × 0]> 17d00792-… 36506623@… <list [0]> Public          
-#> 14 <list [0]>     <df [0 × 0]> a145d726-… 36506617@… <list [0]> Public          
-#> 15 <list [0]>     <df [0 × 0]> e12c39d1-… 36506622@… <list [0]> Public          
-#> # ℹ 59 more variables: registrationStatus <chr>, structure <chr>,
+#> 13 <list [0]>     <df [0 × 0]> 019edf0a-… 36506617@… <list [0]> Public          
+#> 14 <list [0]>     <df [0 × 0]> 019edf0a-… 36506623@… <list [0]> Public          
+#> 15 <list [0]>     <df [0 × 0]> 019edf0a-… 36506622@… <list [0]> Public          
+#> # ℹ 63 more variables: registrationStatus <chr>, structure <chr>,
 #> #   themes <list>, type <chr>, conceptType <chr>, validFrom <chr>,
-#> #   version <chr>, structureReferencesCount <int>, validTo <chr>,
-#> #   accessRights.code <chr>, accessRights.uri <chr>,
-#> #   accessRights.name.de <chr>, accessRights.name.en <chr>,
-#> #   accessRights.name.fr <chr>, accessRights.name.it <chr>,
-#> #   description.de <chr>, description.en <chr>, description.fr <chr>, …
+#> #   version <chr>, validTo <chr>, accessRights.code <chr>,
+#> #   accessRights.uri <chr>, accessRights.name.de <chr>,
+#> #   accessRights.name.en <chr>, accessRights.name.fr <chr>,
+#> #   accessRights.name.it <chr>, description.de <chr>, description.en <chr>,
+#> #   description.fr <chr>, description.it <chr>, publisher.homePage <chr>, …
 ```
 
 The `types` column shows which resource type each row is. You can
@@ -79,7 +79,7 @@ i14y_search(
   language = "en",
   types = "Concept"
 )
-#> # A tibble: 11 × 57
+#> # A tibble: 11 × 61
 #>    businessEvents conceptType formats    id                identifier lifeEvents
 #>    <list>         <chr>       <list>     <chr>             <chr>      <list>    
 #>  1 <list [0]>     CodeList    <list [0]> 08dc481b-2add-12… nogaCode   <list [0]>
@@ -93,11 +93,11 @@ i14y_search(
 #>  9 <list [0]>     CodeList    <list [0]> 08d94604-ecc0-66… NOGA_OFS50 <list [0]>
 #> 10 <list [0]>     CodeList    <list [0]> 08dd28d2-a693-50… nogaCode   <list [0]>
 #> 11 <list [0]>     CodeList    <list [0]> 08d9f6dd-f8a3-cb… NOGA_ESTA… <list [0]>
-#> # ℹ 51 more variables: publicationLevel <chr>, registrationStatus <chr>,
-#> #   themes <list>, type <chr>, validFrom <chr>, version <chr>,
-#> #   structureReferencesCount <int>, validTo <chr>, description.de <chr>,
-#> #   description.en <chr>, description.fr <chr>, description.it <chr>,
-#> #   publisher.homePage <chr>, publisher.id <chr>, publisher.identifier <chr>,
+#> # ℹ 55 more variables: publicationLevel <chr>, registrationStatus <chr>,
+#> #   themes <list>, type <chr>, validFrom <chr>, version <chr>, validTo <chr>,
+#> #   description.de <chr>, description.en <chr>, description.fr <chr>,
+#> #   description.it <chr>, publisher.homePage <chr>, publisher.id <chr>,
+#> #   publisher.identifier <chr>, publisher.images <list>,
 #> #   publisher.spatial <list>, publisher.spatialCH <list>,
 #> #   publisher.subAgents <list>, publisher.uid <chr>, …
 ```

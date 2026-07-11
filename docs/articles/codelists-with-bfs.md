@@ -39,7 +39,7 @@ Search for them:
 ``` r
 
 i14y_search_concept(query = "NOGA", language = "en", pageSize = 10)
-#> # A tibble: 10 × 57
+#> # A tibble: 10 × 61
 #>    businessEvents conceptType formats    id                identifier lifeEvents
 #>    <list>         <chr>       <list>     <chr>             <chr>      <list>    
 #>  1 <list [0]>     CodeList    <list [0]> 08dc481b-2add-12… nogaCode   <list [0]>
@@ -52,11 +52,11 @@ i14y_search_concept(query = "NOGA", language = "en", pageSize = 10)
 #>  8 <list [0]>     CodeList    <list [0]> 08d9f1f9-3f89-00… NOGA_SECT… <list [0]>
 #>  9 <list [0]>     CodeList    <list [0]> 08d94604-ecc0-66… NOGA_OFS50 <list [0]>
 #> 10 <list [0]>     CodeList    <list [0]> 08dd28d2-a693-50… nogaCode   <list [0]>
-#> # ℹ 51 more variables: publicationLevel <chr>, registrationStatus <chr>,
-#> #   themes <list>, type <chr>, validFrom <chr>, version <chr>,
-#> #   structureReferencesCount <int>, validTo <chr>, description.de <chr>,
-#> #   description.en <chr>, description.fr <chr>, description.it <chr>,
-#> #   publisher.homePage <chr>, publisher.id <chr>, publisher.identifier <chr>,
+#> # ℹ 55 more variables: publicationLevel <chr>, registrationStatus <chr>,
+#> #   themes <list>, type <chr>, validFrom <chr>, version <chr>, validTo <chr>,
+#> #   description.de <chr>, description.en <chr>, description.fr <chr>,
+#> #   description.it <chr>, publisher.homePage <chr>, publisher.id <chr>,
+#> #   publisher.identifier <chr>, publisher.images <list>,
 #> #   publisher.spatial <list>, publisher.spatialCH <list>,
 #> #   publisher.subAgents <list>, publisher.uid <chr>, …
 ```
@@ -244,6 +244,9 @@ concept$publisher
 #> $description$it
 #> [1] "L’UST è il centro di competenza nazionale per la statistica pubblica della Svizzera. Produce e pubblica informazioni statistiche sullo stato e sull'evoluzione della popolazione, dell'economia, della società, della formazione, della ricerca, del territorio e dell'ambiente. Queste informazioni servono alla formazione dell'opinione pubblica nonché alla pianificazione e alla gestione in ambiti politici di centrale importanza. Forniscono un importante contributo per uno Stato moderno e democratico."
 #> 
+#> $description$rm
+#> [1] ""
+#> 
 #> 
 #> $homePage
 #> [1] "https://bfs.admin.ch"
@@ -253,6 +256,9 @@ concept$publisher
 #> 
 #> $identifier
 #> [1] "CH1"
+#> 
+#> $images
+#> list()
 #> 
 #> $name
 #> $name$de
@@ -266,6 +272,9 @@ concept$publisher
 #> 
 #> $name$it
 #> [1] "Ufficio federale di statistica (UFS)"
+#> 
+#> $name$rm
+#> [1] ""
 #> 
 #> 
 #> $prefLabel
@@ -281,13 +290,16 @@ concept$publisher
 #> $prefLabel$it
 #> [1] "UFS"
 #> 
+#> $prefLabel$rm
+#> [1] ""
+#> 
 #> 
 #> $system
 #> $system$createdAt
 #> [1] "0001-01-01T00:00:00+00:00"
 #> 
 #> $system$modifiedAt
-#> [1] "2025-12-03T15:03:48.012554+00:00"
+#> [1] "2026-07-10T07:18:44.32979+00:00"
 #> 
 #> 
 #> $spatial
@@ -323,5 +335,5 @@ concept_export <- i14y_get_concept_export(
 )
 str(concept_export, max.level = 1)
 #> List of 1
-#>  $ data:List of 19
+#>  $ data:List of 20
 ```

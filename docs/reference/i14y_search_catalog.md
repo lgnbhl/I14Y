@@ -73,27 +73,27 @@ A tibble of catalog search results. \`NULL\` when offline.
 ``` r
 # \donttest{
 i14y_search_catalog(query = "noga")
-#> # A tibble: 12 × 61
+#> # A tibble: 12 × 65
 #>    businessEvents formats      id         identifier lifeEvents publicationLevel
 #>    <list>         <list>       <chr>      <chr>      <list>     <chr>           
 #>  1 <list [0]>     <df [1 × 6]> 4f71b53b-… HCL_NOGA   <list [0]> Public          
-#>  2 <list [0]>     <df [0 × 0]> 36c44972-… 36576934@… <list [0]> Public          
-#>  3 <list [0]>     <df [0 × 0]> 1af9c3b3-… 36576962@… <list [0]> Public          
-#>  4 <list [0]>     <df [0 × 0]> 1f9eee4b-… 36576963@… <list [0]> Public          
-#>  5 <list [0]>     <df [0 × 0]> 85b17aa2-… 36576955@… <list [0]> Public          
+#>  2 <list [0]>     <df [0 × 0]> 019edf05-… 36576963@… <list [0]> Public          
+#>  3 <list [0]>     <df [0 × 0]> 019edf05-… 36576962@… <list [0]> Public          
+#>  4 <list [0]>     <df [0 × 0]> 019edf05-… 36576955@… <list [0]> Public          
+#>  5 <list [0]>     <df [0 × 0]> 019edf06-… 36576934@… <list [0]> Public          
 #>  6 <list [0]>     <df [5 × 6]> 1b9ac548-… CH_KT_BL_… <list [0]> Public          
 #>  7 <list [0]>     <df [5 × 6]> 83cb7801-… CH_KT_BL_… <list [0]> Public          
-#>  8 <list [0]>     <df [0 × 0]> 41eb0bf6-… 35270626@… <list [0]> Public          
+#>  8 <list [0]>     <df [0 × 0]> 019edf06-… 36508698@… <list [0]> Public          
 #>  9 <list [0]>     <df [5 × 6]> ce087cbd-… CH_KT_BL_… <list [0]> Public          
-#> 10 <list [0]>     <df [0 × 0]> 17d00792-… 36506623@… <list [0]> Public          
-#> 11 <list [0]>     <df [0 × 0]> a145d726-… 36506617@… <list [0]> Public          
-#> 12 <list [0]>     <df [0 × 0]> e12c39d1-… 36506622@… <list [0]> Public          
-#> # ℹ 55 more variables: registrationStatus <chr>, structure <chr>,
+#> 10 <list [0]>     <df [0 × 0]> 019edf0a-… 36506617@… <list [0]> Public          
+#> 11 <list [0]>     <df [0 × 0]> 019edf0a-… 36506623@… <list [0]> Public          
+#> 12 <list [0]>     <df [0 × 0]> 019edf0a-… 36506622@… <list [0]> Public          
+#> # ℹ 59 more variables: registrationStatus <chr>, structure <chr>,
 #> #   themes <list>, type <chr>, accessRights.code <chr>, accessRights.uri <chr>,
 #> #   accessRights.name.de <chr>, accessRights.name.en <chr>,
 #> #   accessRights.name.fr <chr>, accessRights.name.it <chr>,
 #> #   description.de <chr>, description.en <chr>, description.fr <chr>,
 #> #   description.it <chr>, publisher.homePage <chr>, publisher.id <chr>,
-#> #   publisher.identifier <chr>, publisher.spatial <list>, …
+#> #   publisher.identifier <chr>, publisher.images <list>, …
 # }
 ```

@@ -12,8 +12,8 @@
 <link rel="icon" sizes="any" href="../favicon.ico">
 <link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Getting started with I14Y">
 </head>
@@ -36,6 +36,7 @@
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="active nav-item"><a class="nav-link" href="../articles/index.html">Articles</a></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">News</a></li>
       </ul>
 <ul class="navbar-nav">
@@ -149,7 +150,7 @@ dataset structure, DCAT export, …) with the matching
 <p>Search the whole catalog in English for the keyword “noga”:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/i14y_search.html">i14y_search</a></span><span class="op">(</span>query <span class="op">=</span> <span class="st">"noga"</span>, language <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 15 × 65</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 15 × 69</span></span></span>
 <span><span class="co">#&gt;    businessEvents formats      id         identifier lifeEvents publicationLevel</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [1 × 6]&gt;</span> 4f71b53b-… HCL_NOGA   <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
@@ -164,16 +165,16 @@ dataset structure, DCAT export, …) with the matching
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [0 × 0]&gt;</span> 08d94604-… NOGA_OFS50 <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [0 × 0]&gt;</span> 08dd28d2-… nogaCode   <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [0 × 0]&gt;</span> 08d9f6dd-… NOGA_ESTA… <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [0 × 0]&gt;</span> 17d00792-… 36506623@… <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [0 × 0]&gt;</span> a145d726-… 36506617@… <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [0 × 0]&gt;</span> e12c39d1-… 36506622@… <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 59 more variables: registrationStatus &lt;chr&gt;, structure &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [0 × 0]&gt;</span> 019edf0a-… 36506617@… <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [0 × 0]&gt;</span> 019edf0a-… 36506623@… <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     <span style="color: #949494;">&lt;df [0 × 0]&gt;</span> 019edf0a-… 36506622@… <span style="color: #949494;">&lt;list [0]&gt;</span> Public          </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 63 more variables: registrationStatus &lt;chr&gt;, structure &lt;chr&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   themes &lt;list&gt;, type &lt;chr&gt;, conceptType &lt;chr&gt;, validFrom &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   version &lt;chr&gt;, structureReferencesCount &lt;int&gt;, validTo &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   accessRights.code &lt;chr&gt;, accessRights.uri &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   accessRights.name.de &lt;chr&gt;, accessRights.name.en &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   accessRights.name.fr &lt;chr&gt;, accessRights.name.it &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   description.de &lt;chr&gt;, description.en &lt;chr&gt;, description.fr &lt;chr&gt;, …</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;">#   version &lt;chr&gt;, validTo &lt;chr&gt;, accessRights.code &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   accessRights.uri &lt;chr&gt;, accessRights.name.de &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   accessRights.name.en &lt;chr&gt;, accessRights.name.fr &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   accessRights.name.it &lt;chr&gt;, description.de &lt;chr&gt;, description.en &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   description.fr &lt;chr&gt;, description.it &lt;chr&gt;, publisher.homePage &lt;chr&gt;, …</span></span></span></code></pre></div>
 <p>The <code>types</code> column shows which resource type each row is.
 You can restrict to one type:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
@@ -182,7 +183,7 @@ You can restrict to one type:</p>
 <span>  language <span class="op">=</span> <span class="st">"en"</span>,</span>
 <span>  types <span class="op">=</span> <span class="st">"Concept"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 11 × 57</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 11 × 61</span></span></span>
 <span><span class="co">#&gt;    businessEvents conceptType formats    id                identifier lifeEvents</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;list&gt;</span>    </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     CodeList    <span style="color: #949494;">&lt;list [0]&gt;</span> 08dc481b-2add-12… nogaCode   <span style="color: #949494;">&lt;list [0]&gt;</span></span></span>
@@ -196,11 +197,11 @@ You can restrict to one type:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     CodeList    <span style="color: #949494;">&lt;list [0]&gt;</span> 08d94604-ecc0-66… NOGA_OFS50 <span style="color: #949494;">&lt;list [0]&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     CodeList    <span style="color: #949494;">&lt;list [0]&gt;</span> 08dd28d2-a693-50… nogaCode   <span style="color: #949494;">&lt;list [0]&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> <span style="color: #949494;">&lt;list [0]&gt;</span>     CodeList    <span style="color: #949494;">&lt;list [0]&gt;</span> 08d9f6dd-f8a3-cb… NOGA_ESTA… <span style="color: #949494;">&lt;list [0]&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 51 more variables: publicationLevel &lt;chr&gt;, registrationStatus &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   themes &lt;list&gt;, type &lt;chr&gt;, validFrom &lt;chr&gt;, version &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   structureReferencesCount &lt;int&gt;, validTo &lt;chr&gt;, description.de &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   description.en &lt;chr&gt;, description.fr &lt;chr&gt;, description.it &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   publisher.homePage &lt;chr&gt;, publisher.id &lt;chr&gt;, publisher.identifier &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 55 more variables: publicationLevel &lt;chr&gt;, registrationStatus &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   themes &lt;list&gt;, type &lt;chr&gt;, validFrom &lt;chr&gt;, version &lt;chr&gt;, validTo &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   description.de &lt;chr&gt;, description.en &lt;chr&gt;, description.fr &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   description.it &lt;chr&gt;, publisher.homePage &lt;chr&gt;, publisher.id &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   publisher.identifier &lt;chr&gt;, publisher.images &lt;list&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   publisher.spatial &lt;list&gt;, publisher.spatialCH &lt;list&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   publisher.subAgents &lt;list&gt;, publisher.uid &lt;chr&gt;, …</span></span></span></code></pre></div>
 <p>The faceted parameters mirror the OpenAPI spec — see

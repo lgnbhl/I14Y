@@ -235,6 +235,9 @@ i14y_get_dataset(
 #> $publisher$description$it
 #> [1] "L’UST è il centro di competenza nazionale per la statistica pubblica della Svizzera. Produce e pubblica informazioni statistiche sullo stato e sull'evoluzione della popolazione, dell'economia, della società, della formazione, della ricerca, del territorio e dell'ambiente. Queste informazioni servono alla formazione dell'opinione pubblica nonché alla pianificazione e alla gestione in ambiti politici di centrale importanza. Forniscono un importante contributo per uno Stato moderno e democratico."
 #> 
+#> $publisher$description$rm
+#> [1] ""
+#> 
 #> 
 #> $publisher$homePage
 #> [1] "https://bfs.admin.ch"
@@ -244,6 +247,9 @@ i14y_get_dataset(
 #> 
 #> $publisher$identifier
 #> [1] "CH1"
+#> 
+#> $publisher$images
+#> list()
 #> 
 #> $publisher$name
 #> $publisher$name$de
@@ -257,6 +263,9 @@ i14y_get_dataset(
 #> 
 #> $publisher$name$it
 #> [1] "Ufficio federale di statistica (UFS)"
+#> 
+#> $publisher$name$rm
+#> [1] ""
 #> 
 #> 
 #> $publisher$prefLabel
@@ -272,13 +281,16 @@ i14y_get_dataset(
 #> $publisher$prefLabel$it
 #> [1] "UFS"
 #> 
+#> $publisher$prefLabel$rm
+#> [1] ""
+#> 
 #> 
 #> $publisher$system
 #> $publisher$system$createdAt
 #> [1] "0001-01-01T00:00:00+00:00"
 #> 
 #> $publisher$system$modifiedAt
-#> [1] "2025-12-03T15:03:48.012554+00:00"
+#> [1] "2026-07-10T07:18:44.32979+00:00"
 #> 
 #> 
 #> $publisher$spatial

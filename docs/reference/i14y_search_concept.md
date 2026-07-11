@@ -62,7 +62,7 @@ A tibble of concept search results. \`NULL\` when offline.
 ``` r
 # \donttest{
 i14y_search_concept(query = "noga", language = "en")
-#> # A tibble: 11 × 57
+#> # A tibble: 11 × 61
 #>    businessEvents conceptType formats    id                identifier lifeEvents
 #>    <list>         <chr>       <list>     <chr>             <chr>      <list>    
 #>  1 <list [0]>     CodeList    <list [0]> 08dc481b-2add-12… nogaCode   <list [0]>
@@ -76,11 +76,11 @@ i14y_search_concept(query = "noga", language = "en")
 #>  9 <list [0]>     CodeList    <list [0]> 08d94604-ecc0-66… NOGA_OFS50 <list [0]>
 #> 10 <list [0]>     CodeList    <list [0]> 08dd28d2-a693-50… nogaCode   <list [0]>
 #> 11 <list [0]>     CodeList    <list [0]> 08d9f6dd-f8a3-cb… NOGA_ESTA… <list [0]>
-#> # ℹ 51 more variables: publicationLevel <chr>, registrationStatus <chr>,
-#> #   themes <list>, type <chr>, validFrom <chr>, version <chr>,
-#> #   structureReferencesCount <int>, validTo <chr>, description.de <chr>,
-#> #   description.en <chr>, description.fr <chr>, description.it <chr>,
-#> #   publisher.homePage <chr>, publisher.id <chr>, publisher.identifier <chr>,
+#> # ℹ 55 more variables: publicationLevel <chr>, registrationStatus <chr>,
+#> #   themes <list>, type <chr>, validFrom <chr>, version <chr>, validTo <chr>,
+#> #   description.de <chr>, description.en <chr>, description.fr <chr>,
+#> #   description.it <chr>, publisher.homePage <chr>, publisher.id <chr>,
+#> #   publisher.identifier <chr>, publisher.images <list>,
 #> #   publisher.spatial <list>, publisher.spatialCH <list>,
 #> #   publisher.subAgents <list>, publisher.uid <chr>, …
 # }

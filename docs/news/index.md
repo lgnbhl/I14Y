@@ -46,6 +46,60 @@
   (`responsiblePerson`, `validTo`, `codeListId`, …) are no longer
   returned, and the casing of `codelistEntryValueMaxLength` becomes
   `codeListEntryValueMaxLength`.
+- New generic search:
+  [`i14y_search()`](https://felixluginbuhl.com/I14Y/reference/i14y_search.md)
+  exposes the faceted public-API search over all resource types
+  (Dataset, DataService, PublicService, Concept, MappingTable).
+  [`i14y_search_catalog()`](https://felixluginbuhl.com/I14Y/reference/i14y_search_catalog.md)
+  and
+  [`i14y_search_concept()`](https://felixluginbuhl.com/I14Y/reference/i14y_search_concept.md)
+  become thin wrappers around it and no longer call the undocumented
+  `input-backend` host.
+- New listing functions for every catalog resource:
+  [`i14y_list_catalogs()`](https://felixluginbuhl.com/I14Y/reference/i14y_list_catalogs.md),
+  [`i14y_list_datasets()`](https://felixluginbuhl.com/I14Y/reference/i14y_list_datasets.md),
+  [`i14y_list_concepts()`](https://felixluginbuhl.com/I14Y/reference/i14y_list_concepts.md),
+  [`i14y_list_dataservices()`](https://felixluginbuhl.com/I14Y/reference/i14y_list_dataservices.md),
+  [`i14y_list_publicservices()`](https://felixluginbuhl.com/I14Y/reference/i14y_list_publicservices.md),
+  [`i14y_list_mappingtables()`](https://felixluginbuhl.com/I14Y/reference/i14y_list_mappingtables.md).
+  All accept the standard `language`, `publishers`, `themes`,
+  `registrationStatuses`, `page` and `pageSize` filters.
+- New catalog endpoints:
+  [`i14y_get_catalog()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_catalog.md),
+  [`i14y_get_catalog_records()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_catalog_records.md),
+  [`i14y_get_catalog_record()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_catalog_record.md)
+  and
+  [`i14y_get_catalog_dcat()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_catalog_dcat.md)
+  (RDF/TTL export).
+- New mapping table endpoints:
+  [`i14y_get_mappingtable()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_mappingtable.md)
+  and
+  [`i14y_get_mappingtable_relations()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_mappingtable_relations.md)
+  (Json/Csv).
+- New endpoints
+  [`i14y_get_dataservice()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_dataservice.md)
+  and
+  [`i14y_get_publicservice()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_publicservice.md)
+  for single-resource lookups.
+- New
+  [`i14y_get_concept_export()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_concept_export.md)
+  to fetch the full DCAT export of a concept.
+- New
+  [`i14y_export_codelist_search()`](https://felixluginbuhl.com/I14Y/reference/i14y_export_codelist_search.md)
+  to download codelist search results as CSV or JSON, with optional
+  annotations.
+- [`i14y_search_codelist()`](https://felixluginbuhl.com/I14Y/reference/i14y_search_codelist.md)
+  accepts a `NULL` query (list-all mode) and a `filters` argument, and
+  supports the Rm (Romansh) language.
+- [`i14y_get_codelist()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_codelist.md)
+  gains `withAnnotations`;
+  [`i14y_get_concept()`](https://felixluginbuhl.com/I14Y/reference/i14y_get_concept.md)
+  gains `includeCodeListEntries`.
+- Internal: all exported functions now share a single HTTP layer
+  (`i14y_request()`) with retry on transient statuses, RFC 7807-aware
+  error messages, and consistent `{data: ...}` envelope unwrapping.
+- New vignettes: “Getting started”, “Discovering the catalog” and
+  “Codelists with BFS”.
 - Update `README.Rmd` to reflect the new model and use UUIDs in
   examples.
 
